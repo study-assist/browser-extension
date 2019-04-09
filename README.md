@@ -1,15 +1,15 @@
 # Research Assistant
 
-A program that analyzes text and attaches topic and mood badges to it. 
+A program that analyses text and attaches topic and mood badges to it. 
 The project would explore how we can use Natural Language Processing in Javascript, more specifically looking into Topic Modeling and Sentiment Analysis.
 
-Problem Solved: Help you label/categorize your content or online content.
+Problem Solved: Help you label/categorise online content or your own content.
 
 **Technologies**: HTML/CSS/Javascript, JS Machine Learning libraries, NodeJS, React (if Frontend App)
 
 ## MVC
 
-A text content labeling plugin. A browser plugin that attaches labels or badges on topic and mood of text content on a visited page.
+A text content labeling plugin. A browser plugin that attaches topic and mood badges to text content on a visited page.
 
 ## Extensions
 
