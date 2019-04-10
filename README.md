@@ -1,4 +1,4 @@
-# Study Assist
+# study-assist
 
 A program that analyses text and attaches topic and mood badges to it. The project would explore how we can use Natural Language Processing in Javascript.
 
