@@ -1,34 +1,48 @@
-# Research Assistant
+# Study Assistant
 
-A program that analyses text and attaches topic and mood badges to it. 
-The project would explore how we can use Natural Language Processing in Javascript, more specifically looking into Topic Modeling and Sentiment Analysis.
+A program that analyses text and attaches topic and mood badges to it.
+The project would explore how we can use Natural Language Processing in Javascript.
 
-Problem Solved: Help you label/categorise online content or your own content.
+Problem Solved: Help students & researchers to label/categorise online content or their own content.
 
-**Technologies**: HTML/CSS/Javascript, JS Machine Learning libraries, NodeJS, React (if Frontend App)
+## MVP
 
-## MVC
+A text content labeling browser add-on. The plugin attaches topic and mood badges to text content on a visited page.
 
-A text content labeling plugin. A browser plugin that attaches topic and mood badges to text content on a visited page.
+The project would be built as an API which receives text content and returns label information.
 
-## Extensions
+**Technologies**
+HTML/CSS/Javascript
+JS Machine Learning libraries
+NodeJS
+(MongoDB?)
 
-- The plugin analyses your notes in a browser notes app.
-- The plugin makes suggestions of related content online.
-- The plugin writes a summary of the text content.
-- Explore the relation between topic and mood produce more detailed insights on the content.
+## Possible Extensions
 
-## Possible extended applications
+- Suggest related content found online, and possibly suggest actions based on the text analysis
+- Analyse user's notes in a browser notes app
+- Explore the relation between topic and mood to elaborate more detailed insights on the content
+- Memorize topics for insights on recurrent research topics
+  (statistical insight of visited pages)
+  (automatically generated study diary)
 
-- A Mood Journal app with mental health insights.
-- A Content Summary app: XX for dummies
-- An Assistant to help sort my 'read later' bookmarks (which I will never read)
-- An assistant for your archive notes to spot patterns and advise further
+## Possible tools to use
 
-## Sources to train the model
-
-- personal journals written positively, neutrally, negatively
-- climate change reports & articles
-- reddit forums (relationship advice)
-- selected twitter accounts 
-- read later bookmarks
+| Tool                                                                                  | Type      | Area               |
+| :------------------------------------------------------------------------------------ | :-------- | :----------------- |
+| [TensorFlow.js](https://www.tensorflow.org/js/)                                       | Library   | ML                 |
+| [Bain.js](https://github.com/BrainJS/brain.js)                                        | Library   | ML                 |
+| [Synaptic](https://github.com/cazala/synaptic)                                        | Library   | ML                 |
+| [ml5](https://ml5js.org/)                                                             | Library   | ML                 |
+| [NaturalNode](https://github.com/NaturalNode/natural)                                 | Library   | NLP                |
+| [lda.js](https://github.com/awaisathar/lda.js)                                        | Library   | Topic Modelling    |
+| [Toxicity classifier](https://github.com/tensorflow/tfjs-models/tree/master/toxicity) | Module    | Sentiment Analysis |
+| [sentiment](https://www.npmjs.com/package/sentiment)                                  | Module    | Sentiment Analysis |
+| [Cloud Natural Language](https://cloud.google.com/natural-language/)                  | API       | NLP                |
+| [wit.ai](https://wit.ai/)                                                             | API       | NLP                |
+| [Dialogflow](https://dialogflow.com/)                                                 | API       | NLP                |
+| [lunr.js](https://lunrjs.com/)                                                        | Module    | Search Engine      |
+| [Replika](https://replika.ai/)                                                        | App       | Bot                |
+| [Leon](https://getleon.ai/)                                                           | Module    | Bot                |
+| [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)     | API       | Voice Recognition  |
+| [jovo](https://www.jovo.tech/)                                                        | Framework | Voice Regognition  |
