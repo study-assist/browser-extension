@@ -10,7 +10,7 @@ A text content labeling browser add-on. The plugin attaches topic and mood badge
 The project would be built as an API which receives text content and returns label information.
 
 **Technologies**
-HTML/CSS/Javascript
+HTML/CSS/JavaScript
 JS Machine Learning libraries
 NodeJS
 (MongoDB?)
@@ -22,7 +22,7 @@ NodeJS
 - Explore the relation between topic and mood to elaborate more detailed insights on the content
 - Memorize topics for insights on recurrent research topics (statistical insight of visited pages) (automatically generated study diary)
 
-## Possible tools to use
+## Possible Tools
 
 | Tool                                                                                  | Area               | Type      |
 | :------------------------------------------------------------------------------------ | :----------------- | :-------- |
@@ -31,6 +31,7 @@ NodeJS
 | [Synaptic](https://github.com/cazala/synaptic)                                        | ML                 | Library   |
 | [ml5](https://ml5js.org/)                                                             | ML                 | Library   |
 | [NaturalNode](https://github.com/NaturalNode/natural)                                 | NLP                | Library   |
+| [WordNet](https://wordnet.princeton.edu/)                                             | NLP                | Database  |
 | [lda.js](https://github.com/awaisathar/lda.js)                                        | Topic Modelling    | Library   |
 | [Toxicity classifier](https://github.com/tensorflow/tfjs-models/tree/master/toxicity) | Sentiment Analysis | Library   |
 | [sentiment](https://www.npmjs.com/package/sentiment)                                  | Sentiment Analysis | Library   |
