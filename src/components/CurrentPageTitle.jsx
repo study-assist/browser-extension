@@ -19,4 +19,4 @@ class CurrentPageTitle extends Component {
   }
 }
 
-export default CurrentPageTitle();
+export default CurrentPageTitle;

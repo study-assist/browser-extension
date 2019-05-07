@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./../css/App.css";
 import CurrentPageTitle from "./CurrentPageTitle";
-
+import CurrentPageTagContainer from "./CurrentPageTagContainer";
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      pageTitle: "I'm currently visiting this page"
+      pageTitle: "I'm currently visiting this page",
+      tags: ["fun", "notfun"]
     };
   }
 
@@ -27,6 +28,8 @@ class App extends Component {
             title={this.state.pageTitle}
             setPageTitle={this.setPageTitle}
           />
+
+          <CurrentPageTagContainer tags={this.state.tags} />
         </header>
       </div>
     );
