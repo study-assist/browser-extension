@@ -31,9 +31,8 @@ class BookmarkNewTag extends Component {
           onClick={() => {
             this.expandTag();
           }}
-        >
-          &plus;
-        </button>
+          dangerouslySetInnerHTML={{ __html: "&plus;" }}
+        />
         <input type="text" onChange={e => this.updateTagname(e.target.value)} />
       </form>
     );

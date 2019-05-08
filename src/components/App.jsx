@@ -26,6 +26,11 @@ class App extends Component {
     });
   };
 
+  expandSection = () => {
+    // eslint-disable-next-line no-console
+    console.log("section expanded");
+  };
+
   render() {
     return (
       <div className="">
@@ -46,6 +51,9 @@ class App extends Component {
                 <BookmarkNewTag addTag={this.addTag} />
               </li>
             </ul>
+            <button type="button" onClick={() => this.expandSection()}>
+              More details...
+            </button>
           </section>
         </main>
       </div>
