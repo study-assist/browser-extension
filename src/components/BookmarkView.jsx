@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import propTypes from "prop-types";
+
 import BookmarkTitle from "./BookmarkTitle";
 import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BookmarkNewTag";
 
-class CurrentPage extends Component {
+class BookmarkView extends Component {
   constructor(props) {
     super(props);
   }
+
   expandSection = () => {
     // eslint-disable-next-line no-console
     console.log("section expanded");
@@ -36,4 +39,11 @@ class CurrentPage extends Component {
   }
 }
 
-export default CurrentPage;
+BookmarkView.propTypes = {
+  pageTitle: propTypes.string,
+  setPageTitle: propTypes.func,
+  tags: propTypes.array,
+  addTag: propTypes.func
+};
+
+export default BookmarkView;

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 
 class BookmarkTitle extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const { title, setPageTitle } = this.props;
 

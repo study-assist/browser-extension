@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./../css/App.css";
 import Header from "./Header";
 import Main from "./Main";
-import CurrentPage from "./CurrentPage";
+import BookmarkView from "./BookmarkView";
+import FolderView from "./FolderView";
 
 class App extends Component {
   constructor() {
@@ -31,14 +32,14 @@ class App extends Component {
         <Header title="Study Assist" />
         <Main
           tabOne={
-            <CurrentPage
+            <BookmarkView
               pageTitle={this.state.pageTitle}
               setPageTitle={this.setPageTitle}
               tags={this.state.tags}
               addTag={this.addTag}
             />
           }
-          tabTwo={<div />}
+          tabTwo={<FolderView />}
         />
         <iframe
           id="bookmarks"
