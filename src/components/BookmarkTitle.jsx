@@ -6,9 +6,9 @@ class BookmarkTitle extends Component {
 
     return (
       <form action="">
-        <div className="from-group">
+        <div className="form-group">
           <input
-            className="from-control w-100"
+            className="form-control w-100"
             type="text"
             defaultValue={title}
             onChange={e => setPageTitle(e.target.value)}
