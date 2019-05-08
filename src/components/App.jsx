@@ -25,8 +25,8 @@ class App extends Component {
             setPageTitle={this.setPageTitle}
           />
           <div className="tags">
-            {this.state.tags.map(tagname => (
-              <BookmarkTag tagname={tagname} />
+            {this.state.tags.map((tagname, i) => (
+              <BookmarkTag key={`tag-${i}`} tagname={tagname} />
             ))}
           </div>
         </header>
