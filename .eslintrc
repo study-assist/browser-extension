@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "double"]
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "globals": {
+    "document": true,
+    "window": true
+  }
+}

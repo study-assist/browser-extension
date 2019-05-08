@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
-class CurrentPageTitle extends Component {
+class BookmarkTitle extends Component {
   render() {
     const { title, setPageTitle } = this.props;
 
     return (
       <form action="">
-        <div className="from-group">
+        <div className="form-group">
           <input
-            className="from-control w-100"
+            className="form-control w-100"
             type="text"
             defaultValue={title}
             onChange={e => setPageTitle(e.target.value)}
@@ -19,4 +19,4 @@ class CurrentPageTitle extends Component {
   }
 }
 
-export default CurrentPageTitle;
+export default BookmarkTitle;

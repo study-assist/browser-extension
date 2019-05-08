@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./../css/App.css";
-import CurrentPageTitle from "./CurrentPageTitle";
-import CurrentPageTagContainer from "./CurrentPageTagContainer";
+import BookmarkTitle from "./BookmarkTitle";
+import BookmarkTag from "./BookmarkTag";
 class App extends Component {
   constructor() {
     super();
@@ -18,18 +18,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-
-          <CurrentPageTitle
+      <div className="">
+        <header className="">
+          <BookmarkTitle
             title={this.state.pageTitle}
             setPageTitle={this.setPageTitle}
           />
-
-          <CurrentPageTagContainer tags={this.state.tags} />
+          <div className="tags">
+            {this.state.tags.map(tagname => (
+              <BookmarkTag tagname={tagname} />
+            ))}
+          </div>
         </header>
       </div>
     );
