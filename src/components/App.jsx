@@ -8,7 +8,7 @@ class App extends Component {
 
     this.state = {
       pageTitle: "I'm currently visiting this page",
-      tags: ["fun", "notfun"]
+      tags: ["fun", "not fun"]
     };
   }
 
@@ -18,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="main">
         <header className="">
           <BookmarkTitle
             title={this.state.pageTitle}
