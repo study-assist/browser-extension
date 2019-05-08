@@ -33,7 +33,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main">
+      <div className="body">
         <Header title="Study Assist" />
         <main>
           <section className="bookmark">
