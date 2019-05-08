@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./../css/App.css";
+import Header from "./Header";
 import BookmarkTitle from "./BookmarkTitle";
 import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BoomkarkNewTag";
+
 class App extends Component {
   constructor() {
     super();
@@ -27,8 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="">
-        <header className="" />
-        {/* make header a component */}
+        <Header title="Study Assist" />
         <main>
           <section className="bookmark">
             <BookmarkTitle
