@@ -6,8 +6,7 @@
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parser": "babel-eslint",
   "plugins": ["react"],
-  "globals": {
-    "document": true,
-    "window": true
+  "env": {
+    "browser": true
   }
 }

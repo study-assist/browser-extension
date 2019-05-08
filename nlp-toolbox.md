@@ -27,3 +27,5 @@
 | [jovo](https://www.jovo.tech/)                                                                        | Voice Regognition  | Framework |                |
 | [TensorFlow Playground](https://playground.tensorflow.org/)                                           | ML                 | Helper    |                |
 | [tfjs-viz](https://github.com/tensorflow/tfjs-vis)                                                    | ML                 | Helper    | Browser        |
+
+<!-- https://www.summarizebot.com/ -->

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import propTypes from "prop-types";
 
 class BookmarkTitle extends Component {
   render() {
@@ -18,5 +19,10 @@ class BookmarkTitle extends Component {
     );
   }
 }
+
+BookmarkTitle.propTypes = {
+  title: propTypes.string,
+  setPageTitle: propTypes.func
+};
 
 export default BookmarkTitle;
