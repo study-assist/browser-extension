@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class CurrentPageTitle extends Component {
+class BookmarkTitle extends Component {
   render() {
     const { title, setPageTitle } = this.props;
 
@@ -19,4 +19,4 @@ class CurrentPageTitle extends Component {
   }
 }
 
-export default CurrentPageTitle;
+export default BookmarkTitle;
