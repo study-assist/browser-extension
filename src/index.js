@@ -1,8 +1,15 @@
+// Modules
 import React from "react";
 import ReactDOM from "react-dom";
-import "./css/index.css";
-import App from "./components/App.jsx";
 import * as serviceWorker from "./serviceWorker";
+
+// Components
+import App from "./components/App.jsx";
+
+// Styles
+import $ from "jquery";
+import "bootstrap";
+import "./css/styles.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
