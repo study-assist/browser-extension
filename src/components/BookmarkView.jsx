@@ -6,10 +6,6 @@ import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BookmarkNewTag";
 
 class BookmarkView extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   expandSection = () => {
     // eslint-disable-next-line no-console
     console.log("section expanded");
