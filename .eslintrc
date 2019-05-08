@@ -8,6 +8,7 @@
   "plugins": ["react"],
   "globals": {
     "document": true,
-    "window": true
+    "window": true,
+    "console": true
   }
 }
