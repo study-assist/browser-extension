@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
+import "../css/Category.css";
+
 class CategoryNew extends Component {
   constructor(props) {
     super(props);
@@ -8,6 +10,7 @@ class CategoryNew extends Component {
     this.state = {
       category: null
     };
+
     this.inputNewCategory = React.createRef();
   }
 
@@ -24,25 +27,27 @@ class CategoryNew extends Component {
     const { addCategory } = this.props;
     return (
       <form
-        className="category"
+        className="category new-category badge"
         onSubmit={e => {
           e.preventDefault();
           addCategory(this.state.category);
         }}
       >
         <input
-          className=""
+          className="input-new-category"
           type="text"
+          ref={this.inputNewCategory}
           onChange={e => this.updateCategoryName(e.target.value)}
         />
         <button
           className="btn btn-new-tag"
           type="button"
           onClick={() => {
-            this.expandTag();
+            this.expandCategory();
           }}
-        />
-        <i className="fas fa-plus" />
+        >
+          <i className="fas fa-plus" />
+        </button>
       </form>
     );
   }

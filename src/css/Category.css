@@ -1,0 +1,15 @@
+.category {
+  background-color: #0d47a1;
+  color: #ffffff;
+}
+
+.category.badge {
+  background-color: #1976d2;
+}
+
+.new-category.input-new-category {
+  display: none;
+  background-color: #2196f3;
+  width: 80px;
+  border: none;
+}
