@@ -8,10 +8,16 @@ class CategoryNew extends Component {
     this.state = {
       category: null
     };
+    this.inputNewCategory = React.createRef();
   }
 
   updateCategoryName = name => {
     this.setState({ category: name });
+  };
+
+  expandCategory = () => {
+    this.inputNewCategory.current.style.display = "inline";
+    this.inputNewCategory.current.focus();
   };
 
   render() {
