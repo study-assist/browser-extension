@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import Header from "./Header";
 import Main from "./Main";
 import BookmarkView from "./BookmarkView";
+import CategoryView from "./CategoryView";
 import FolderView from "./FolderView";
 import Iframe from "./Iframe";
 
@@ -35,12 +36,15 @@ class App extends Component {
         <Header title="Study Assist" />
         <Main
           tabOne={
-            <BookmarkView
-              pageTitle={this.state.pageTitle}
-              setPageTitle={this.setPageTitle}
-              tags={this.state.tags}
-              addTag={this.addTag}
-            />
+            <>
+              <BookmarkView
+                pageTitle={this.state.pageTitle}
+                setPageTitle={this.setPageTitle}
+                tags={this.state.tags}
+                addTag={this.addTag}
+              />
+              <CategoryView />
+            </>
           }
           tabTwo={<FolderView />}
         />
