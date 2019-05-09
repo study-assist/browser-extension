@@ -30,6 +30,13 @@ class App extends Component {
     });
   };
 
+  deleteTag = name => {
+    this.setState(state => {
+      const pos = state.tags.indexOf(name);
+      return state.tags.splice(pos, 1);
+    });
+  };
+
   render() {
     return (
       <div className="body">
@@ -42,6 +49,7 @@ class App extends Component {
                 setPageTitle={this.setPageTitle}
                 tags={this.state.tags}
                 addTag={this.addTag}
+                deleteTag={this.deleteTag}
               />
               <CategoryView />
             </>
