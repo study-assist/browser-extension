@@ -28,7 +28,7 @@ class Main extends Component {
 
     return (
       <main>
-        <Nav tabs>
+        <Nav tabs className="mb-3">
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === "1" })}

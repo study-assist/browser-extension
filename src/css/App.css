@@ -1,8 +1,6 @@
 .body {
   width: 380px;
-}
-
-.tag {
-  margin-right: 5px;
-  margin-bottom: 15px;
+  padding: 1rem;
+  margin: 0 auto;
+  background: white;
 }

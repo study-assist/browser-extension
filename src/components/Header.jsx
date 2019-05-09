@@ -6,7 +6,7 @@ import "../css/Header.css";
 const Header = ({ title }) => {
   return (
     <header>
-      <div className="row justify-content-between">
+      <div className="row justify-content-between no-gutters">
         <h1>{title}</h1>
         <div className="options">
           <i className="fas fa-share-alt" />
