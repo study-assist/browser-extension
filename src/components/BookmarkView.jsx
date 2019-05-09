@@ -17,13 +17,13 @@ class BookmarkView extends Component {
     return (
       <section className="bookmark">
         <BookmarkTitle title={pageTitle} setPageTitle={setPageTitle} />
-        <ul className="tags-list">
+        <ul className="tags-list list-inline">
           {tags.map((tagname, i) => (
-            <li className={`tag-${i}`} key={`tag-${i}`}>
+            <li className={`tag-${i} list-inline-item`} key={`tag-${i + 1}`}>
               <BookmarkTag tagname={tagname} deleteTag={deleteTag} />
             </li>
           ))}
-          <li className="new-tag">
+          <li className="list-inline-item">
             <BookmarkNewTag addTag={addTag} />
           </li>
         </ul>

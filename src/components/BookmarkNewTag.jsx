@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
+import "../css/BookmarkTag.css";
+
 class BookmarkNewTag extends Component {
   constructor(props) {
     super(props);
@@ -8,6 +10,8 @@ class BookmarkNewTag extends Component {
     this.state = {
       tagname: null
     };
+
+    this.inputNewTag = React.createRef();
   }
 
   updateTagname = name => {
@@ -15,8 +19,8 @@ class BookmarkNewTag extends Component {
   };
 
   expandTag = () => {
-    // eslint-disable-next-line no-console
-    console.log("expanded");
+    this.inputNewTag.current.style.display = "inline";
+    this.inputNewTag.current.focus();
   };
 
   render() {
@@ -24,21 +28,26 @@ class BookmarkNewTag extends Component {
 
     return (
       <form
-        className="tag"
+        className="tag new-tag badge badge-secondary"
         onSubmit={e => {
           e.preventDefault();
           addTag(this.state.tagname);
           e.target.reset();
         }}
       >
-        <button
-          type="button"
-          onClick={() => {
-            this.expandTag();
-          }}
-          dangerouslySetInnerHTML={{ __html: "&plus;" }}
+        <input
+          className="input-new-tag"
+          type="text"
+          ref={this.inputNewTag}
+          onChange={e => this.updateTagname(e.target.value)}
         />
-        <input type="text" onChange={e => this.updateTagname(e.target.value)} />
+        <button
+          className="btn btn-new-tag"
+          type="button"
+          onClick={() => this.expandTag()}
+        >
+          <i className="fas fa-plus" />
+        </button>
       </form>
     );
   }

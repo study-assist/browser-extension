@@ -1,0 +1,34 @@
+.tag {
+  margin-bottom: 0.75rem;
+}
+
+.tag.badge {
+  background-color: #ccc;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 0.9rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  border-radius: 0.8rem;
+  line-height: 1.1;
+}
+
+.new-tag .input-new-tag {
+  display: none;
+  background-color: transparent;
+  width: 80px;
+  border: none;
+}
+
+.btn.btn-new-tag,
+.btn.btn-delete {
+  padding: 0;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 0;
+}
+
+.btn-new-tag {
+  border-radius: 50%;
+}
+
+.btn-delete {
+}
