@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 
 class BookmarkNewTag extends Component {
-  state = {
-    tagname: null
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tagname: null
+    };
+  }
 
   updateTagname = name => {
     this.setState({ tagname: name });

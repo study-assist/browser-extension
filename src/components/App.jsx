@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import "./../css/App.css";
+
 import Header from "./Header";
-import BookmarkTitle from "./BookmarkTitle";
-import BookmarkTag from "./BookmarkTag";
-import BookmarkNewTag from "./BookmarkNewTag";
+import Main from "./Main";
+import BookmarkView from "./BookmarkView";
+import FolderView from "./FolderView";
 import Iframe from "./Iframe";
 
+import "./../css/App.css";
 
 class App extends Component {
   constructor() {
@@ -28,37 +29,22 @@ class App extends Component {
     });
   };
 
-  expandSection = () => {
-    // eslint-disable-next-line no-console
-    console.log("section expanded");
-  };
-
   render() {
     return (
-      <div className="main">
+      <div className="body">
         <Header title="Study Assist" />
-        <main>
-          <section className="bookmark">
-            <BookmarkTitle
-              title={this.state.pageTitle}
+        <Main
+          tabOne={
+            <BookmarkView
+              pageTitle={this.state.pageTitle}
               setPageTitle={this.setPageTitle}
+              tags={this.state.tags}
+              addTag={this.addTag}
             />
-            <ul className="tags-list">
-              {this.state.tags.map((tagname, i) => (
-                <li className={`tag-${i}`} key={`tag-${i}`}>
-                  <BookmarkTag tagname={tagname} />
-                </li>
-              ))}
-              <li className="new-tag">
-                <BookmarkNewTag addTag={this.addTag} />
-              </li>
-            </ul>
-            <button type="button" onClick={() => this.expandSection()}>
-              More details...
-            </button>
-            <Iframe />
-          </section>
-        </main>
+          }
+          tabTwo={<FolderView />}
+        />
+        <Iframe />
       </div>
     );
   }
