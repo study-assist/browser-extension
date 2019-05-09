@@ -15,7 +15,8 @@ class App extends Component {
 
     this.state = {
       pageTitle: "I'm currently visiting this page",
-      tags: ["fun", "not fun", "cats"]
+      tags: ["fun", "not fun", "cats"],
+      categories: ["Important", "NLP", "AI", "React", "Recipes"]
     };
   }
 
@@ -51,7 +52,7 @@ class App extends Component {
                 addTag={this.addTag}
                 deleteTag={this.deleteTag}
               />
-              <CategoryView />
+              <CategoryView categories={this.state.categories} />
             </>
           }
           tabTwo={<FolderView />}
