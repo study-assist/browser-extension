@@ -28,6 +28,7 @@ class BookmarkNewTag extends Component {
         onSubmit={e => {
           e.preventDefault();
           addTag(this.state.tagname);
+          e.target.reset();
         }}
       >
         <button

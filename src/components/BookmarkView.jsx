@@ -12,7 +12,7 @@ class BookmarkView extends Component {
   };
 
   render() {
-    const { pageTitle, setPageTitle, tags, addTag } = this.props;
+    const { pageTitle, setPageTitle, tags, addTag, deleteTag } = this.props;
 
     return (
       <section className="bookmark">
@@ -20,7 +20,7 @@ class BookmarkView extends Component {
         <ul className="tags-list">
           {tags.map((tagname, i) => (
             <li className={`tag-${i}`} key={`tag-${i}`}>
-              <BookmarkTag tagname={tagname} />
+              <BookmarkTag tagname={tagname} deleteTag={deleteTag} />
             </li>
           ))}
           <li className="new-tag">
@@ -39,7 +39,8 @@ BookmarkView.propTypes = {
   pageTitle: propTypes.string,
   setPageTitle: propTypes.func,
   tags: propTypes.array,
-  addTag: propTypes.func
+  addTag: propTypes.func,
+  deleteTag: propTypes.func
 };
 
 export default BookmarkView;

@@ -1,12 +1,25 @@
 import React from "react";
 import propTypes from "prop-types";
 
-function BookmarkTag({ tagname }) {
-  return <div className="tag btn btn-secondary">{tagname}</div>;
+function BookmarkTag({ tagname, deleteTag }) {
+  return (
+    <div className="tag btn btn-secondary">
+      {tagname}
+      <button
+        type="button"
+        onClick={() => {
+          deleteTag(tagname);
+        }}
+      >
+        &times;
+      </button>
+    </div>
+  );
 }
 
 BookmarkTag.propTypes = {
-  tagname: propTypes.string
+  tagname: propTypes.string,
+  deleteTag: propTypes.func
 };
 
 export default BookmarkTag;
