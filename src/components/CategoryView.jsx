@@ -5,6 +5,10 @@ import Category from "./Category";
 import CategoryNew from "./CategoryNew";
 
 class CategoryView extends Component {
+  expandSection = () => {
+    //eslint-disable-next-line no-console
+    console.log("section expanded");
+  };
   render() {
     const { categories } = this.props;
     return (
