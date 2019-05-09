@@ -23,4 +23,8 @@ class CategoryView extends Component {
   }
 }
 
+CategoryView.propTypes = {
+  categories: propTypes.array
+};
+
 export default CategoryView;

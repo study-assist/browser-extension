@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import propTypes from "prop-types";
 
 function Category({ category = "Folder1" }) {
@@ -11,5 +11,9 @@ function Category({ category = "Folder1" }) {
     </div>
   );
 }
+
+Category.propTypes = {
+  category: propTypes.string
+};
 
 export default Category;
