@@ -18,6 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "now-build": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "analyse": "node lib/analyse.js"
