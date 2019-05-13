@@ -2,6 +2,10 @@
 
 ### The intelligent bookmark manager!
 
+#### [!] We are currently working on this product.
+
+#### **Preview of our browser extenstion [HERE](https://study-assist.now.sh/)**
+
 Study Assist is a browser extension which offers a way to organise your bookmarks based on the content of the pages you visit.
 The extension brings automation in categorising online sources, and is ideal for users who need to maintain an organised bookmarks repository, such as students, researchers, developers, etc.
 
@@ -14,7 +18,7 @@ The analysis also retruns tags to attach to the bookmark, to make it easier for 
 HTML/CSS/Javascript
 React.js
 Watson API
-? Node.js
+Node.js
 
 ## Possible Extensions
 

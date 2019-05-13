@@ -2,11 +2,16 @@
   "name": "Study Assistant",
   "version": "1.0",
   "manifest_version": 2,
+  "description": "A browser extension to intelligently organise your bookmarks",
   "browser_action": {
-    "default_popup": "index.html"
+    "default_popup": "index.html",
+    "default_icon": "logo.svg",
+    "default_title": "Study Assist"
   },
-  "permissions": [
-    "bookmarks"
-  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["storage", "declarativeContent", "bookmarks", "activeTab"],
   "content_security_policy": "script-src 'self' 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; object-src 'self'"
 }
