@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 import Header from "./Header";
 import Main from "./Main";
 import BookmarkView from "./BookmarkView";
+import CategoryView from "./CategoryView";
 import FolderView from "./FolderView";
 import Iframe from "./Iframe";
 
@@ -14,7 +15,8 @@ class App extends Component {
 
     this.state = {
       pageTitle: "I'm currently visiting this page",
-      tags: ["fun", "not fun", "cats"]
+      tags: ["fun", "not fun", "cats"],
+      categories: ["Important", "NLP", "AI", "React", "Recipes"]
     };
   }
 
@@ -36,19 +38,40 @@ class App extends Component {
     });
   };
 
+  addCategory = name => {
+    this.setState(state => {
+      state.categories = [...state.categories, name];
+      return state;
+    });
+  };
+
+  deleteCategory = name => {
+    this.setState(state => {
+      const pos = state.categories.indexOf(name);
+      return state.categories.splice(pos, 1);
+    });
+  };
+
   render() {
     return (
       <div className="body">
         <Header title="Study Assist" />
         <Main
           tabOne={
-            <BookmarkView
-              pageTitle={this.state.pageTitle}
-              setPageTitle={this.setPageTitle}
-              tags={this.state.tags}
-              addTag={this.addTag}
-              deleteTag={this.deleteTag}
-            />
+            <>
+              <BookmarkView
+                pageTitle={this.state.pageTitle}
+                setPageTitle={this.setPageTitle}
+                tags={this.state.tags}
+                addTag={this.addTag}
+                deleteTag={this.deleteTag}
+              />
+              <CategoryView
+                categories={this.state.categories}
+                addCategory={this.addCategory}
+                deleteCategory={this.deleteCategory}
+              />
+            </>
           }
           tabTwo={<FolderView />}
         />
