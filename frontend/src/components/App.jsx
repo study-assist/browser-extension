@@ -5,6 +5,7 @@ import Header from "./Header";
 import Main from "./Main";
 import BookmarkView from "./BookmarkView";
 import CategoryView from "./CategoryView";
+import Research from "./Research";
 import FolderView from "./FolderView";
 import Iframe from "./Iframe";
 
@@ -85,6 +86,7 @@ class App extends Component {
                 addCategory={this.addCategory}
                 deleteCategory={this.deleteCategory}
               />
+              <Research />
             </>
           }
           tabTwo={<FolderView />}
