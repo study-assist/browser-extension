@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import propTypes from "prop-types";
 
 import "../css/Research.css";
@@ -12,8 +12,8 @@ function Research({ research }) {
     <div>
       <ResearchTitle />
       <ResearchEngine />
-      {research.map(e => (
-        <ResearchSuggestion term={e} />
+      {research.map((e, idx) => (
+        <ResearchSuggestion term={e} key={`term-${idx + 1}`} />
       ))}
     </div>
   );

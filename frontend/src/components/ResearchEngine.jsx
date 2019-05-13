@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react";
-import propTypes from "prop-types";
+import React, { Component } from "react";
 
 class ResearchEngine extends Component {
   constructor(props) {
@@ -15,7 +14,7 @@ class ResearchEngine extends Component {
               type="radio"
               name="options"
               id="option1"
-              autocomplete="off"
+              autoComplete="off"
               checked
             />{" "}
             DuckDuckGo
@@ -25,7 +24,7 @@ class ResearchEngine extends Component {
               type="radio"
               name="options"
               id="option2"
-              autocomplete="off"
+              autoComplete="off"
             />{" "}
             EcoAsia
           </label>
@@ -34,7 +33,7 @@ class ResearchEngine extends Component {
               type="radio"
               name="options"
               id="option3"
-              autocomplete="off"
+              autoComplete="off"
             />{" "}
             Google
           </label>
@@ -43,7 +42,5 @@ class ResearchEngine extends Component {
     );
   }
 }
-
-ResearchEngine.propTypes = {};
 
 export default ResearchEngine;
