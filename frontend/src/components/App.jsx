@@ -1,4 +1,5 @@
-import React, { Component, Fragment } from "react";
+/* eslint-disable no-undef */
+import React, { Component } from "react";
 
 import Header from "./Header";
 import Main from "./Main";
@@ -9,6 +10,7 @@ import Iframe from "./Iframe";
 
 import "../css/App.css";
 import Watson from "../modules/Watson";
+import params from "../modules/parameters.json";
 
 class App extends Component {
   constructor() {
@@ -19,13 +21,17 @@ class App extends Component {
       tags: ["fun", "not fun", "cats"],
       categories: ["Important", "NLP", "AI", "React", "Recipes"]
     };
+
+    this.watson = new Watson(
+      process.env.REACT_APP_API_KEY,
+      process.env.REACT_APP_API_URL
+    );
   }
 
-  componentDidMount() {
-    const watson = new Watson(
-      process.env.REACT_APP_API_URL,
-      process.env.REACT_APP_API_KEY
-    );
+  async componentDidMount() {
+    // const result = await this.watson.analyse(params);
+    // eslint-disable-next-line no-console
+    // console.log(result);
   }
 
   setPageTitle = title => {
