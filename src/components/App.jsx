@@ -38,6 +38,20 @@ class App extends Component {
     });
   };
 
+  addCategory = name => {
+    this.setState(state => {
+      state.categories = [...state.categories, name];
+      return state;
+    });
+  };
+
+  deleteCategory = name => {
+    this.setState(state => {
+      const pos = state.categories.indexOf(name);
+      return state.categories.splice(pos, 1);
+    });
+  };
+
   render() {
     return (
       <div className="body">
@@ -52,7 +66,11 @@ class App extends Component {
                 addTag={this.addTag}
                 deleteTag={this.deleteTag}
               />
-              <CategoryView categories={this.state.categories} />
+              <CategoryView
+                categories={this.state.categories}
+                addCategory={this.addCategory}
+                deleteCategory={this.deleteCategory}
+              />
             </>
           }
           tabTwo={<FolderView />}

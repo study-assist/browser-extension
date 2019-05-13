@@ -12,25 +12,27 @@ class CategoryView extends Component {
     console.log("section expanded");
   };
   render() {
-    const { categories } = this.props;
+    const { categories, addCategory, deleteCategory } = this.props;
     return (
       <section className="p-1">
         <div className="h3">Folder categories</div>
         <ul className="list-inline">
           {categories.map((cat, i) => (
             <li className="list-inline-item" key={`cat-${i + 1}`}>
-              <Category category={cat} />
+              <Category category={cat} deleteCategory={deleteCategory} />
             </li>
           ))}
         </ul>
-        <CategoryNew />
+        <CategoryNew addCategory={addCategory} />
       </section>
     );
   }
 }
 
 CategoryView.propTypes = {
-  categories: propTypes.array
+  categories: propTypes.array,
+  addCategory: propTypes.func,
+  deleteCategory: propTypes.func
 };
 
 export default CategoryView;
