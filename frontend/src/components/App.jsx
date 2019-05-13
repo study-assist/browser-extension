@@ -7,7 +7,7 @@ import CategoryView from "./CategoryView";
 import FolderView from "./FolderView";
 import Iframe from "./Iframe";
 
-import "./../css/App.css";
+import "../css/App.css";
 
 class App extends Component {
   constructor() {
