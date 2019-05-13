@@ -5,11 +5,27 @@
 
 .category.badge {
   background-color: #1976d2;
+  font-size: 0.9rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  border-radius: 0.8rem;
+  line-height: 1.1;
 }
 
-.new-category.input-new-category {
+.new-category .input-new-category {
   display: none;
-  background-color: #2196f3;
+  background-color: transparent;
   width: 80px;
   border: none;
+}
+
+.btn.btn-new-category,
+.btn.btn-delete {
+  padding: 0;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 0;
+}
+
+.btn-new-category {
+  border-radius: 50%;
 }

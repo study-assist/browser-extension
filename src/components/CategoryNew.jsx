@@ -6,7 +6,6 @@ import "../css/Category.css";
 class CategoryNew extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       category: null
     };
@@ -25,14 +24,13 @@ class CategoryNew extends Component {
 
   render() {
     const { addCategory } = this.props;
-    console.log(this.props);
 
     return (
       <form
         className="category new-category badge"
         onSubmit={e => {
           e.preventDefault();
-          this.props.addCategory(this.state.category);
+          addCategory(this.state.category);
           e.target.reset();
         }}
       >
@@ -43,7 +41,7 @@ class CategoryNew extends Component {
           onChange={e => this.updateCategoryName(e.target.value)}
         />
         <button
-          className="btn btn-new-tag"
+          className="btn btn-new-category"
           type="button"
           onClick={() => this.expandCategory()}
         >
