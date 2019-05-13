@@ -1,40 +1,22 @@
-// require("dotenv").config();
+/* eslint-disable no-undef */
 
 export default class Watson {
   constructor(url, apiKey) {
     this.url = url;
-    this.proxy = "https://cors-anywhere.herokuapp.com/";
     this.apikey = apiKey;
+    this.proxy = "https://cors-anywhere.herokuapp.com/";
   }
 
-  async call(params) {
-    return fetch(this.url, params);
-  }
+  async analyse(params) {
+    const url = `${this.proxy}${this.url}/v1/analyze?version=2018-11-16`;
 
-  analyse(url) {
-    const params = {
-      url: url,
-      // return_analyzed_text: true,
-      features: {
-        categories: {
-          limit: 3
-        },
-        concepts: {
-          limit: 3
-        },
-        keywords: {
-          sentiment: true,
-          emotion: true,
-          limit: 3
-        }
-      }
-    };
-    return params;
-    // this.naturalLanguageUnderstanding
-    //   .analyze(params)
-    //   .then(results => {
-    //     console.log(JSON.stringify(results, null, 2));
-    //   })
-    //   .catch(err => console.log("error: ", err));
+    return fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${this.apiKey}`
+      },
+      body: JSON.stringify(params)
+    });
   }
 }

@@ -8,6 +8,7 @@ import FolderView from "./FolderView";
 import Iframe from "./Iframe";
 
 import "../css/App.css";
+import Watson from "../modules/Watson";
 
 class App extends Component {
   constructor() {
@@ -18,6 +19,13 @@ class App extends Component {
       tags: ["fun", "not fun", "cats"],
       categories: ["Important", "NLP", "AI", "React", "Recipes"]
     };
+  }
+
+  componentDidMount() {
+    const watson = new Watson(
+      process.env.REACT_APP_API_URL,
+      process.env.REACT_APP_API_KEY
+    );
   }
 
   setPageTitle = title => {
