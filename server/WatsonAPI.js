@@ -10,6 +10,7 @@ class WatsonAPI {
       iam_apikey: apiKey,
       url: url
     });
+
     this.options = {
       features: {
         categories: {

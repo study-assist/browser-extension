@@ -10,7 +10,7 @@ import Iframe from "./Iframe";
 
 import "../css/App.css";
 import Watson from "../modules/Watson";
-import params from "../modules/parameters.json";
+// import params from "../modules/parameters.json";
 
 class App extends Component {
   constructor() {
