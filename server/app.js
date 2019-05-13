@@ -1,35 +1,27 @@
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+require("dotenv").config();
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const express = require("express");
+const logger = require("morgan");
+const cors = require("cors");
 
-var app = express();
+const app = express();
+const apiRouter = require("./routes/api");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(cors);
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-
-require("dotenv").config();
-const express = require("express");
-
-const WatsonAPI = require("./lib/WatsonAPI");
-const watson = new WatsonAPI(process.env.API_KEY, process.env.API_URL);
-
-const url = require("./analyse.json.js").links.guardian[0];
-
-async function getAnalysis(url) {
-  const result = await watson.analyse(url);
-  console.log("result", result);
-}
-
-getAnalysis(url);
+app.use("/api", apiRouter);
 
 module.exports = app;
+
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   res.header("Allow-Control-Allow-Methods", "POST");
+//   next();
+// });

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-undef */
 import React, { Component } from "react";
 
@@ -10,7 +11,7 @@ import Iframe from "./Iframe";
 
 import "../css/App.css";
 import Watson from "../modules/Watson";
-// import params from "../modules/parameters.json";
+import links from "../data/links.json";
 
 class App extends Component {
   constructor() {
@@ -29,10 +30,18 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    // const result = await this.watson.analyse(params);
-    // eslint-disable-next-line no-console
-    // console.log(result);
+    console.log("send", Date.now());
+    const url = links.links.guardian[0];
+    const res = await this.analyse(url);
+    console.log(res);
   }
+
+  analyse = url => {
+    return fetch("http://localhost:4000/api", {
+      method: "POST",
+      body: { url }
+    });
+  };
 
   setPageTitle = title => {
     this.setState({ pageTitle: title });
