@@ -1,5 +1,6 @@
 import React from "react";
-import propTypes from "prop-types";
+
+import "../css/Research.css";
 
 function ResearchTitle() {
   return <div className="research-title">Further research</div>;

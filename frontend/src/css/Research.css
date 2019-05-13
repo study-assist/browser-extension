@@ -1,3 +1,17 @@
 .research-title {
-  color: red;
+  color: rgb(15, 15, 15);
+}
+
+.engine {
+  background-color: #216869;
+}
+
+.term {
+  color: #1f2421;
+  background-color: #49a078;
+  font-size: 0.9rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  border-radius: 0.8rem;
+  line-height: 1.1;
 }

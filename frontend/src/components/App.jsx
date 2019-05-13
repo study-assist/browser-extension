@@ -5,6 +5,7 @@ import Header from "./Header";
 import Main from "./Main";
 import BookmarkView from "./BookmarkView";
 import CategoryView from "./CategoryView";
+import Research from "./Research";
 import FolderView from "./FolderView";
 import Iframe from "./Iframe";
 
@@ -19,7 +20,8 @@ class App extends Component {
     this.state = {
       pageTitle: "I'm currently visiting this page",
       tags: ["fun", "not fun", "cats"],
-      categories: ["Important", "NLP", "AI", "React", "Recipes"]
+      categories: ["Important", "NLP", "AI", "React", "Recipes"],
+      research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
 
     this.watson = new Watson(
@@ -85,6 +87,7 @@ class App extends Component {
                 addCategory={this.addCategory}
                 deleteCategory={this.deleteCategory}
               />
+              <Research research={this.state.research} />
             </>
           }
           tabTwo={<FolderView />}
