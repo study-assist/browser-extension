@@ -1,12 +1,18 @@
 import React from "react";
 import propTypes from "prop-types";
 
+import "../css/Research.css";
+
 function ResearchSuggestion({ term }) {
-  return <div>{term}</div>;
+  return (
+    <div className="term badge">
+      <span className="mr-1">{term}</span>
+    </div>
+  );
 }
 
 ResearchSuggestion.propTypes = {
-  research: propTypes.string
+  term: propTypes.string
 };
 
 export default ResearchSuggestion;

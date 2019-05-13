@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "../css/Research.css";
+
 class ResearchEngine extends Component {
   constructor(props) {
     super(props);
@@ -9,17 +11,18 @@ class ResearchEngine extends Component {
     return (
       <>
         <div className="btn-group btn-group-toggle" data-toggle="buttons">
-          <label className="btn btn-secondary active">
+          <label className=" btn  active engine">
             <input
               type="radio"
               name="options"
               id="option1"
               autoComplete="off"
               checked
+              className="engine"
             />{" "}
             DuckDuckGo
           </label>
-          <label className="btn btn-secondary">
+          <label className="engine btn ">
             <input
               type="radio"
               name="options"
@@ -28,7 +31,7 @@ class ResearchEngine extends Component {
             />{" "}
             EcoAsia
           </label>
-          <label className="btn btn-secondary">
+          <label className="engine btn ">
             <input
               type="radio"
               name="options"
