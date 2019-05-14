@@ -10,7 +10,6 @@ import Research from "./Research";
 import FolderView from "./FolderView";
 
 import "../css/App.css";
-import Watson from "../modules/Watson";
 import links from "../data/links.json";
 
 class App extends Component {
@@ -18,22 +17,16 @@ class App extends Component {
     super();
 
     this.state = {
+      currentTab: links.links.guardian[0],
       pageTitle: "I'm currently visiting this page",
       tags: ["fun", "not fun", "cats"],
       categories: ["Important", "NLP", "AI", "React", "Recipes"],
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
-
-    this.watson = new Watson(
-      process.env.REACT_APP_API_KEY,
-      process.env.REACT_APP_API_URL
-    );
   }
 
   async componentDidMount() {
-    console.log("send", Date.now());
-    const url = links.links.guardian[0];
-    const res = await this.analyse(url);
+    const res = await this.analyse(this.state.currentTab);
     console.log(res);
   }
 

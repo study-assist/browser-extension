@@ -1,11 +1,11 @@
 "use strict";
 
 require("dotenv").config();
-const NaturalLanguageUnderstandingV1 = require("ibm-watson/natural-language-understanding/v1.js");
+const WatsonV1 = require("ibm-watson/natural-language-understanding/v1.js");
 
 class WatsonAPI {
   constructor(apiKey, url) {
-    this.watson = new NaturalLanguageUnderstandingV1({
+    this.watson = new WatsonV1({
       version: "2018-11-16",
       iam_apikey: apiKey,
       url: url
