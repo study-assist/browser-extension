@@ -8,7 +8,6 @@ import BookmarkView from "./BookmarkView";
 import CategoryView from "./CategoryView";
 import Research from "./Research";
 import FolderView from "./FolderView";
-import Iframe from "./Iframe";
 
 import "../css/App.css";
 import Watson from "../modules/Watson";
@@ -39,10 +38,15 @@ class App extends Component {
   }
 
   analyse = url => {
-    return fetch("http://localhost:4000/api", {
+    return fetch("http://localhost:4000/", {
       method: "POST",
-      body: { url }
-    });
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ url })
+    })
+      .then(res => res.json())
+      .then(res => res);
   };
 
   setPageTitle = title => {
@@ -101,7 +105,6 @@ class App extends Component {
           }
           tabTwo={<FolderView />}
         />
-        <Iframe />
       </div>
     );
   }
