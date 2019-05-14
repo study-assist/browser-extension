@@ -9,8 +9,8 @@ import CategoryView from "./CategoryView";
 import Research from "./Research";
 import FolderView from "./FolderView";
 
-import "../css/App.css";
 import links from "../data/links.json";
+import "../css/App.css";
 
 class App extends Component {
   constructor() {
@@ -25,13 +25,15 @@ class App extends Component {
     };
   }
 
-  async componentDidMount() {
+  // using this to not trigger watson analysis at every component mount, only on body click :)
+  simulateMount = async () => {
+    console.log("quick off search...");
     const res = await this.analyse(this.state.currentTab);
-    console.log(res);
-  }
+    this.setResults(res);
+  };
 
   analyse = url => {
-    return fetch("http://localhost:4000/", {
+    return fetch("http://localhost:4000", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -40,6 +42,12 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(res => res);
+  };
+
+  // adjust
+  setResults = res => {
+    const { categories, concepts, keywords } = res;
+    this.setState({ category: categories, concepts, keywords });
   };
 
   setPageTitle = title => {
@@ -76,7 +84,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="body">
+      <div className="body" onClick={() => this.simulateMount()}>
         <Header title="Study Assist" />
         <Main
           tabOne={
