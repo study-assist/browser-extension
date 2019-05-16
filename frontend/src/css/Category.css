@@ -1,3 +1,8 @@
+.category-main {
+  border: solid 1px;
+  margin-top: 1rem;
+}
+
 .category {
   background-color: #0d47a1;
   color: #ffffff;
@@ -6,6 +11,7 @@
 .category.badge {
   background-color: #1976d2;
   font-size: 0.9rem;
+  padding: 0.6rem, 1rem, 0.6rem, 1rem;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
   border-radius: 0.8rem;
@@ -21,7 +27,6 @@
 
 .btn.btn-new-category,
 .btn.btn-delete {
-  padding: 0;
   color: rgba(0, 0, 0, 0.5);
   line-height: 0;
 }

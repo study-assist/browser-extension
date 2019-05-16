@@ -6,7 +6,7 @@ import Header from "./Header";
 import Main from "./Main";
 import BookmarkView from "./BookmarkView";
 import CategoryView from "./CategoryView";
-import Research from "./Research";
+import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
@@ -101,7 +101,7 @@ class App extends Component {
                 addCategory={this.addCategory}
                 deleteCategory={this.deleteCategory}
               />
-              <Research research={this.state.research} />
+              <ResearchView research={this.state.research} />
             </>
           }
           tabTwo={<FolderView />}

@@ -14,7 +14,7 @@ class CategoryView extends Component {
   render() {
     const { categories, addCategory, deleteCategory } = this.props;
     return (
-      <section className="p-1">
+      <section className="category-main">
         <div className="h3">Folder categories</div>
         <ul className="list-inline">
           {categories.map((cat, i) => (

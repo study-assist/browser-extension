@@ -5,10 +5,10 @@ import "../css/Category.css";
 
 function Category({ category = "Folder1", deleteCategory }) {
   return (
-    <div className="badge  category">
+    <div className="badge  category btn-sq-lg">
       <span className="mr-1">{category}</span>
       <button
-        className="btn btn-delete "
+        className="btn btn-delete btn-lg "
         type="button"
         onClick={() => {
           deleteCategory(category);

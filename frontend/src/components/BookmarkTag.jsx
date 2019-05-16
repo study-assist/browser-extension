@@ -5,7 +5,7 @@ import "../css/BookmarkTag.css";
 
 function BookmarkTag({ tagname, deleteTag }) {
   return (
-    <div className="tag badge badge-secondary">
+    <div className="tag badge badge-pill badge-secondary">
       <span className="mr-1">{tagname}</span>
 
       <button
