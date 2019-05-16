@@ -20,7 +20,8 @@ class App extends Component {
     this.state = {
       // currentTab: ,
       pageTitle: "I'm currently visiting this page",
-      tags: ["fun", "not fun", "cats"],
+      tags: ["...defaults"],
+      collections: ["...defaults"],
       categories: ["Important", "NLP", "AI", "React", "Recipes"],
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
@@ -31,6 +32,7 @@ class App extends Component {
     console.log("quick off search...");
     const res = await this.analyse(pickRandom(links.links.guardian));
     this.setResults(res);
+    this.setTags();
   };
 
   analyse = url => {
@@ -45,10 +47,55 @@ class App extends Component {
       .then(res => res);
   };
 
-  // adjust
   setResults = res => {
-    const { categories, concepts, keywords } = res;
-    this.setState({ category: categories, concepts, keywords });
+    const { categories, concepts, keywords, entities, emotion } = res;
+    this.setState({
+      category: categories,
+      concepts,
+      keywords,
+      entities,
+      emotion: emotion.document.emotion
+    });
+  };
+
+  setTags = () => {
+    const tags = this.createTags();
+    this.setState(state => {
+      state.tags = [state.tags, ...tags];
+      return state;
+    });
+  };
+
+  createTags = () => {
+    if (!this.state.concepts) console.log("no concepts yet!!!");
+    if (!this.state.entities) console.log("no entities yet!!!");
+    if (!this.state.keywords) console.log("no keywords yet!!!");
+
+    const concepts = this.mapByName(this.state.concepts);
+    const entities = this.mapByName(this.state.entities);
+    // keywords might need another way of processing
+    const keywords = this.mapByName(this.state.keywords);
+
+    let tags = this.mergeArrays(concepts, entities);
+    tags = this.mergeArrays(tags, keywords);
+    return tags;
+  };
+
+  mergeArrays = (a, b) => {
+    for (let indexA in a) {
+      for (let indexB in b) {
+        // we remove redundant entries
+        if (b[indexB] == a[indexA]) {
+          b.splice(indexB, 1);
+        }
+      }
+    }
+
+    return [...a, ...b];
+  };
+
+  mapByName = arr => {
+    return arr.map(item => item.text.toLowerCase().trim());
   };
 
   setPageTitle = title => {
