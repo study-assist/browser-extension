@@ -14,8 +14,8 @@ class WatsonAPI {
     this.options = {
       features: {
         categories: {
-          limit: 3,
-          explanation: true
+          limit: 3
+          // explanation: true
         },
         keywords: {
           // sentiment: true,

@@ -10,7 +10,12 @@ import Research from "./Research";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
-import { pickRandom } from "../helper";
+import {
+  pickRandom,
+  sortByRelevance,
+  mapFeaturesNames,
+  removeRedundantEntries
+} from "../helper";
 import "../css/App.css";
 
 class App extends Component {
@@ -67,35 +72,11 @@ class App extends Component {
   };
 
   createTags = () => {
-    if (!this.state.concepts) console.log("no concepts yet!!!");
-    if (!this.state.entities) console.log("no entities yet!!!");
-    if (!this.state.keywords) console.log("no keywords yet!!!");
-
-    const concepts = this.mapByName(this.state.concepts);
-    const entities = this.mapByName(this.state.entities);
-    // keywords might need another way of processing
-    const keywords = this.mapByName(this.state.keywords);
-
-    let tags = this.mergeArrays(concepts, entities);
-    tags = this.mergeArrays(tags, keywords);
+    let tags = [...this.state.concepts, ...this.state.entities];
+    tags = removeRedundantEntries(tags);
+    tags = sortByRelevance(tags);
+    tags = mapFeaturesNames(tags);
     return tags;
-  };
-
-  mergeArrays = (a, b) => {
-    for (let indexA in a) {
-      for (let indexB in b) {
-        // we remove redundant entries
-        if (b[indexB] == a[indexA]) {
-          b.splice(indexB, 1);
-        }
-      }
-    }
-
-    return [...a, ...b];
-  };
-
-  mapByName = arr => {
-    return arr.map(item => item.text.toLowerCase().trim());
   };
 
   setPageTitle = title => {
