@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
+
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App.jsx.js";
+import App from "./components/App";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");

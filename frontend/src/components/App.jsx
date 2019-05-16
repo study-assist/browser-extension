@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-undef */
 import React, { Component } from "react";
 
@@ -7,34 +8,47 @@ import BookmarkView from "./BookmarkView";
 import CategoryView from "./CategoryView";
 import Research from "./Research";
 import FolderView from "./FolderView";
-import Iframe from "./Iframe";
 
+import links from "../data/links.json";
 import "../css/App.css";
-import Watson from "../modules/Watson";
-import params from "../modules/parameters.json";
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
+      currentTab: links.links.guardian[0],
       pageTitle: "I'm currently visiting this page",
       tags: ["fun", "not fun", "cats"],
       categories: ["Important", "NLP", "AI", "React", "Recipes"],
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
-
-    this.watson = new Watson(
-      process.env.REACT_APP_API_KEY,
-      process.env.REACT_APP_API_URL
-    );
   }
 
-  async componentDidMount() {
-    // const result = await this.watson.analyse(params);
-    // eslint-disable-next-line no-console
-    // console.log(result);
-  }
+  // using this to not trigger watson analysis at every component mount, only on body click :)
+  simulateMount = async () => {
+    console.log("quick off search...");
+    const res = await this.analyse(this.state.currentTab);
+    this.setResults(res);
+  };
+
+  analyse = url => {
+    return fetch("http://localhost:4000", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ url })
+    })
+      .then(res => res.json())
+      .then(res => res);
+  };
+
+  // adjust
+  setResults = res => {
+    const { categories, concepts, keywords } = res;
+    this.setState({ category: categories, concepts, keywords });
+  };
 
   setPageTitle = title => {
     this.setState({ pageTitle: title });
@@ -70,7 +84,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="body">
+      <div className="body" onClick={() => this.simulateMount()}>
         <Header title="Study Assist" />
         <Main
           tabOne={
@@ -92,7 +106,6 @@ class App extends Component {
           }
           tabTwo={<FolderView />}
         />
-        <Iframe />
       </div>
     );
   }
