@@ -10,6 +10,7 @@ import Research from "./Research";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
+import { pickRandom } from "../helper";
 import "../css/App.css";
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     super();
 
     this.state = {
-      currentTab: links.links.guardian[0],
+      // currentTab: ,
       pageTitle: "I'm currently visiting this page",
       tags: ["fun", "not fun", "cats"],
       categories: ["Important", "NLP", "AI", "React", "Recipes"],
@@ -28,7 +29,7 @@ class App extends Component {
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
     console.log("quick off search...");
-    const res = await this.analyse(this.state.currentTab);
+    const res = await this.analyse(pickRandom(links.links.guardian));
     this.setResults(res);
   };
 
