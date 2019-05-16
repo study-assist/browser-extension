@@ -34,11 +34,6 @@ function removeRedundantEntries(arr) {
   return arr;
 }
 
-// function filterDuplicate(arr) {
-//   const entries = arr.map(item => item.text);
-//   return entries.filter((item, i) => entries.indexOf(item) !== i)
-// }
-
 export {
   pickRandom,
   sortByRelevance,

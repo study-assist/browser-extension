@@ -24,7 +24,7 @@ class App extends Component {
 
     this.state = {
       // currentTab: ,
-      pageTitle: "I'm currently visiting this page",
+      pageTitle: "Active Tab Title",
       tags: ["...defaults"],
       collections: ["...defaults"],
       categories: ["Important", "NLP", "AI", "React", "Recipes"],
@@ -78,6 +78,10 @@ class App extends Component {
     tags = mapFeaturesNames(tags);
     return tags;
   };
+
+  // createCollections = () => {
+  //   let collections = [...this.state.concepts, categories]
+  // }
 
   setPageTitle = title => {
     this.setState({ pageTitle: title });
