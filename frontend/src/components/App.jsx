@@ -17,8 +17,7 @@ import {
   removeRedundantEntries,
   removeRedundantItems,
   parseCategoryTree,
-  mergeByIndex,
-  getFirstItems
+  mergeByIndex
 } from "../helper";
 import "../css/App.css";
 
@@ -27,16 +26,19 @@ class App extends Component {
     super();
 
     this.state = {
-      // currentTab: ,
+      // currentTab
       pageTitle: "Active Tab Title",
-      tags: ["...defaults"],
-      collections: ["...defaults"],
+      tags: [],
+      collections: [],
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
   }
 
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
+    this.setDefaultTags(["research"]);
+    this.setDefaultCollections(["important", "work"]);
+
     console.log("quick off search...");
     const res = await this.analyse(pickRandom(links.links.guardian));
     this.setResults(res);
@@ -67,10 +69,19 @@ class App extends Component {
     });
   };
 
+  // resets tags to default
+  setDefaultTags = defaults => {
+    this.setState({ tags: [...defaults] });
+  };
+
+  setDefaultCollections = defaults => {
+    this.setState({ collections: [...defaults] });
+  };
+
   setTags = () => {
     const tags = this.createTags();
     this.setState(state => {
-      state.tags = [state.tags, ...tags];
+      state.tags = [...state.tags, ...tags];
       return state;
     });
   };
@@ -78,7 +89,7 @@ class App extends Component {
   setCollections = () => {
     const collections = this.createCollections();
     this.setState(state => {
-      state.collections = [state.collections, ...collections]; // this generates a bug, refrector to better solution
+      state.collections = [...state.collections, ...collections];
       return state;
     });
   };

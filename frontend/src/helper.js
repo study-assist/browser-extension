@@ -33,6 +33,7 @@ function removeRedundantEntries(arr) {
   return arr;
 }
 
+// error thrown for undefined items in array
 function removeRedundantItems(arr) {
   for (let i in arr) {
     for (let j in arr) {
