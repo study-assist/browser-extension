@@ -18,7 +18,6 @@ function mapFeaturesNames(arr) {
 }
 
 function removeRedundantEntries(arr) {
-  // arr = arr.map(item => item.text.trim().toLowerCase());
   for (let i in arr) {
     for (let j in arr) {
       if (i !== j) {
@@ -26,6 +25,19 @@ function removeRedundantEntries(arr) {
         if (
           arr[i].text.trim().toLowerCase() === arr[j].text.trim().toLowerCase()
         ) {
+          arr.splice(j, 1);
+        }
+      }
+    }
+  }
+  return arr;
+}
+
+function removeRedundantItems(arr) {
+  for (let i in arr) {
+    for (let j in arr) {
+      if (i !== j) {
+        if (arr[i].trim().toLowerCase() === arr[j].trim().toLowerCase()) {
           arr.splice(j, 1);
         }
       }
@@ -79,6 +91,7 @@ export {
   sortByRelevance,
   mapFeaturesNames,
   removeRedundantEntries,
+  removeRedundantItems,
   removeEmpty,
   parseCategoryTree,
   mergeByIndex,

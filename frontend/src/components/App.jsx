@@ -15,6 +15,7 @@ import {
   sortByRelevance,
   mapFeaturesNames,
   removeRedundantEntries,
+  removeRedundantItems,
   parseCategoryTree,
   mergeByIndex,
   getFirstItems
@@ -30,7 +31,6 @@ class App extends Component {
       pageTitle: "Active Tab Title",
       tags: ["...defaults"],
       collections: ["...defaults"],
-      categories: ["Important", "NLP", "AI", "React", "Recipes"],
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
   }
@@ -59,7 +59,7 @@ class App extends Component {
   setResults = res => {
     const { categories, concepts, keywords, entities, emotion } = res;
     this.setState({
-      category: categories,
+      categories,
       concepts,
       keywords,
       entities,
@@ -78,7 +78,7 @@ class App extends Component {
   setCollections = () => {
     const collections = this.createCollections();
     this.setState(state => {
-      state.collections = [state.collections, ...collections];
+      state.collections = [state.collections, ...collections]; // this generates a bug, refrector to better solution
       return state;
     });
   };
@@ -92,11 +92,13 @@ class App extends Component {
   };
 
   createCollections = () => {
-    // let collections = [...this.state.concepts, categories]
-    let collections = this.state.category.map(item =>
-      parseCategoryTree(item.label)
-    );
+    // add concepts??
+    // here the processing of the results goes differently than for tags, would be great to have the same functions that are flexible enough to use for both...
+    let collections = this.state.categories.map(item => {
+      return parseCategoryTree(item.label);
+    });
     collections = mergeByIndex(collections);
+    collections = removeRedundantItems(collections);
     console.log(collections);
     return collections;
   };
@@ -148,7 +150,7 @@ class App extends Component {
                 deleteTag={this.deleteTag}
               />
               <CategoryView
-                categories={this.state.categories}
+                categories={this.state.collections}
                 addCategory={this.addCategory}
                 deleteCategory={this.deleteCategory}
               />
