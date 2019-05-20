@@ -34,9 +34,53 @@ function removeRedundantEntries(arr) {
   return arr;
 }
 
+function removeEmpty(arr) {
+  arr = arr.filter(item => item !== "");
+  arr = arr.filter(item => item !== null);
+  arr = arr.filter(item => item !== undefined);
+  return arr;
+}
+
+function parseCategoryTree(label) {
+  const tree = label.split("/");
+  return removeEmpty(tree).reverse();
+}
+
+function mergeByIndex(arrs) {
+  let merged = [];
+  let loopLength = 0;
+
+  for (let arr of arrs) {
+    if (arr.length > loopLength) {
+      loopLength = arr.length;
+    }
+  }
+
+  // Basing loop length of longest array
+  for (let n = 0; n < loopLength; n++) {
+    for (let arr of arrs) {
+      merged.push(arr[n]);
+    }
+  }
+
+  return removeEmpty(merged);
+}
+
+function getFirstItems(arrs) {
+  let filtered = [];
+  for (let arr of arrs) {
+    filtered.push(arr[0]);
+  }
+  return filtered;
+}
+
 export {
   pickRandom,
   sortByRelevance,
   mapFeaturesNames,
-  removeRedundantEntries
+  removeRedundantEntries,
+  removeEmpty,
+  parseCategoryTree,
+  mergeByIndex,
+  getFirstItems
 };

@@ -14,7 +14,10 @@ import {
   pickRandom,
   sortByRelevance,
   mapFeaturesNames,
-  removeRedundantEntries
+  removeRedundantEntries,
+  parseCategoryTree,
+  mergeByIndex,
+  getFirstItems
 } from "../helper";
 import "../css/App.css";
 
@@ -38,6 +41,7 @@ class App extends Component {
     const res = await this.analyse(pickRandom(links.links.guardian));
     this.setResults(res);
     this.setTags();
+    this.setCollections();
   };
 
   analyse = url => {
@@ -71,6 +75,14 @@ class App extends Component {
     });
   };
 
+  setCollections = () => {
+    const collections = this.createCollections();
+    this.setState(state => {
+      state.collections = [state.collections, ...collections];
+      return state;
+    });
+  };
+
   createTags = () => {
     let tags = [...this.state.concepts, ...this.state.entities];
     tags = removeRedundantEntries(tags);
@@ -79,9 +91,15 @@ class App extends Component {
     return tags;
   };
 
-  // createCollections = () => {
-  //   let collections = [...this.state.concepts, categories]
-  // }
+  createCollections = () => {
+    // let collections = [...this.state.concepts, categories]
+    let collections = this.state.category.map(item =>
+      parseCategoryTree(item.label)
+    );
+    collections = mergeByIndex(collections);
+    console.log(collections);
+    return collections;
+  };
 
   setPageTitle = title => {
     this.setState({ pageTitle: title });
