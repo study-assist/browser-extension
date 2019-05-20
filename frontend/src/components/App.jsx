@@ -155,8 +155,9 @@ class App extends Component {
             <>
               <BookmarkView
                 pageTitle={this.state.pageTitle}
-                setPageTitle={this.setPageTitle}
                 tags={this.state.tags}
+                emotion={this.state.emotion}
+                setPageTitle={this.setPageTitle}
                 addTag={this.addTag}
                 deleteTag={this.deleteTag}
               />

@@ -4,6 +4,7 @@ import propTypes from "prop-types";
 import BookmarkTitle from "./BookmarkTitle";
 import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BookmarkNewTag";
+import BookmarkSentiment from "./BookmarkSentiment";
 
 class BookmarkView extends Component {
   expandSection = () => {
@@ -12,7 +13,14 @@ class BookmarkView extends Component {
   };
 
   render() {
-    const { pageTitle, setPageTitle, tags, addTag, deleteTag } = this.props;
+    const {
+      pageTitle,
+      setPageTitle,
+      tags,
+      addTag,
+      deleteTag,
+      emotion
+    } = this.props;
 
     return (
       <section className="bookmark">
@@ -30,6 +38,7 @@ class BookmarkView extends Component {
         <button type="button" onClick={() => this.expandSection()}>
           More details...
         </button>
+        <BookmarkSentiment emotion={emotion} />
       </section>
     );
   }
@@ -40,7 +49,8 @@ BookmarkView.propTypes = {
   setPageTitle: propTypes.func,
   tags: propTypes.array,
   addTag: propTypes.func,
-  deleteTag: propTypes.func
+  deleteTag: propTypes.func,
+  emotion: propTypes.object
 };
 
 export default BookmarkView;
