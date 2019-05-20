@@ -15,7 +15,7 @@ function BookmarkSentiment({ emotion }) {
   }
 
   const scale = Object.values(emotion).map(value => Math.round(value * 100));
-  console.log(scale);
+  // console.log(scale);
 
   const data = {
     labels: Object.keys(emotion),

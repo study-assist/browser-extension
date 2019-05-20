@@ -110,7 +110,6 @@ class App extends Component {
     });
     collections = mergeByIndex(collections);
     collections = removeRedundantItems(collections);
-    console.log(collections);
     return collections;
   };
 
