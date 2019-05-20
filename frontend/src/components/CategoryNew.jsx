@@ -27,7 +27,7 @@ class CategoryNew extends Component {
 
     return (
       <form
-        className="category new-category badge"
+        className="category new-category "
         onSubmit={e => {
           e.preventDefault();
           addCategory(this.state.category);

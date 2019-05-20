@@ -10,34 +10,32 @@ class ResearchEngine extends Component {
   render() {
     return (
       <>
-        <div className="btn-group btn-group-toggle" data-toggle="buttons">
-          <label className=" btn  active engine">
+        <div
+          className="btn-group btn-group-toggle form-check form-check-inline"
+          data-toggle="buttons"
+        >
+          <label className="   active engine">
             <input
               type="radio"
               name="options"
-              id="option1"
+              id="duckduckgo"
               autoComplete="off"
               checked
               className="engine"
             />{" "}
             DuckDuckGo
           </label>
-          <label className="engine btn ">
+          <label className="engine  ">
             <input
               type="radio"
               name="options"
-              id="option2"
+              id="ecoasia"
               autoComplete="off"
             />{" "}
             EcoAsia
           </label>
-          <label className="engine btn ">
-            <input
-              type="radio"
-              name="options"
-              id="option3"
-              autoComplete="off"
-            />{" "}
+          <label className="engine">
+            <input type="radio" name="options" id="google" autoComplete="off" />{" "}
             Google
           </label>
         </div>

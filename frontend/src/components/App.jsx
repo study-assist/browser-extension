@@ -20,7 +20,7 @@ class App extends Component {
       currentTab: links.links.guardian[0],
       pageTitle: "I'm currently visiting this page",
       tags: ["fun", "not fun", "cats"],
-      categories: ["Important", "NLP", "AI", "React", "Recipes"],
+      categories: ["Important", "NLP", "AI", "React", "Recipes", "Fernsehturm"],
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
   }

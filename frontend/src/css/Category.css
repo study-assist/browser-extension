@@ -4,14 +4,11 @@
 }
 
 .category {
-  background-color: #0d47a1;
+  width: 75px;
+  height: 75px;
   color: #ffffff;
-}
-
-.category.badge {
   background-color: #1976d2;
   font-size: 0.9rem;
-  padding: 0.6rem, 1rem, 0.6rem, 1rem;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
   border-radius: 0.8rem;
@@ -21,16 +18,15 @@
 .new-category .input-new-category {
   display: none;
   background-color: transparent;
-  width: 80px;
   border: none;
+  color: white;
 }
 
 .btn.btn-new-category,
 .btn.btn-delete {
-  color: rgba(0, 0, 0, 0.5);
-  line-height: 0;
+  padding: 0;
 }
 
 .btn-new-category {
-  border-radius: 50%;
+  border-radius: 5%;
 }

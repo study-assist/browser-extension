@@ -9,12 +9,14 @@ import ResearchSuggestion from "./ResearchSuggestion";
 
 function ResearchView({ research }) {
   return (
-    <section className="research-main">
+    <section className="research-main ">
       <ResearchTitle />
       <ResearchEngine />
-      {research.map((e, idx) => (
-        <ResearchSuggestion term={e} key={`term-${idx + 1}`} />
-      ))}
+      <div className="d-flex justify-content-around flex-wrap">
+        {research.map((e, idx) => (
+          <ResearchSuggestion term={e} key={`term-${idx + 1} `} />
+        ))}
+      </div>
     </section>
   );
 }

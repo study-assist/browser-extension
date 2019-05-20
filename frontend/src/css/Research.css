@@ -8,15 +8,18 @@ research-title {
 }
 
 .engine {
-  background-color: #216869;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+.engine:active,
+.engine:focus {
 }
 
 .term {
   color: #1f2421;
   background-color: #49a078;
   font-size: 0.9rem;
-  margin-right: 0.5rem;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
   line-height: 1.1;
+  border-radius: 5px;
 }

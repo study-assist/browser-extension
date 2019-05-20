@@ -15,15 +15,16 @@ class CategoryView extends Component {
     const { categories, addCategory, deleteCategory } = this.props;
     return (
       <section className="category-main">
-        <div className="h3">Folder categories</div>
-        <ul className="list-inline">
-          {categories.map((cat, i) => (
-            <li className="list-inline-item" key={`cat-${i + 1}`}>
-              <Category category={cat} deleteCategory={deleteCategory} />
-            </li>
-          ))}
-        </ul>
+        <div className="h3  category-title">Folder categories</div>
         <CategoryNew addCategory={addCategory} />
+        <div className="container" />
+        <div className="row">
+          {categories.map((cat, i) => (
+            <div className="col-4" key={`cat-${i + 1}`}>
+              <Category category={cat} deleteCategory={deleteCategory} />
+            </div>
+          ))}
+        </div>
       </section>
     );
   }
@@ -36,3 +37,12 @@ CategoryView.propTypes = {
 };
 
 export default CategoryView;
+
+/* 
+        <ul className="">
+          {categories.map((cat, i) => (
+            <li className="" key={`cat-${i + 1}`}>
+              <Category category={cat} deleteCategory={deleteCategory} />
+            </li>
+          ))}
+        </ul> */
