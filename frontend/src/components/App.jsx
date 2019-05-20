@@ -148,7 +148,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="body" onClick={() => this.simulateMount()}>
+      <div className="body">
         <Header title="Study Assist" />
         <Main
           tabOne={
@@ -170,6 +170,12 @@ class App extends Component {
           }
           tabTwo={<FolderView />}
         />
+        <button
+          className="btn btn-primary mt-5"
+          onClick={() => this.simulateMount()}
+        >
+          Search!
+        </button>
       </div>
     );
   }
