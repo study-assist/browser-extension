@@ -32,7 +32,8 @@ class WatsonAPI {
         },
         sentiment: {
           document: true
-        }
+        },
+        metadata: {}
       }
     };
   }

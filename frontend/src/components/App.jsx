@@ -29,7 +29,6 @@ class App extends Component {
 
     this.state = {
       // currentTab
-      pageTitle: "Active Tab Title",
       tags: dummy.tags,
       collections: dummy.collections,
       emotion: dummy.emotion,
@@ -69,7 +68,8 @@ class App extends Component {
       keywords,
       entities,
       emotion,
-      sentiment
+      sentiment,
+      metadata
     } = res;
 
     this.setState({
@@ -78,7 +78,9 @@ class App extends Component {
       keywords,
       entities,
       emotion: emotion.document.emotion,
-      sentiment: sentiment.document
+      sentiment: sentiment.document,
+      metadata,
+      pageTitle: metadata.title
     });
   };
 
