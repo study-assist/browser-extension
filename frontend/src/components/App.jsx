@@ -10,6 +10,7 @@ import Research from "./Research";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
+import dummy from "../data/dummyData.json";
 import {
   pickRandom,
   sortByRelevance,
@@ -28,8 +29,9 @@ class App extends Component {
     this.state = {
       // currentTab
       pageTitle: "Active Tab Title",
-      tags: [],
-      collections: [],
+      tags: dummy.tags,
+      collections: dummy.collections,
+      emotion: dummy.emotion,
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
   }
