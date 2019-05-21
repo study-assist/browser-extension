@@ -64,18 +64,20 @@ function BookmarkSentiment({ emotion, sentiment, visible }) {
       className="sentiment row"
       style={visible ? { display: "block" } : { display: "none" }}
     >
-      <div className="col mt-3">
-        <div className="progress">
-          <Progress
-            bar
-            value={Math.round(Math.abs(sentiment.score) * 100)}
-            color={sentiment.label == "positive" ? "success" : "danger"}
-          />
-        </div>
-        <label>{sentiment.label}</label>
-      </div>
       <div className="col">
-        <Radar data={data} width={500} height={500} options={options} />
+        <Radar data={data} options={options} height={185} />
+      </div>
+      <div className="col mt-4">
+        <div className="container">
+          <div className="progress">
+            <Progress
+              bar
+              value={Math.round(Math.abs(sentiment.score) * 100)}
+              color={sentiment.label == "positive" ? "success" : "danger"}
+            />
+          </div>
+          <label>{sentiment.label}</label>
+        </div>
       </div>
     </section>
   );
