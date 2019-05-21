@@ -3,9 +3,7 @@ import propTypes from "prop-types";
 import { Progress } from "reactstrap";
 import { Radar, defaults } from "react-chartjs-2";
 
-import "../css/BookmarkSentiment.css";
-
-function BookmarkSentiment({ emotion, sentiment, visible }) {
+function BookmarkSentiment({ emotion, sentiment, isVisible }) {
   if (emotion === undefined || emotion === null) {
     return;
   }
@@ -62,7 +60,7 @@ function BookmarkSentiment({ emotion, sentiment, visible }) {
   return (
     <section
       className="sentiment row"
-      style={visible ? { display: "block" } : { display: "none" }}
+      style={isVisible ? { display: "block" } : { display: "none" }}
     >
       <div className="col">
         <Radar data={data} options={options} height={185} />
@@ -86,7 +84,7 @@ function BookmarkSentiment({ emotion, sentiment, visible }) {
 BookmarkSentiment.propTypes = {
   emotion: propTypes.object,
   sentiment: propTypes.object,
-  visible: propTypes.bool
+  isVisible: propTypes.bool
 };
 
 export default BookmarkSentiment;

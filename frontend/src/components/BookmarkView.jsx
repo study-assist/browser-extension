@@ -5,6 +5,9 @@ import BookmarkTitle from "./BookmarkTitle";
 import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BookmarkNewTag";
 import BookmarkSentiment from "./BookmarkSentiment";
+import BookmarkViewBtn from "./BookmarkViewBtn";
+
+import "../css/BookmarkView.css";
 
 class BookmarkView extends Component {
   constructor() {
@@ -44,13 +47,14 @@ class BookmarkView extends Component {
             <BookmarkNewTag addTag={addTag} />
           </li>
         </ul>
-        <button type="button" onClick={() => this.toggleSection()}>
-          More details...
-        </button>
         <BookmarkSentiment
           emotion={emotion}
           sentiment={sentiment}
-          visible={this.state.sentimentSectionVisible}
+          isVisible={this.state.sentimentSectionVisible}
+        />
+        <BookmarkViewBtn
+          toggleSection={this.toggleSection}
+          isVisible={this.state.sentimentSectionVisible}
         />
       </section>
     );
