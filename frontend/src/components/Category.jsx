@@ -5,7 +5,7 @@ import "../css/Category.css";
 
 function Category({ category = "Folder1", deleteCategory }) {
   return (
-    <div className="badge  category">
+    <div className="badge category">
       <span className="mr-1">{category}</span>
       <button
         className="btn btn-delete "

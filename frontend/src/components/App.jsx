@@ -10,6 +10,15 @@ import Research from "./Research";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
+import {
+  pickRandom,
+  sortByRelevance,
+  mapFeaturesNames,
+  removeRedundantEntries,
+  removeRedundantItems,
+  parseCategoryTree,
+  mergeByIndex
+} from "../helper";
 import "../css/App.css";
 
 class App extends Component {
@@ -17,19 +26,24 @@ class App extends Component {
     super();
 
     this.state = {
-      currentTab: links.links.guardian[0],
-      pageTitle: "I'm currently visiting this page",
-      tags: ["fun", "not fun", "cats"],
-      categories: ["Important", "NLP", "AI", "React", "Recipes"],
+      // currentTab
+      pageTitle: "Active Tab Title",
+      tags: [],
+      collections: [],
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
   }
 
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
+    this.setDefaultTags(["research"]);
+    this.setDefaultCollections(["important", "work"]);
+
     console.log("quick off search...");
-    const res = await this.analyse(this.state.currentTab);
+    const res = await this.analyse(pickRandom(links.links.guardian));
     this.setResults(res);
+    this.setTags();
+    this.setCollections();
   };
 
   analyse = url => {
@@ -44,10 +58,59 @@ class App extends Component {
       .then(res => res);
   };
 
-  // adjust
   setResults = res => {
-    const { categories, concepts, keywords } = res;
-    this.setState({ category: categories, concepts, keywords });
+    const { categories, concepts, keywords, entities, emotion } = res;
+    this.setState({
+      categories,
+      concepts,
+      keywords,
+      entities,
+      emotion: emotion.document.emotion
+    });
+  };
+
+  // resets tags to default
+  setDefaultTags = defaults => {
+    this.setState({ tags: [...defaults] });
+  };
+
+  setDefaultCollections = defaults => {
+    this.setState({ collections: [...defaults] });
+  };
+
+  setTags = () => {
+    const tags = this.createTags();
+    this.setState(state => {
+      state.tags = [...state.tags, ...tags];
+      return state;
+    });
+  };
+
+  setCollections = () => {
+    const collections = this.createCollections();
+    this.setState(state => {
+      state.collections = [...state.collections, ...collections];
+      return state;
+    });
+  };
+
+  createTags = () => {
+    let tags = [...this.state.concepts, ...this.state.entities];
+    tags = removeRedundantEntries(tags);
+    tags = sortByRelevance(tags);
+    tags = mapFeaturesNames(tags);
+    return tags;
+  };
+
+  createCollections = () => {
+    // add concepts??
+    // here the processing of the results goes differently than for tags, would be great to have the same functions that are flexible enough to use for both...
+    let collections = this.state.categories.map(item => {
+      return parseCategoryTree(item.label);
+    });
+    collections = mergeByIndex(collections);
+    collections = removeRedundantItems(collections);
+    return collections;
   };
 
   setPageTitle = title => {
@@ -84,20 +147,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="body" onClick={() => this.simulateMount()}>
+      <div className="body">
         <Header title="Study Assist" />
         <Main
           tabOne={
             <>
               <BookmarkView
                 pageTitle={this.state.pageTitle}
-                setPageTitle={this.setPageTitle}
                 tags={this.state.tags}
+                emotion={this.state.emotion}
+                setPageTitle={this.setPageTitle}
                 addTag={this.addTag}
                 deleteTag={this.deleteTag}
               />
               <CategoryView
-                categories={this.state.categories}
+                categories={this.state.collections}
                 addCategory={this.addCategory}
                 deleteCategory={this.deleteCategory}
               />
@@ -106,6 +170,12 @@ class App extends Component {
           }
           tabTwo={<FolderView />}
         />
+        <button
+          className="btn btn-primary mt-5"
+          onClick={() => this.simulateMount()}
+        >
+          Search!
+        </button>
       </div>
     );
   }
