@@ -20,6 +20,7 @@ import {
   parseCategoryTree,
   mergeByIndex
 } from "../helper";
+
 import "../css/App.css";
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
       tags: dummy.tags,
       collections: dummy.collections,
       emotion: dummy.emotion,
+      sentiment: dummy.sentiment,
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
   }
@@ -158,6 +160,7 @@ class App extends Component {
                 pageTitle={this.state.pageTitle}
                 tags={this.state.tags}
                 emotion={this.state.emotion}
+                sentiment={this.state.sentiment}
                 setPageTitle={this.setPageTitle}
                 addTag={this.addTag}
                 deleteTag={this.deleteTag}

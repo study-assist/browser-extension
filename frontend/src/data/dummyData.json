@@ -26,5 +26,9 @@
     "fear": 0.177662,
     "joy": 0.502627,
     "sadness": 0.558616
+  },
+  "sentiment": {
+    "score": 0.127034,
+    "label": "positive"
   }
 }

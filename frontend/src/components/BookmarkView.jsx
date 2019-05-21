@@ -10,6 +10,8 @@ class BookmarkView extends Component {
   expandSection = () => {
     // eslint-disable-next-line no-console
     console.log("section expanded");
+    // document.querySelector(".sentiment").getElementsByClassName.display =
+    //   "none";
   };
 
   render() {
@@ -19,7 +21,8 @@ class BookmarkView extends Component {
       tags,
       addTag,
       deleteTag,
-      emotion
+      emotion,
+      sentiment
     } = this.props;
 
     return (
@@ -38,7 +41,7 @@ class BookmarkView extends Component {
         <button type="button" onClick={() => this.expandSection()}>
           More details...
         </button>
-        <BookmarkSentiment emotion={emotion} />
+        <BookmarkSentiment emotion={emotion} sentiment={sentiment} />
       </section>
     );
   }
@@ -50,7 +53,8 @@ BookmarkView.propTypes = {
   tags: propTypes.array,
   addTag: propTypes.func,
   deleteTag: propTypes.func,
-  emotion: propTypes.object
+  emotion: propTypes.object,
+  sentiment: propTypes.object
 };
 
 export default BookmarkView;

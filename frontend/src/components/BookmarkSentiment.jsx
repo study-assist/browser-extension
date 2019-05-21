@@ -1,8 +1,11 @@
 import React from "react";
 import propTypes from "prop-types";
+import { Progress } from "reactstrap";
 import { Radar, defaults } from "react-chartjs-2";
 
-function BookmarkSentiment({ emotion }) {
+import "../css/BookmarkSentiment.css";
+
+function BookmarkSentiment({ emotion, sentiment }) {
   if (emotion === undefined || emotion === null) {
     return;
   }
@@ -23,7 +26,7 @@ function BookmarkSentiment({ emotion }) {
       }
     },
     title: {
-      display: true,
+      display: false,
       text: "Document Emotion Chart",
       // fonSize: 24,
       fontStyle: "bold"
@@ -57,15 +60,27 @@ function BookmarkSentiment({ emotion }) {
   };
 
   return (
-    <div className="container">
-      <p />
-      <Radar data={data} width={500} height={500} options={options} />
+    <div className="container row sentiment">
+      <div className="col mt-3">
+        <div className="progress">
+          <Progress
+            bar
+            value={Math.round(sentiment.score * 100)}
+            color={sentiment.label == "positive" ? "success" : "danger"}
+          />
+        </div>
+        <label>{sentiment.label}</label>
+      </div>
+      <div className="col">
+        <Radar data={data} width={500} height={500} options={options} />
+      </div>
     </div>
   );
 }
 
 BookmarkSentiment.propTypes = {
-  emotion: propTypes.object
+  emotion: propTypes.object,
+  sentiment: propTypes.object
 };
 
 export default BookmarkSentiment;
