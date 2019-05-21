@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
-import BookmarkTitle from "./BookmarkTitle";
+import BookmarkTitle from "./BookmarkHead";
 import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BookmarkNewTag";
 import BookmarkSentiment from "./BookmarkSentiment";
@@ -39,7 +39,13 @@ class BookmarkView extends Component {
 
     return (
       <section className="bookmark">
-        <BookmarkTitle pageTitle={pageTitle} setPageTitle={setPageTitle} />
+        <BookmarkTitle
+          pageTitle={pageTitle}
+          pageDate={pageDate}
+          pageAuthors={pageAuthors}
+          pageImg={pageImg}
+          setPageTitle={setPageTitle}
+        />
         <ul className="tags-list list-inline">
           {tags.map((tagname, i) => (
             <li className={`tag-${i} list-inline-item`} key={`tag-${i + 1}`}>
