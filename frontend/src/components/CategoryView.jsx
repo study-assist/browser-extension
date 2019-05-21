@@ -14,14 +14,15 @@ class CategoryView extends Component {
   render() {
     const { categories, addCategory, deleteCategory } = this.props;
     return (
-      <section className="category-main">
+      <section className="category-main ">
         <div className="h3  category-title">Folder categories</div>
+
         <CategoryNew addCategory={addCategory} />
 
-        <div className="card-columns cat-container">
+        <div className="card-columns category-container">
           {categories.map((cat, i) => (
             <div
-              className="card category text-center shadow rounded mx-auto"
+              className="card border-folder-color text-center shadow rounded p-1 mx-auto"
               key={`cat-${i + 1}`}
             >
               <Category category={cat} deleteCategory={deleteCategory} />

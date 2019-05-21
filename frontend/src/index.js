@@ -13,6 +13,7 @@ import $ from "jquery";
 import "bootstrap";
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import "./css/styles.css";
+import "./css/custom.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
