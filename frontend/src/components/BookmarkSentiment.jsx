@@ -2,20 +2,16 @@ import React from "react";
 import propTypes from "prop-types";
 import { Radar, defaults } from "react-chartjs-2";
 
-/**
- * ToDo:
- * Order entires in desired order,
- * Setup scale from 0 to 100 always
- *
- */
-
 function BookmarkSentiment({ emotion }) {
   if (emotion === undefined || emotion === null) {
     return;
   }
 
-  const scale = Object.values(emotion).map(value => Math.round(value * 100));
-  // console.log(scale);
+  const labels = ["joy", "sadness", "fear", "anger", "disgust"];
+  const ordered = {};
+  labels.forEach(key => {
+    ordered[key] = emotion[key];
+  });
 
   defaults.global.defaultFontSize = 12;
 
@@ -23,7 +19,7 @@ function BookmarkSentiment({ emotion }) {
     legend: {
       display: false,
       labels: {
-        // fontSize: 20
+        fontSize: 20
       }
     },
     title: {
@@ -45,7 +41,7 @@ function BookmarkSentiment({ emotion }) {
   };
 
   const data = {
-    labels: Object.keys(emotion),
+    labels: Object.keys(ordered),
     datasets: [
       {
         label: "Document emotion",
@@ -55,7 +51,7 @@ function BookmarkSentiment({ emotion }) {
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
         pointHoverBorderColor: "rgba(179,181,198,1)",
-        data: scale
+        data: Object.values(ordered).map(value => Math.round(value * 100))
       }
     ]
   };
