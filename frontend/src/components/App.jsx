@@ -79,8 +79,10 @@ class App extends Component {
       entities,
       emotion: emotion.document.emotion,
       sentiment: sentiment.document,
-      metadata,
-      pageTitle: metadata.title
+      pageTitle: metadata.title,
+      pageAuthors: metadata.authors,
+      pageDate: metadata.publication_date,
+      pageImg: metadata.image
     });
   };
 
@@ -169,6 +171,9 @@ class App extends Component {
             <>
               <BookmarkView
                 pageTitle={this.state.pageTitle}
+                pageDate={this.state.pageDate}
+                pageAuthors={this.state.pageAuthors}
+                pageImg={this.state.pageImg}
                 tags={this.state.tags}
                 emotion={this.state.emotion}
                 sentiment={this.state.sentiment}

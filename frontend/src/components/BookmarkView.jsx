@@ -26,6 +26,9 @@ class BookmarkView extends Component {
   render() {
     const {
       pageTitle,
+      pageDate,
+      pageAuthors,
+      pageImg,
       setPageTitle,
       tags,
       addTag,
@@ -36,7 +39,7 @@ class BookmarkView extends Component {
 
     return (
       <section className="bookmark">
-        <BookmarkTitle title={pageTitle} setPageTitle={setPageTitle} />
+        <BookmarkTitle pageTitle={pageTitle} setPageTitle={setPageTitle} />
         <ul className="tags-list list-inline">
           {tags.map((tagname, i) => (
             <li className={`tag-${i} list-inline-item`} key={`tag-${i + 1}`}>
@@ -63,6 +66,9 @@ class BookmarkView extends Component {
 
 BookmarkView.propTypes = {
   pageTitle: propTypes.string,
+  pageDate: propTypes.string,
+  pageAuthors: propTypes.object,
+  pageImg: propTypes.string,
   setPageTitle: propTypes.func,
   tags: propTypes.array,
   addTag: propTypes.func,

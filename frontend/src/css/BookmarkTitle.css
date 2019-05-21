@@ -1,11 +1,12 @@
 .bookmark-title .bookmark-title-input {
+  resize: none;
   font-size: 2rem;
   font-weight: bold;
   padding-top: 0;
   padding-bottom: 0;
   height: unset;
   border: none;
+  white-space: wrap;
   /* width: auto;
-  white-space: normal;
   word-wrap: break-word; */
 }

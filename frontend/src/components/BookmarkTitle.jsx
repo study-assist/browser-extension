@@ -5,17 +5,19 @@ import "../css/BookmarkTitle.css";
 
 class BookmarkTitle extends Component {
   render() {
-    const { title, setPageTitle } = this.props;
+    const { pageTitle, setPageTitle } = this.props;
 
     return (
       <form className="bookmark-title" action="">
         <div className="form-group">
-          <input
+          <textarea
             className="bookmark-title-input form-control"
-            type="text"
-            defaultValue={title}
+            placeholder="Current page title"
+            rows="1"
             onChange={e => setPageTitle(e.target.value)}
-          />
+          >
+            {pageTitle}
+          </textarea>
         </div>
       </form>
     );
@@ -23,7 +25,7 @@ class BookmarkTitle extends Component {
 }
 
 BookmarkTitle.propTypes = {
-  title: propTypes.string,
+  pageTitle: propTypes.string,
   setPageTitle: propTypes.func
 };
 
