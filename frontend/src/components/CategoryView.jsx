@@ -17,10 +17,13 @@ class CategoryView extends Component {
       <section className="category-main">
         <div className="h3  category-title">Folder categories</div>
         <CategoryNew addCategory={addCategory} />
-        <div className="container" />
-        <div className="row">
+
+        <div className="card-columns cat-container">
           {categories.map((cat, i) => (
-            <div className="col-4" key={`cat-${i + 1}`}>
+            <div
+              className="card category text-center shadow rounded mx-auto"
+              key={`cat-${i + 1}`}
+            >
               <Category category={cat} deleteCategory={deleteCategory} />
             </div>
           ))}

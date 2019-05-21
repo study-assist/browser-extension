@@ -1,22 +1,28 @@
-import React from "react";
+import React, { Fragment } from "react";
 import propTypes from "prop-types";
 
 import "../css/Category.css";
 
 function Category({ category = "Folder1", deleteCategory }) {
   return (
-    <div className="badge  category btn-sq-lg">
-      <span className="mr-1">{category}</span>
+    <>
       <button
-        className="btn btn-delete btn-lg "
+        className="button mx-auto rounded-circle"
         type="button"
-        onClick={() => {
-          deleteCategory(category);
+        onClick={event => {
+          event.preventDefault();
         }}
       >
-        <i className="fas fa-times" />
+        <i className="fas fa-plus" />
       </button>
-    </div>
+
+      <input
+        value={category}
+        className="category-name text-center mx-auto"
+        type="text"
+      />
+      <small className="text-muted suggested">Suggested</small>
+    </>
   );
 }
 
@@ -26,3 +32,14 @@ Category.propTypes = {
 };
 
 export default Category;
+
+/* 
+<button
+  className="btn btn-delete btn-lg "
+  type="button"
+  onClick={() => {
+    deleteCategory(category);
+  }}
+>
+  <i className="fas fa-times" />
+</button> */

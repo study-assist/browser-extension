@@ -17,36 +17,40 @@ class CategoryNew extends Component {
     this.setState({ category: name });
   };
 
-  expandCategory = () => {
-    this.inputNewCategory.current.style.display = "inline";
-    this.inputNewCategory.current.focus();
-  };
-
   render() {
     const { addCategory } = this.props;
 
     return (
       <form
-        className="category new-category "
+        className="new-category form-row"
         onSubmit={e => {
           e.preventDefault();
           addCategory(this.state.category);
           e.target.reset();
         }}
       >
-        <input
-          className="input-new-category"
-          type="text"
-          ref={this.inputNewCategory}
-          onChange={e => this.updateCategoryName(e.target.value)}
-        />
-        <button
-          className="btn btn-new-category"
-          type="button"
-          onClick={() => this.expandCategory()}
-        >
-          <i className="fas fa-plus" />
-        </button>
+        <div className="col-9">
+          <input
+            placeholder="Type folder name"
+            className="form-control border-top-0 border-left-0 border-right-0
+            rounded-0"
+            type="text"
+            ref={this.inputNewCategory}
+            onChange={e => this.updateCategoryName(e.target.value)}
+          />
+        </div>
+        <div className="col-2 offset-md-1 ">
+          <button
+            className="btn btn-primary rounded-circle"
+            type="button"
+            onClick={event => {
+              event.preventDefault();
+              addCategory(this.state.category);
+            }}
+          >
+            <i className="fas fa-plus" />
+          </button>
+        </div>
       </form>
     );
   }
