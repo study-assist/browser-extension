@@ -63,13 +63,22 @@ class App extends Component {
   };
 
   setResults = res => {
-    const { categories, concepts, keywords, entities, emotion } = res;
+    const {
+      categories,
+      concepts,
+      keywords,
+      entities,
+      emotion,
+      sentiment
+    } = res;
+
     this.setState({
       categories,
       concepts,
       keywords,
       entities,
-      emotion: emotion.document.emotion
+      emotion: emotion.document.emotion,
+      sentiment: sentiment.document
     });
   };
 

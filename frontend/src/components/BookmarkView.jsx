@@ -7,11 +7,17 @@ import BookmarkNewTag from "./BookmarkNewTag";
 import BookmarkSentiment from "./BookmarkSentiment";
 
 class BookmarkView extends Component {
-  expandSection = () => {
-    // eslint-disable-next-line no-console
-    console.log("section expanded");
-    // document.querySelector(".sentiment").getElementsByClassName.display =
-    //   "none";
+  constructor() {
+    super();
+
+    this.state = { sentimentSectionVisible: false };
+  }
+
+  toggleSection = () => {
+    this.setState(state => {
+      state.sentimentSectionVisible = !state.sentimentSectionVisible;
+      return state;
+    });
   };
 
   render() {
@@ -38,10 +44,14 @@ class BookmarkView extends Component {
             <BookmarkNewTag addTag={addTag} />
           </li>
         </ul>
-        <button type="button" onClick={() => this.expandSection()}>
+        <button type="button" onClick={() => this.toggleSection()}>
           More details...
         </button>
-        <BookmarkSentiment emotion={emotion} sentiment={sentiment} />
+        <BookmarkSentiment
+          emotion={emotion}
+          sentiment={sentiment}
+          visible={this.state.sentimentSectionVisible}
+        />
       </section>
     );
   }

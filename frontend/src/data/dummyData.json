@@ -28,7 +28,7 @@
     "sadness": 0.558616
   },
   "sentiment": {
-    "score": 0.127034,
-    "label": "positive"
+    "score": -0.357034,
+    "label": "negative"
   }
 }

@@ -5,7 +5,7 @@ import { Radar, defaults } from "react-chartjs-2";
 
 import "../css/BookmarkSentiment.css";
 
-function BookmarkSentiment({ emotion, sentiment }) {
+function BookmarkSentiment({ emotion, sentiment, visible }) {
   if (emotion === undefined || emotion === null) {
     return;
   }
@@ -60,12 +60,15 @@ function BookmarkSentiment({ emotion, sentiment }) {
   };
 
   return (
-    <div className="container row sentiment">
+    <section
+      className="sentiment row"
+      style={visible ? { display: "block" } : { display: "none" }}
+    >
       <div className="col mt-3">
         <div className="progress">
           <Progress
             bar
-            value={Math.round(sentiment.score * 100)}
+            value={Math.round(Math.abs(sentiment.score) * 100)}
             color={sentiment.label == "positive" ? "success" : "danger"}
           />
         </div>
@@ -74,13 +77,14 @@ function BookmarkSentiment({ emotion, sentiment }) {
       <div className="col">
         <Radar data={data} width={500} height={500} options={options} />
       </div>
-    </div>
+    </section>
   );
 }
 
 BookmarkSentiment.propTypes = {
   emotion: propTypes.object,
-  sentiment: propTypes.object
+  sentiment: propTypes.object,
+  visible: propTypes.bool
 };
 
 export default BookmarkSentiment;
