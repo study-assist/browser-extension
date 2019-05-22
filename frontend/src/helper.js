@@ -1,3 +1,16 @@
+function autoExpand(field) {
+  field.style.height = "inherit";
+  const computed = window.getComputedStyle(field);
+  const borderY =
+    parseInt(computed.getPropertyValue("border-top-width"), 10) +
+    parseInt(computed.getPropertyValue("border-bottom-width"), 10);
+  const paddingY =
+    parseInt(computed.getPropertyValue("padding-top"), 10) +
+    parseInt(computed.getPropertyValue("padding-bottom"), 10);
+  const height = borderY + paddingY + parseInt(field.scrollHeight);
+  field.style.height = height + "px";
+}
+
 function pickRandom(arr) {
   const i = Math.floor(Math.random() * Math.floor(arr.length));
   return arr[i];
@@ -88,6 +101,7 @@ function getFirstItems(arrs) {
 }
 
 export {
+  autoExpand,
   pickRandom,
   sortByRelevance,
   mapFeaturesNames,

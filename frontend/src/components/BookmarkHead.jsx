@@ -2,8 +2,23 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 
 import * as moment from "moment";
+import { autoExpand } from "../helper";
 
 class BookmarkHead extends Component {
+  constructor(props) {
+    super(props);
+
+    this.titleInput = React.createRef();
+  }
+
+  componentDidMount = () => {
+    autoExpand(this.titleInput.current);
+  };
+
+  componentDidUpdate = () => {
+    autoExpand(this.titleInput.current);
+  };
+
   render() {
     const {
       pageTitle,
@@ -23,6 +38,7 @@ class BookmarkHead extends Component {
             required
             onChange={e => setPageTitle(e.target.value)}
             value={pageTitle}
+            ref={this.titleInput}
           />
         </div>
         <small className="meta">
