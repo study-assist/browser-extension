@@ -3,9 +3,18 @@ import propTypes from "prop-types";
 
 import "../css/Category.css";
 
-function Category({ category = "Folder1", deleteCategory }) {
+function Category({ collection = "Folder1", deleteCollection }) {
   return (
     <>
+      <button
+        className="btn btn-delete"
+        type="button"
+        onClick={() => {
+          deleteCollection(collection);
+        }}
+      >
+        <i className="fas fa-times" />
+      </button>
       <button
         className=" button  btn btn-folder-color rounded-circle mx-auto"
         type="button"
@@ -17,7 +26,7 @@ function Category({ category = "Folder1", deleteCategory }) {
       </button>
 
       <input
-        value={category}
+        value={collection}
         className="category-name  text-center  text-truncate font-weight-bold border-0  mx-auto"
         type="text"
       />
@@ -27,8 +36,8 @@ function Category({ category = "Folder1", deleteCategory }) {
 }
 
 Category.propTypes = {
-  category: propTypes.string,
-  deleteCategory: propTypes.func
+  collection: propTypes.string,
+  deleteCollection: propTypes.func
 };
 
 export default Category;

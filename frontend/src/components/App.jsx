@@ -155,10 +155,10 @@ class App extends Component {
     });
   };
 
-  deleteCategory = name => {
+  deleteCollection = name => {
     this.setState(state => {
-      const pos = state.categories.indexOf(name);
-      return state.categories.splice(pos, 1);
+      const pos = state.collections.indexOf(name);
+      return state.collections.splice(pos, 1);
     });
   };
 
@@ -184,7 +184,7 @@ class App extends Component {
               <CategoryView
                 collections={this.state.collections}
                 addCategory={this.addCategory}
-                deleteCategory={this.deleteCategory}
+                deleteCollection={this.deleteCollection}
               />
               <ResearchView research={this.state.research} />
             </>
