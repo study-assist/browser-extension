@@ -3,7 +3,6 @@ import propTypes from "prop-types";
 import { Radar, defaults } from "react-chartjs-2";
 import { options } from "../data/chartOptions";
 
-// import { Progress } from "reactstrap";
 import BookmarkSentimentProgress from "./BookmarkSentimentProgress";
 
 class BookmarkSentiment extends Component {
@@ -62,6 +61,18 @@ class BookmarkSentiment extends Component {
 
     defaults.global.defaultFontSize = 12;
 
+    // const scores = ["0.84", "0.84", "0.76", "0.76", "0.76", "0.74", "0.54", "0.54"];
+    // const computeColor = score => {
+    //   let color = null;
+    //   const minLight = 42;
+    //   const maxLight = 80;
+    //   const scale = maxLight - minLight;
+    //   const percentScore = Math.round(Math.abs(score) * 100);
+    //   const perscaleLight = (percentScore * scale) / 100;
+    //   color = `212, 80%, ${Math.floor(maxLight - perscaleLight)}%`;
+    //   return color;
+    // };
+
     return (
       <section className="sentiment row" style={isVisible ? { display: "block" } : { display: "none" }}>
         <div className="col">
@@ -79,6 +90,13 @@ class BookmarkSentiment extends Component {
             <label>{sentiment.label}</label>
           </div>
         </div>
+        {/* <div className="col">
+          <div className="row flex-wrap no-gutters">
+            {scores.map((score, i) => (
+              <div key={i} className="fake-coll mr-1" style={{ background: `hsl(${computeColor(score)})` }} />
+            ))}
+          </div>
+        </div> */}
       </section>
     );
   }
