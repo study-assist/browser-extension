@@ -29,10 +29,10 @@ class BookmarkHead extends Component {
     } = this.props;
 
     return (
-      <form className="bookmark-title mb-2" action="">
+      <form className="bookmark-head mb-2" action="">
         <div className="form-group mb-0">
           <textarea
-            className="bookmark-title-input form-control"
+            className="bookmark-head-input form-control"
             placeholder="Type bookmark name..."
             rows="1"
             required
