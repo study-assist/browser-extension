@@ -36,7 +36,7 @@ class Main extends Component {
                 this.toggle("1");
               }}
             >
-              Current Page
+              Page Overview
             </NavLink>
           </NavItem>
           <NavItem>

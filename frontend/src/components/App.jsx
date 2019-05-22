@@ -29,6 +29,10 @@ class App extends Component {
 
     this.state = {
       // currentTab
+      pageTitle: dummy.pageTitle,
+      pageDate: dummy.pageDate,
+      pageAuthors: dummy.pageAuthors,
+      pageImg: dummy.pageImg,
       tags: dummy.tags,
       collections: dummy.collections,
       emotion: dummy.emotion,

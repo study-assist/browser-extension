@@ -1,19 +1,26 @@
 {
+  "pageTitle": "Human society under urgent threat from loss of Earth's natural life",
+  "pageDate": "2019-05-06T00:00:00",
+  "pageAuthors": [{ "name": "Jonathan Watts" }],
+  "pageImg": "https://i.guim.co.uk/img/media/eaa3f295b8d6195a473e6c2b836f4c1934b1a289/0_222_4240_2545/master/4240.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&s=0132546cf9772791ed97b4feb19030f0",
   "tags": [
-    "antarctic",
-    "stockholm resilience centre",
-    "garry peterson",
-    "climate",
-    "arctic ocean",
-    "sea ice",
-    "antarctic ice sheet",
-    "ice shelf",
-    "juan rocha",
-    "antarctica"
+    "research",
+    "professor",
+    "co-chair",
+    "uk",
+    "un",
+    "greenhouse gas",
+    "overpopulation",
+    "population growth",
+    "ecosystem",
+    "world population",
+    "biodiversity"
   ],
   "collections": [
-    "environmental disaster",
+    "important",
+    "work",
     "pollution",
+    "environmental disaster",
     "agriculture",
     "ecology",
     "agriculture and forestry",
@@ -21,14 +28,14 @@
     "business and industrial"
   ],
   "emotion": {
-    "anger": 0.108845,
-    "disgust": 0.061657,
-    "fear": 0.177662,
-    "joy": 0.502627,
-    "sadness": 0.558616
+    "sadness": 0.558629,
+    "joy": 0.570379,
+    "fear": 0.531884,
+    "disgust": 0.106828,
+    "anger": 0.110614
   },
   "sentiment": {
-    "score": -0.357034,
-    "label": "negative"
+    "label": "negative",
+    "score": -0.421635
   }
 }
