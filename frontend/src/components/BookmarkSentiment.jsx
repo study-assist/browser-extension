@@ -48,7 +48,7 @@ class BookmarkSentiment extends Component {
       labels: Object.keys(ordered),
       datasets: [
         {
-          label: "Document emotion",
+          label: "Score",
           backgroundColor: `rgba(${rgb},0.4)`,
           borderColor: `rgba(${rgb},0.75)`,
           pointBackgroundColor: `rgba(${rgb},0.75)`,
@@ -65,7 +65,7 @@ class BookmarkSentiment extends Component {
     return (
       <section
         className="sentiment row"
-        style={isVisible ? { display: "block" } : { display: "block" }}
+        style={isVisible ? { display: "block" } : { display: "none" }}
       >
         <div className="col">
           <Radar data={data} options={options} height={150} />
