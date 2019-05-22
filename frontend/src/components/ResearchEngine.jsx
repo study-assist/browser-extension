@@ -14,7 +14,7 @@ class ResearchEngine extends Component {
           className="btn-group btn-group-toggle form-check form-check-inline"
           data-toggle="buttons"
         >
-          <label className="   active engine">
+          <label className="   active engine btn btn-engine-color">
             <input
               type="radio"
               name="options"
@@ -25,7 +25,7 @@ class ResearchEngine extends Component {
             />{" "}
             DuckDuckGo
           </label>
-          <label className="engine  ">
+          <label className="engine btn btn-engine-color">
             <input
               type="radio"
               name="options"
@@ -34,7 +34,7 @@ class ResearchEngine extends Component {
             />{" "}
             EcoAsia
           </label>
-          <label className="engine">
+          <label className="engine btn btn-engine-color">
             <input type="radio" name="options" id="google" autoComplete="off" />{" "}
             Google
           </label>
