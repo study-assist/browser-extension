@@ -9,8 +9,15 @@ import BookmarkSentimentProgress from "./BookmarkSentimentProgress";
 class BookmarkSentiment extends Component {
   computeColor = sentiment => {
     let color = null;
+
     if (sentiment.label == "positive") {
-      color = "green";
+      // green: rgb(70, 235, 55)
+      const minRed = 70;
+      const maxRed = 255;
+      const scale = maxRed - minRed;
+      const percentScore = Math.round(Math.abs(sentiment.score) * 100);
+      const perscaleRed = (percentScore * scale) / 100;
+      color = `${Math.floor(maxRed - perscaleRed)}, 210, 56`;
     } else {
       // template for red to yellow
       const minGreen = 63;
@@ -29,7 +36,7 @@ class BookmarkSentiment extends Component {
 
     if (emotion === undefined || emotion === null) return;
 
-    const labels = ["joy", "sadness", "fear", "anger", "disgust"];
+    const labels = ["joy", "sadness", "fear", "disgust", "anger"];
     const ordered = {};
     labels.forEach(key => {
       ordered[key] = emotion[key];
