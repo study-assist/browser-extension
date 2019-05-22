@@ -9,17 +9,19 @@ body {
   font-size: $font-size-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: black;
+  color: $black;
   background: rgb(114, 113, 113);
   padding: 0;
 }
 
 h1 {
   font-size: $font-size-h1;
+  font-weight: $font-weight-bold;
 }
 
 h2 {
   font-size: $font-size-h2;
+  font-weight: $font-weight-bold;
 }
 
 code {

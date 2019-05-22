@@ -25,7 +25,7 @@ class Main extends Component {
     const { tabOne, tabTwo } = this.props;
 
     return (
-      <main>
+      <main className="main">
         <Nav tabs className="mb-3">
           <NavItem>
             <NavLink
