@@ -46,7 +46,7 @@ class BookmarkView extends Component {
           pageImg={pageImg}
           setPageTitle={setPageTitle}
         />
-        <ul className="tags-list list-inline px-2">
+        <ul className="tags-list list-inline px-2 mb-0">
           {tags.map((tagname, i) => (
             <li className={`tag-${i} list-inline-item`} key={`tag-${i + 1}`}>
               <BookmarkTag tagname={tagname} deleteTag={deleteTag} />
