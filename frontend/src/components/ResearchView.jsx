@@ -21,7 +21,7 @@ function ResearchView({ research }) {
   );
 }
 
-ResearchView.propsTypes = {
+ResearchView.propTypes = {
   research: propTypes.array
 };
 
