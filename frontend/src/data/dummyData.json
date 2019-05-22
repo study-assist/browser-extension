@@ -1,0 +1,34 @@
+{
+  "tags": [
+    "antarctic",
+    "stockholm resilience centre",
+    "garry peterson",
+    "climate",
+    "arctic ocean",
+    "sea ice",
+    "antarctic ice sheet",
+    "ice shelf",
+    "juan rocha",
+    "antarctica"
+  ],
+  "collections": [
+    "environmental disaster",
+    "pollution",
+    "agriculture",
+    "ecology",
+    "agriculture and forestry",
+    "science",
+    "business and industrial"
+  ],
+  "emotion": {
+    "anger": 0.108845,
+    "disgust": 0.061657,
+    "fear": 0.177662,
+    "joy": 0.502627,
+    "sadness": 0.558616
+  },
+  "sentiment": {
+    "score": -0.357034,
+    "label": "negative"
+  }
+}

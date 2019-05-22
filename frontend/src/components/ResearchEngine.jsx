@@ -20,7 +20,7 @@ class ResearchEngine extends Component {
               name="options"
               id="duckduckgo"
               autoComplete="off"
-              checked
+              // checked
               className="engine"
             />{" "}
             DuckDuckGo
