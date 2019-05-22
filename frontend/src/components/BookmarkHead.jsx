@@ -43,7 +43,7 @@ class BookmarkHead extends Component {
         </div>
         <small className="meta">
           {pageDate ? <span className="meta-date">{moment(pageDate).format("DD MMMM YYYY")}&nbsp;</span> : <span />}
-          {pageAuthors ? (
+          {pageAuthors.length >= 1 ? (
             <span className="meta-authors">
               &middot;&nbsp;
               {pageAuthors.map((author, i) => (
