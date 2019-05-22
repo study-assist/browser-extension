@@ -47,7 +47,7 @@ class App extends Component {
     this.setDefaultCollections(["important", "work"]);
 
     console.log("kick off search...");
-    const res = await this.analyse(pickRandom(links.links.guardian));
+    const res = await this.analyse(pickRandom(links.links.ca));
     this.setResults(res);
     this.setTags();
     this.setCollections();
@@ -67,15 +67,7 @@ class App extends Component {
   };
 
   setResults = res => {
-    const {
-      categories,
-      concepts,
-      keywords,
-      entities,
-      emotion,
-      sentiment,
-      metadata
-    } = res;
+    const { categories, concepts, keywords, entities, emotion, sentiment, metadata } = res;
 
     this.setState({
       categories,
@@ -185,6 +177,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(links.links.ca.length);
     return (
       <div className="body">
         <Header title="Study Assist" />
@@ -213,10 +206,7 @@ class App extends Component {
           }
           tabTwo={<FolderView />}
         />
-        <button
-          className="btn btn-primary mt-5"
-          onClick={() => this.simulateMount()}
-        >
+        <button className="btn btn-primary mt-5" onClick={() => this.simulateMount()}>
           Search!
         </button>
       </div>
