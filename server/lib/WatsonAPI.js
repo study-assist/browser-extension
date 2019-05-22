@@ -29,7 +29,11 @@ class WatsonAPI {
         },
         emotion: {
           document: true
-        }
+        },
+        sentiment: {
+          document: true
+        },
+        metadata: {}
       }
     };
   }

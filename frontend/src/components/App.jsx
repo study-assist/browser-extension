@@ -10,6 +10,7 @@ import Research from "./Research";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
+import dummy from "../data/dummyData.json";
 import {
   pickRandom,
   sortByRelevance,
@@ -19,6 +20,7 @@ import {
   parseCategoryTree,
   mergeByIndex
 } from "../helper";
+
 import "../css/App.css";
 
 class App extends Component {
@@ -27,9 +29,10 @@ class App extends Component {
 
     this.state = {
       // currentTab
-      pageTitle: "Active Tab Title",
-      tags: [],
-      collections: [],
+      tags: dummy.tags,
+      collections: dummy.collections,
+      emotion: dummy.emotion,
+      sentiment: dummy.sentiment,
       research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
     };
   }
@@ -59,13 +62,27 @@ class App extends Component {
   };
 
   setResults = res => {
-    const { categories, concepts, keywords, entities, emotion } = res;
+    const {
+      categories,
+      concepts,
+      keywords,
+      entities,
+      emotion,
+      sentiment,
+      metadata
+    } = res;
+
     this.setState({
       categories,
       concepts,
       keywords,
       entities,
-      emotion: emotion.document.emotion
+      emotion: emotion.document.emotion,
+      sentiment: sentiment.document,
+      pageTitle: metadata.title,
+      pageAuthors: metadata.authors,
+      pageDate: metadata.publication_date,
+      pageImg: metadata.image
     });
   };
 
@@ -154,8 +171,12 @@ class App extends Component {
             <>
               <BookmarkView
                 pageTitle={this.state.pageTitle}
+                pageDate={this.state.pageDate}
+                pageAuthors={this.state.pageAuthors}
+                pageImg={this.state.pageImg}
                 tags={this.state.tags}
                 emotion={this.state.emotion}
+                sentiment={this.state.sentiment}
                 setPageTitle={this.setPageTitle}
                 addTag={this.addTag}
                 deleteTag={this.deleteTag}
