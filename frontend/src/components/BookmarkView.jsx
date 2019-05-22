@@ -56,15 +56,8 @@ class BookmarkView extends Component {
             <BookmarkNewTag addTag={addTag} />
           </li>
         </ul>
-        <BookmarkSentiment
-          emotion={emotion}
-          sentiment={sentiment}
-          isVisible={this.state.sentimentSectionVisible}
-        />
-        <BookmarkViewBtn
-          toggleSection={this.toggleSection}
-          isVisible={this.state.sentimentSectionVisible}
-        />
+        <BookmarkSentiment emotion={emotion} sentiment={sentiment} isVisible={this.state.sentimentSectionVisible} />
+        <BookmarkViewBtn toggleSection={this.toggleSection} isVisible={this.state.sentimentSectionVisible} />
       </section>
     );
   }
@@ -73,7 +66,7 @@ class BookmarkView extends Component {
 BookmarkView.propTypes = {
   pageTitle: propTypes.string,
   pageDate: propTypes.string,
-  pageAuthors: propTypes.object,
+  pageAuthors: propTypes.array,
   pageImg: propTypes.string,
   setPageTitle: propTypes.func,
   tags: propTypes.array,

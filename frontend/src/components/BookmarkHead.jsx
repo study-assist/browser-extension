@@ -42,13 +42,7 @@ class BookmarkHead extends Component {
           />
         </div>
         <small className="meta">
-          {pageDate ? (
-            <span className="meta-date">
-              {moment(pageDate).format("DD MMMM YYYY")}&nbsp;
-            </span>
-          ) : (
-            <span />
-          )}
+          {pageDate ? <span className="meta-date">{moment(pageDate).format("DD MMMM YYYY")}&nbsp;</span> : <span />}
           {pageAuthors ? (
             <span className="meta-authors">
               &middot;&nbsp;
@@ -68,7 +62,7 @@ class BookmarkHead extends Component {
 BookmarkHead.propTypes = {
   pageTitle: propTypes.string,
   pageDate: propTypes.string,
-  pageAuthors: propTypes.object,
+  pageAuthors: propTypes.array,
   pageImg: propTypes.string,
   setPageTitle: propTypes.func
 };

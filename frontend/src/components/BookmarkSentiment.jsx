@@ -10,7 +10,7 @@ class BookmarkSentiment extends Component {
   computeColor = sentiment => {
     let color = null;
 
-    if (sentiment.label == "positive") {
+    if (sentiment.label === "positive") {
       // green: rgb(70, 235, 55)
       const minRed = 70;
       const maxRed = 255;
