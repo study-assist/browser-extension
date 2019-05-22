@@ -12,7 +12,7 @@ class CategoryView extends Component {
     console.log("section expanded");
   };
   render() {
-    const { categories, addCategory, deleteCategory } = this.props;
+    const { collections, addCategory, deleteCategory } = this.props;
     return (
       <section className="category-main ">
         <div className="h3  category-title">Folder categories</div>
@@ -20,12 +20,12 @@ class CategoryView extends Component {
         <CategoryNew addCategory={addCategory} />
 
         <div className="card-columns category-container">
-          {categories.map((cat, i) => (
+          {collections.map((collection, i) => (
             <div
               className="card border-folder-color text-center shadow rounded p-1 mx-auto"
-              key={`cat-${i + 1}`}
+              key={`collection-${i + 1}`}
             >
-              <Category category={cat} deleteCategory={deleteCategory} />
+              <Category category={collection} deleteCategory={deleteCategory} />
             </div>
           ))}
         </div>
@@ -35,7 +35,7 @@ class CategoryView extends Component {
 }
 
 CategoryView.propTypes = {
-  categories: propTypes.array,
+  collections: propTypes.array,
   addCategory: propTypes.func,
   deleteCategory: propTypes.func
 };
