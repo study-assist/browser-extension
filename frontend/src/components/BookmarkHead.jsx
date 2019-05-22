@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
+import * as moment from "moment";
+
 import "../css/BookmarkHead.css";
 
 class BookmarkHead extends Component {
@@ -27,13 +29,15 @@ class BookmarkHead extends Component {
         </div>
         <small className="meta">
           {pageDate ? (
-            <span className="meta-date">{pageDate}&nbsp;</span>
+            <span className="meta-date">
+              {moment(pageDate).format("DD MMMM YYYY")}&nbsp;
+            </span>
           ) : (
             <span />
           )}
           {pageAuthors ? (
             <span className="meta-authors">
-              by&nbsp;
+              &middot;&nbsp;
               {pageAuthors.map((author, i) => (
                 <span key={i}>{author.name}&nbsp;</span>
               ))}
