@@ -1,7 +1,11 @@
 import React from "react";
 import propTypes from "prop-types";
-import { Progress } from "reactstrap";
 import { Radar, defaults } from "react-chartjs-2";
+
+// import { Progress } from "reactstrap";
+import BookmarkSentimentProgress from "./BookmarkSentimentProgress";
+
+import { computeColor } from "../helper";
 
 function BookmarkSentiment({ emotion, sentiment, isVisible }) {
   if (emotion === undefined || emotion === null) {
@@ -41,17 +45,19 @@ function BookmarkSentiment({ emotion, sentiment, isVisible }) {
     tooltips: {}
   };
 
+  const rgb = computeColor(sentiment);
+
   const data = {
     labels: Object.keys(ordered),
     datasets: [
       {
         label: "Document emotion",
-        backgroundColor: "rgba(179,181,198,0.2)",
-        borderColor: "rgba(179,181,198,1)",
-        pointBackgroundColor: "rgba(179,181,198,1)",
+        backgroundColor: `rgba(${rgb},0.4)`,
+        borderColor: `rgba(${rgb},0.75)`,
+        pointBackgroundColor: `rgba(${rgb},0.75)`,
         pointBorderColor: "#fff",
         pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgba(179,181,198,1)",
+        pointHoverBorderColor: `rgba(${rgb},0.75)`,
         data: Object.values(ordered).map(value => Math.round(value * 100))
       }
     ]
@@ -60,7 +66,7 @@ function BookmarkSentiment({ emotion, sentiment, isVisible }) {
   return (
     <section
       className="sentiment row"
-      style={isVisible ? { display: "block" } : { display: "none" }}
+      style={isVisible ? { display: "block" } : { display: "block" }}
     >
       <div className="col">
         <Radar data={data} options={options} height={150} />
@@ -68,10 +74,10 @@ function BookmarkSentiment({ emotion, sentiment, isVisible }) {
       <div className="col mt-4">
         <div className="container">
           <div className="progress">
-            <Progress
+            <BookmarkSentimentProgress
               bar
               value={Math.round(Math.abs(sentiment.score) * 100)}
-              color={sentiment.label == "positive" ? "success" : "danger"}
+              color={`rgb(${rgb})`}
             />
           </div>
           <label>{sentiment.label}</label>
