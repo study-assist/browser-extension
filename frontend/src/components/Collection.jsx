@@ -16,7 +16,7 @@ function Collection({ collection = "Folder1", deleteCollection }) {
         <i className="fas fa-plus" />
       </button>
       <button
-        className="btn btn-delete button-delete "
+        className="btn btn-delete position-absolute button-delete "
         type="button"
         onClick={() => {
           deleteCollection(collection);

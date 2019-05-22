@@ -10,13 +10,15 @@ class ResearchEngine extends Component {
 
   render() {
     return (
-      <>
-        <div className="d-inline-block">Pick your search engine:</div>
+      <div className="clearfix mb-3">
+        <div className="d-inline-block align-middle w-auto h-auto">
+          Pick your search engine:
+        </div>
         <ButtonGroup
-          className="btn-group-toggle form-check form-check-inline"
+          className="btn-group-toggle form-check form-check-inline float-right"
           data-toggle="buttons"
         >
-          <label className="active btn btn-engine-color rounded-pill mr-1">
+          <label className="active btn btn-engine-color ">
             <input
               type="radio"
               name="options"
@@ -25,9 +27,8 @@ class ResearchEngine extends Component {
               className="engine"
             />{" "}
             DuckDuckGo
-            <i className="fas fa-search pl-1" />
           </label>
-          <label className="btn btn-engine-color rounded-pill mr-1">
+          <label className="btn btn-engine-color  ">
             <input
               type="radio"
               name="options"
@@ -35,15 +36,13 @@ class ResearchEngine extends Component {
               autoComplete="off"
             />{" "}
             EcoAsia
-            <i className="fas fa-search pl-1" />
           </label>
-          <label className="btn btn-engine-color rounded-pill mr-1">
+          <label className="btn btn-engine-color ">
             <input type="radio" name="options" id="google" autoComplete="off" />{" "}
             Google
-            <i className="fas fa-search pl-1" />
           </label>
         </ButtonGroup>
-      </>
+      </div>
     );
   }
 }
