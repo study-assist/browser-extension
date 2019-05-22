@@ -1,6 +1,5 @@
 .category-main {
   margin-top: 1rem;
-  color: #011c41;
 }
 
 .category-container {
@@ -21,6 +20,12 @@
   margin: 0.5rem 0;
   width: 60px;
   height: 60px;
+}
+
+.button-delete {
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
 .suggested {

@@ -7,15 +7,6 @@ function Category({ collection = "Folder1", deleteCollection }) {
   return (
     <>
       <button
-        className="btn btn-delete"
-        type="button"
-        onClick={() => {
-          deleteCollection(collection);
-        }}
-      >
-        <i className="fas fa-times" />
-      </button>
-      <button
         className=" button  btn btn-folder-color rounded-circle mx-auto"
         type="button"
         onClick={event => {
@@ -23,6 +14,15 @@ function Category({ collection = "Folder1", deleteCollection }) {
         }}
       >
         <i className="fas fa-plus" />
+      </button>
+      <button
+        className="btn btn-delete button-delete "
+        type="button"
+        onClick={() => {
+          deleteCollection(collection);
+        }}
+      >
+        <i className="fas fa-times" />
       </button>
 
       <input
