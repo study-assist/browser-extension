@@ -1,11 +1,9 @@
 import React from "react";
 import propTypes from "prop-types";
 
-import "../css/BookmarkTag.css";
-
 function BookmarkTag({ tagname, deleteTag }) {
   return (
-    <div className="tag badge badge-pill badge-secondary">
+    <div className="tag badge badge-secondary">
       <span className="mr-1">{tagname}</span>
 
       <button

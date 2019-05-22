@@ -7,7 +7,7 @@ import BookmarkNewTag from "./BookmarkNewTag";
 import BookmarkSentiment from "./BookmarkSentiment";
 import BookmarkViewBtn from "./BookmarkViewBtn";
 
-import "../css/BookmarkView.css";
+import "../scss/BookmarkView.scss";
 
 class BookmarkView extends Component {
   constructor() {
@@ -46,7 +46,7 @@ class BookmarkView extends Component {
           pageImg={pageImg}
           setPageTitle={setPageTitle}
         />
-        <ul className="tags-list list-inline">
+        <ul className="tags-list list-inline px-2">
           {tags.map((tagname, i) => (
             <li className={`tag-${i} list-inline-item`} key={`tag-${i + 1}`}>
               <BookmarkTag tagname={tagname} deleteTag={deleteTag} />
