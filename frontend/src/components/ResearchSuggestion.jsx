@@ -5,8 +5,8 @@ import "../css/Research.css";
 
 function ResearchSuggestion({ term }) {
   return (
-    <div className="term badge">
-      <span className="mr-1">{term}</span>
+    <div className="term p-2 btn-search-color">
+      <span className=" term">{term}</span>
     </div>
   );
 }

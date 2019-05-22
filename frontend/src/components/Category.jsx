@@ -5,18 +5,24 @@ import "../css/Category.css";
 
 function Category({ category = "Folder1", deleteCategory }) {
   return (
-    <div className="badge category">
-      <span className="mr-1">{category}</span>
+    <>
       <button
-        className="btn btn-delete "
+        className=" button  btn btn-folder-color rounded-circle mx-auto"
         type="button"
-        onClick={() => {
-          deleteCategory(category);
+        onClick={event => {
+          event.preventDefault();
         }}
       >
-        <i className="fas fa-times" />
+        <i className="fas fa-plus" />
       </button>
-    </div>
+
+      <input
+        value={category}
+        className="category-name  text-center  text-truncate font-weight-bold border-0  mx-auto"
+        type="text"
+      />
+      <small className="text-muted suggested">Suggested</small>
+    </>
   );
 }
 
@@ -26,3 +32,14 @@ Category.propTypes = {
 };
 
 export default Category;
+
+/* 
+<button
+  className="btn btn-delete btn-lg "
+  type="button"
+  onClick={() => {
+    deleteCategory(category);
+  }}
+>
+  <i className="fas fa-times" />
+</button> */

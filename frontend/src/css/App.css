@@ -4,3 +4,7 @@
   margin: 0 auto;
   background: white;
 }
+
+.container {
+  justify-content: space-evenly;
+}

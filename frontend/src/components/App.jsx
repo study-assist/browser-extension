@@ -6,7 +6,7 @@ import Header from "./Header";
 import Main from "./Main";
 import BookmarkView from "./BookmarkView";
 import CategoryView from "./CategoryView";
-import Research from "./Research";
+import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
@@ -42,7 +42,7 @@ class App extends Component {
     this.setDefaultTags(["research"]);
     this.setDefaultCollections(["important", "work"]);
 
-    console.log("quick off search...");
+    console.log("kick off search...");
     const res = await this.analyse(pickRandom(links.links.guardian));
     this.setResults(res);
     this.setTags();
@@ -150,7 +150,7 @@ class App extends Component {
 
   addCategory = name => {
     this.setState(state => {
-      state.categories = [...state.categories, name];
+      state.collections = [...state.collections, name];
       return state;
     });
   };
@@ -182,11 +182,11 @@ class App extends Component {
                 deleteTag={this.deleteTag}
               />
               <CategoryView
-                categories={this.state.collections}
+                collections={this.state.collections}
                 addCategory={this.addCategory}
                 deleteCategory={this.deleteCategory}
               />
-              <Research research={this.state.research} />
+              <ResearchView research={this.state.research} />
             </>
           }
           tabTwo={<FolderView />}

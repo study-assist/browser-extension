@@ -1,31 +1,28 @@
-.category {
-  background-color: #0d47a1;
-  color: #ffffff;
+.category-main {
+  margin-top: 1rem;
+  color: #011c41;
 }
 
-.category.badge {
-  background-color: #1976d2;
-  font-size: 0.9rem;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  border-radius: 0.8rem;
-  line-height: 1.1;
+.category-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
 }
 
-.new-category .input-new-category {
-  display: none;
+.category-name {
   background-color: transparent;
-  width: 80px;
-  border: none;
+  width: 100%;
+  font-size: 1em;
+  color: #011c41;
+  display: block;
 }
 
-.btn.btn-new-category,
-.btn.btn-delete {
-  padding: 0;
-  color: rgba(0, 0, 0, 0.5);
-  line-height: 0;
+.button {
+  margin: 0.5rem 0;
+  width: 60px;
+  height: 60px;
 }
 
-.btn-new-category {
-  border-radius: 50%;
+.suggested {
+  line-height: 1;
 }
