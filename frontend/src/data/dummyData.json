@@ -27,6 +27,16 @@
     "science",
     "business and industrial"
   ],
+  "research": [
+    "professor",
+    "co-chair",
+    "greenhouse gas",
+    "overpopulation",
+    "population growth",
+    "ecosystem",
+    "world population",
+    "biodiversity"
+  ],
   "emotion": {
     "sadness": 0.558629,
     "joy": 0.570379,

@@ -1,8 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
 
-import "../css/Header.css";
-
 const Header = ({ title }) => {
   return (
     <header>

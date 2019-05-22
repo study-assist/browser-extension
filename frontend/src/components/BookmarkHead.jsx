@@ -3,8 +3,6 @@ import propTypes from "prop-types";
 
 import * as moment from "moment";
 
-import "../css/BookmarkHead.css";
-
 class BookmarkHead extends Component {
   render() {
     const {
@@ -16,7 +14,7 @@ class BookmarkHead extends Component {
     } = this.props;
 
     return (
-      <form className="bookmark-title mb-3" action="">
+      <form className="bookmark-title mb-2" action="">
         <div className="form-group mb-0">
           <textarea
             className="bookmark-title-input form-control"

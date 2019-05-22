@@ -15,7 +15,7 @@ class CategoryView extends Component {
     const { collections, addCategory, deleteCategory } = this.props;
     return (
       <section className="category-main ">
-        <div className="h3  category-title">Folder categories</div>
+        <h2 className="category-title">Folder categories</h2>
 
         <CategoryNew addCategory={addCategory} />
 
