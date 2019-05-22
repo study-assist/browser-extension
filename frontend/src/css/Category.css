@@ -7,7 +7,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
-  grid-column-gap: 5px;
 }
 
 .category-name {
