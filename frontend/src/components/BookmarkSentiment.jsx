@@ -1,90 +1,83 @@
-import React from "react";
+import React, { Component } from "react";
 import propTypes from "prop-types";
 import { Radar, defaults } from "react-chartjs-2";
+import { options } from "../data/chartOptions";
 
 // import { Progress } from "reactstrap";
 import BookmarkSentimentProgress from "./BookmarkSentimentProgress";
 
-import { computeColor } from "../helper";
+class BookmarkSentiment extends Component {
+  computeColor = sentiment => {
+    let color = null;
+    if (sentiment.label == "positive") {
+      color = "green";
+    } else {
+      // template for red to yellow
+      const minGreen = 63;
+      const maxGreen = 216;
+      const scale = maxGreen - minGreen;
+      const percentScore = Math.round(Math.abs(sentiment.score) * 100);
+      const perscaleGreen = (percentScore * scale) / 100;
+      color = `255, ${Math.floor(maxGreen - perscaleGreen)}, 69`;
+    }
 
-function BookmarkSentiment({ emotion, sentiment, isVisible }) {
-  if (emotion === undefined || emotion === null) {
-    return;
-  }
-
-  const labels = ["joy", "sadness", "fear", "anger", "disgust"];
-  const ordered = {};
-  labels.forEach(key => {
-    ordered[key] = emotion[key];
-  });
-
-  defaults.global.defaultFontSize = 12;
-
-  const options = {
-    legend: {
-      display: false,
-      labels: {
-        fontSize: 20
-      }
-    },
-    title: {
-      display: false,
-      text: "Document Emotion Chart",
-      // fonSize: 24,
-      fontStyle: "bold"
-    },
-    elements: {
-      line: {
-        borderWidth: 3
-      },
-      point: {
-        pointBorderWidth: 2,
-        pointRadius: 4
-      }
-    },
-    tooltips: {}
+    return color;
   };
 
-  const rgb = computeColor(sentiment);
+  render() {
+    const { emotion, sentiment, isVisible } = this.props;
 
-  const data = {
-    labels: Object.keys(ordered),
-    datasets: [
-      {
-        label: "Document emotion",
-        backgroundColor: `rgba(${rgb},0.4)`,
-        borderColor: `rgba(${rgb},0.75)`,
-        pointBackgroundColor: `rgba(${rgb},0.75)`,
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: `rgba(${rgb},0.75)`,
-        data: Object.values(ordered).map(value => Math.round(value * 100))
-      }
-    ]
-  };
+    if (emotion === undefined || emotion === null) return;
 
-  return (
-    <section
-      className="sentiment row"
-      style={isVisible ? { display: "block" } : { display: "block" }}
-    >
-      <div className="col">
-        <Radar data={data} options={options} height={150} />
-      </div>
-      <div className="col mt-4">
-        <div className="container">
-          <div className="progress">
-            <BookmarkSentimentProgress
-              bar
-              value={Math.round(Math.abs(sentiment.score) * 100)}
-              color={`rgb(${rgb})`}
-            />
-          </div>
-          <label>{sentiment.label}</label>
+    const labels = ["joy", "sadness", "fear", "anger", "disgust"];
+    const ordered = {};
+    labels.forEach(key => {
+      ordered[key] = emotion[key];
+    });
+
+    const rgb = this.computeColor(sentiment);
+
+    const data = {
+      labels: Object.keys(ordered),
+      datasets: [
+        {
+          label: "Document emotion",
+          backgroundColor: `rgba(${rgb},0.4)`,
+          borderColor: `rgba(${rgb},0.75)`,
+          pointBackgroundColor: `rgba(${rgb},0.75)`,
+          pointBorderColor: "#fff",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: `rgba(${rgb},0.75)`,
+          data: Object.values(ordered).map(value => Math.round(value * 100))
+        }
+      ]
+    };
+
+    defaults.global.defaultFontSize = 12;
+
+    return (
+      <section
+        className="sentiment row"
+        style={isVisible ? { display: "block" } : { display: "block" }}
+      >
+        <div className="col">
+          <Radar data={data} options={options} height={150} />
         </div>
-      </div>
-    </section>
-  );
+        <div className="col mt-4">
+          <div className="container">
+            <div className="progress">
+              <BookmarkSentimentProgress
+                bar
+                value={Math.round(Math.abs(sentiment.score) * 100)}
+                color={`rgb(${rgb})`}
+              />
+            </div>
+            <label>{sentiment.label}</label>
+          </div>
+        </div>
+      </section>
+    );
+  }
 }
 
 BookmarkSentiment.propTypes = {

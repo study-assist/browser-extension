@@ -11,24 +11,6 @@ function autoExpand(field) {
   field.style.height = height + "px";
 }
 
-function computeColor(sentiment) {
-  let color = "";
-
-  if (sentiment.label == "positive") {
-    color = "green";
-  } else {
-    // template for red to yellow
-    const minGreen = 63;
-    const maxGreen = 216;
-    const scale = maxGreen - minGreen;
-    const percentScore = Math.round(Math.abs(sentiment.score) * 100);
-    const perscaleGreen = (percentScore * scale) / 100;
-    color = `255, ${Math.floor(maxGreen - perscaleGreen)}, 69`;
-  }
-
-  return color;
-}
-
 function pickRandom(arr) {
   const i = Math.floor(Math.random() * Math.floor(arr.length));
   return arr[i];
@@ -120,7 +102,6 @@ function getFirstItems(arrs) {
 
 export {
   autoExpand,
-  computeColor,
   pickRandom,
   sortByRelevance,
   mapFeaturesNames,
