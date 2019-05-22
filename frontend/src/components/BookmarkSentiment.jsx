@@ -17,7 +17,7 @@ class BookmarkSentiment extends Component {
       const scale = maxRed - minRed;
       const percentScore = Math.round(Math.abs(sentiment.score) * 100);
       const perscaleRed = (percentScore * scale) / 100;
-      color = `${Math.floor(maxRed - perscaleRed)}, 210, 56`;
+      color = `${Math.floor(maxRed - perscaleRed)}, 220, 6`;
     } else {
       // template for red to yellow
       const minGreen = 63;
@@ -63,10 +63,7 @@ class BookmarkSentiment extends Component {
     defaults.global.defaultFontSize = 12;
 
     return (
-      <section
-        className="sentiment row"
-        style={isVisible ? { display: "block" } : { display: "none" }}
-      >
+      <section className="sentiment row" style={isVisible ? { display: "block" } : { display: "none" }}>
         <div className="col">
           <Radar data={data} options={options} height={150} />
         </div>
