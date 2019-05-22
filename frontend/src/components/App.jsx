@@ -5,7 +5,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import BookmarkView from "./BookmarkView";
-import CategoryView from "./CategoryView";
+import CollectionView from "./CollectionView";
 import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
@@ -170,7 +170,7 @@ class App extends Component {
     });
   };
 
-  addCategory = name => {
+  addCollection = name => {
     this.setState(state => {
       state.collections = [...state.collections, name];
       return state;
@@ -203,9 +203,9 @@ class App extends Component {
                 addTag={this.addTag}
                 deleteTag={this.deleteTag}
               />
-              <CategoryView
+              <CollectionView
                 collections={this.state.collections}
-                addCategory={this.addCategory}
+                addCollection={this.addCollection}
                 deleteCollection={this.deleteCollection}
               />
               <ResearchView research={this.state.research} />

@@ -1,14 +1,14 @@
-.category-main {
+.collection-main {
   margin-top: 1rem;
 }
 
-.category-container {
+.collection-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
 }
 
-.category-name {
+.collection-name {
   background-color: transparent;
   width: 100%;
   font-size: 1em;

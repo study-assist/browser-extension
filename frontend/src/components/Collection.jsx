@@ -1,9 +1,9 @@
 import React from "react";
 import propTypes from "prop-types";
 
-import "../css/Category.css";
+import "../css/Collection.css";
 
-function Category({ collection = "Folder1", deleteCollection }) {
+function Collection({ collection = "Folder1", deleteCollection }) {
   return (
     <>
       <button
@@ -27,7 +27,7 @@ function Category({ collection = "Folder1", deleteCollection }) {
 
       <input
         value={collection}
-        className="category-name  text-center  text-truncate font-weight-bold border-0  mx-auto"
+        className="collection-name  text-center  text-truncate font-weight-bold border-0  mx-auto"
         type="text"
       />
       <small className="text-muted suggested">Suggested</small>
@@ -35,20 +35,9 @@ function Category({ collection = "Folder1", deleteCollection }) {
   );
 }
 
-Category.propTypes = {
+Collection.propTypes = {
   collection: propTypes.string,
   deleteCollection: propTypes.func
 };
 
-export default Category;
-
-/* 
-<button
-  className="btn btn-delete btn-lg "
-  type="button"
-  onClick={() => {
-    deleteCategory(category);
-  }}
->
-  <i className="fas fa-times" />
-</button> */
+export default Collection;
