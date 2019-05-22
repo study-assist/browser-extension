@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ButtonGroup } from "reactstrap";
 
 import "../css/Research.css";
 
@@ -9,23 +10,25 @@ class ResearchEngine extends Component {
 
   render() {
     return (
-      <>
-        <div
-          className="btn-group btn-group-toggle form-check form-check-inline"
+      <div className="clearfix mb-3">
+        <div className="d-inline-block align-middle w-auto h-auto">
+          Pick your search engine:
+        </div>
+        <ButtonGroup
+          className="btn-group-toggle form-check form-check-inline float-right"
           data-toggle="buttons"
         >
-          <label className="   active engine btn btn-engine-color">
+          <label className="active btn btn-engine-color ">
             <input
               type="radio"
               name="options"
               id="duckduckgo"
               autoComplete="off"
-              // checked
               className="engine"
             />{" "}
             DuckDuckGo
           </label>
-          <label className="engine btn btn-engine-color">
+          <label className="btn btn-engine-color  ">
             <input
               type="radio"
               name="options"
@@ -34,12 +37,12 @@ class ResearchEngine extends Component {
             />{" "}
             EcoAsia
           </label>
-          <label className="engine btn btn-engine-color">
+          <label className="btn btn-engine-color ">
             <input type="radio" name="options" id="google" autoComplete="off" />{" "}
             Google
           </label>
-        </div>
-      </>
+        </ButtonGroup>
+      </div>
     );
   }
 }

@@ -1,15 +1,14 @@
-.category-main {
+.collection-main {
   margin-top: 1rem;
-  color: #011c41;
 }
 
-.category-container {
+.collection-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
 }
 
-.category-name {
+.collection-name {
   background-color: transparent;
   width: 100%;
   font-size: 1em;
@@ -19,8 +18,13 @@
 
 .button {
   margin: 0.5rem 0;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+}
+
+.button-delete {
+  right: 5px;
+  top: 5px;
 }
 
 .suggested {

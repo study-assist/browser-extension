@@ -12,7 +12,7 @@ function ResearchView({ research }) {
     <section className="research-main ">
       <ResearchTitle />
       <ResearchEngine />
-      <div className="d-flex justify-content-around flex-wrap">
+      <div className="d-flex justify-content-start flex-wrap">
         {research.map((e, idx) => (
           <ResearchSuggestion term={e} key={`term-${idx + 1} `} />
         ))}
@@ -21,7 +21,7 @@ function ResearchView({ research }) {
   );
 }
 
-ResearchView.propsTypes = {
+ResearchView.propTypes = {
   research: propTypes.array
 };
 
