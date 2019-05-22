@@ -3,7 +3,7 @@ import React from "react";
 import "../css/Research.css";
 
 function ResearchTitle() {
-  return <div className="h3">Further Research</div>;
+  return <h2 className="">Further Research</h2>;
 }
 
 export default ResearchTitle;

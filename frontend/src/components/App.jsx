@@ -21,7 +21,7 @@ import {
   mergeByIndex
 } from "../helper";
 
-import "../css/App.css";
+import "../scss/App.scss";
 
 class App extends Component {
   constructor() {
@@ -29,11 +29,15 @@ class App extends Component {
 
     this.state = {
       // currentTab
+      pageTitle: dummy.pageTitle,
+      pageDate: dummy.pageDate,
+      pageAuthors: dummy.pageAuthors,
+      pageImg: dummy.pageImg,
       tags: dummy.tags,
       collections: dummy.collections,
       emotion: dummy.emotion,
       sentiment: dummy.sentiment,
-      research: ["Deep Learning", "Python", "Tensorflow", "SkyNet"]
+      research: dummy.research
     };
   }
 
@@ -47,6 +51,7 @@ class App extends Component {
     this.setResults(res);
     this.setTags();
     this.setCollections();
+    this.setResearch();
   };
 
   analyse = url => {
@@ -111,6 +116,14 @@ class App extends Component {
     });
   };
 
+  setResearch = () => {
+    const research = this.createResearch();
+    this.setState(state => {
+      state.research = [...state.research, ...research];
+      return state;
+    });
+  };
+
   createTags = () => {
     let tags = [...this.state.concepts, ...this.state.entities];
     tags = removeRedundantEntries(tags);
@@ -128,6 +141,15 @@ class App extends Component {
     collections = mergeByIndex(collections);
     collections = removeRedundantItems(collections);
     return collections;
+  };
+
+  createResearch = () => {
+    // use entities, concepts
+    let research = [...this.state.concepts, ...this.state.entities];
+    research = removeRedundantEntries(research);
+    research = sortByRelevance(research);
+    research = mapFeaturesNames(research);
+    return research;
   };
 
   setPageTitle = title => {

@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+.body {
+  width: 500px;
+  padding: 1rem;
+  margin: 0 auto;
+  background: white;
+}
+
+.container {
+  justify-content: space-evenly;
+}
+
+.options i {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.nav-tabs {
+  .nav-link {
+    font-size: $font-size-h3;
+    // border-color: ;
+
+    &.active {
+      color: blue;
+    }
+  }
+}
