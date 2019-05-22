@@ -1,30 +1,30 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
-import "../css/Category.css";
-class CategoryNew extends Component {
+import "../css/Collection.css";
+class CollectionNew extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: null
+      collection: null
     };
 
-    this.inputNewCategory = React.createRef();
+    this.inputNewCollection = React.createRef();
   }
 
-  updateCategoryName = name => {
-    this.setState({ category: name });
+  updateCollectionName = name => {
+    this.setState({ collection: name });
   };
 
   render() {
-    const { addCategory } = this.props;
+    const { addCollection } = this.props;
 
     return (
       <form
         className="form-row border border-folder-color rounded shadow mx-0 mb-3 pt-1 pb-1"
         onSubmit={e => {
           e.preventDefault();
-          addCategory(this.state.category);
+          addCollection(this.state.collection);
           e.target.reset();
         }}
       >
@@ -34,8 +34,8 @@ class CategoryNew extends Component {
             className="form-control border-top-0 border-left-0 border-right-0
             rounded-0 border-folder-color"
             type="text"
-            ref={this.inputNewCategory}
-            onChange={e => this.updateCategoryName(e.target.value)}
+            ref={this.inputNewCollection}
+            onChange={e => this.updateCollectionName(e.target.value)}
           />
         </div>
         <div className="col-2  ">
@@ -44,7 +44,7 @@ class CategoryNew extends Component {
             type="button"
             onClick={event => {
               event.preventDefault();
-              addCategory(this.state.category);
+              addCollection(this.state.collection);
             }}
           >
             <i className="fas fa-plus" />
@@ -55,8 +55,8 @@ class CategoryNew extends Component {
   }
 }
 
-CategoryNew.propTypes = {
-  addCategory: propTypes.func
+CollectionNew.propTypes = {
+  addCollection: propTypes.func
 };
 
-export default CategoryNew;
+export default CollectionNew;
