@@ -1,23 +1,20 @@
 @import "./variables.scss";
 
-.bookmark-title {
-  .bookmark-title-input {
+.bookmark-head {
+  .bookmark-head-input {
     resize: none;
     font-size: $font-size-h2;
-    font-weight: bold;
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-right: 0;
+    font-weight: $font-weight-bold;
+    padding: 0 0 0 $content-px;
     height: unset;
     border: none;
+    color: inherit !important;
     white-space: wrap;
-    /* width: auto;
-    word-wrap: break-word; */
   }
 }
 
 .meta {
-  padding-left: 0.75rem;
+  padding-left: $content-px;
 }
 
 .list-inline-item:not(:last-child) {
@@ -64,14 +61,14 @@
   border-radius: 50%;
 }
 
-.progress-bar {
-  width: 100%;
-  height: 30px;
-}
-
 .bookmark .more-details {
   background: none;
   border: none;
-  font-weight: bold;
+  font-weight: $font-weight-bold;
   text-decoration: underline;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 30px;
 }

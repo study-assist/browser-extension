@@ -15,7 +15,7 @@ class BookmarkViewBtn extends Component {
         type="button"
         onClick={() => toggleSection()}
       >
-        {isVisible ? "Less details" : "More details..."}
+        {isVisible ? "Hide details" : "Show details..."}
       </button>
     );
   }

@@ -3,8 +3,9 @@
 .body {
   width: 500px;
   padding: 1rem;
-  margin: 0 auto;
+  margin: 1rem auto;
   background: white;
+  border-radius: 0.3rem;
 }
 
 .container {
@@ -12,17 +13,27 @@
 }
 
 .options i {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-right: 1rem;
 }
 
-.nav-tabs {
-  .nav-link {
-    font-size: $font-size-h3;
-    // border-color: ;
+.main {
+  .nav-tabs {
+    .nav-link {
+      color: $black;
+      font-size: $font-size-h3 - 0.05rem;
+      text-decoration: none;
+      border: 3px solid transparent;
 
-    &.active {
-      color: blue;
+      &:hover {
+        border-color: transparent;
+      }
+
+      &.active {
+        color: $black;
+        border: 3px solid $primary;
+        border-color: transparent transparent $primary transparent;
+      }
     }
   }
 }

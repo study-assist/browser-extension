@@ -2,8 +2,23 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 
 import * as moment from "moment";
+import { autoExpand } from "../helper";
 
 class BookmarkHead extends Component {
+  constructor(props) {
+    super(props);
+
+    this.titleInput = React.createRef();
+  }
+
+  componentDidMount = () => {
+    autoExpand(this.titleInput.current);
+  };
+
+  componentDidUpdate = () => {
+    autoExpand(this.titleInput.current);
+  };
+
   render() {
     const {
       pageTitle,
@@ -14,15 +29,16 @@ class BookmarkHead extends Component {
     } = this.props;
 
     return (
-      <form className="bookmark-title mb-2" action="">
+      <form className="bookmark-head mb-2" action="">
         <div className="form-group mb-0">
           <textarea
-            className="bookmark-title-input form-control"
+            className="bookmark-head-input form-control"
             placeholder="Type bookmark name..."
             rows="1"
             required
             onChange={e => setPageTitle(e.target.value)}
             value={pageTitle}
+            ref={this.titleInput}
           />
         </div>
         <small className="meta">

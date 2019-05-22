@@ -63,7 +63,7 @@ function BookmarkSentiment({ emotion, sentiment, isVisible }) {
       style={isVisible ? { display: "block" } : { display: "none" }}
     >
       <div className="col">
-        <Radar data={data} options={options} height={185} />
+        <Radar data={data} options={options} height={150} />
       </div>
       <div className="col mt-4">
         <div className="container">
