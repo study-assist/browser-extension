@@ -13,6 +13,14 @@ const Header = ({ title }) => {
         </div>
         <div className="options row justify-content-end">
           <i className="fas fa-share-alt" />
+          <a
+            className="options-button"
+            href="https://github.com/vincentreynaud/study-assist"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-github-alt" />
+          </a>
           <i className="fas fa-cog" />
         </div>
       </div>

@@ -14,9 +14,14 @@
     height: $logo-size;
   }
 
-  .options i {
-    font-size: 1.4rem;
-    margin-right: 1rem;
+  .options {
+    .options-button {
+      color: inherit;
+    }
+    i {
+      font-size: 1.4rem;
+      margin-right: 1rem;
+    }
   }
 
   h1 {
