@@ -44,11 +44,15 @@ class App extends Component {
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
     this.setDefaultTags(["research"]);
-    this.setDefaultCollections(["important", "work"]);
+    this.setDefaultCollections(["work"]);
 
     console.log("kick off search...");
-    const res = await this.analyse(pickRandom(links.links.ca));
-    this.setResults(res);
+    try {
+      const results = await this.analyse(pickRandom(links.links.ca));
+      this.setResults(results);
+    } catch (err) {
+      console.error(err);
+    }
     this.setTags();
     this.setCollections();
     this.setResearch();
@@ -63,11 +67,20 @@ class App extends Component {
       body: JSON.stringify({ url })
     })
       .then(res => res.json())
-      .then(res => res);
+      .then(res => res)
+      .catch(err => console.log(err));
   };
 
   setResults = res => {
-    const { categories, concepts, keywords, entities, emotion, sentiment, metadata } = res;
+    const {
+      categories,
+      concepts,
+      keywords,
+      entities,
+      emotion,
+      sentiment,
+      metadata
+    } = res;
 
     this.setState({
       categories,
@@ -92,36 +105,20 @@ class App extends Component {
     this.setState({ collections: [...defaults] });
   };
 
-  setTags = () => {
-    const tags = this.createTags();
-    this.setState(state => {
-      state.tags = [...state.tags, ...tags];
-      return state;
-    });
-  };
-
-  setCollections = () => {
-    const collections = this.createCollections();
-    this.setState(state => {
-      state.collections = [...state.collections, ...collections];
-      return state;
-    });
-  };
-
-  setResearch = () => {
-    const research = this.createResearch();
-    this.setState(state => {
-      state.research = [...state.research, ...research];
-      return state;
-    });
-  };
-
   createTags = () => {
     let tags = [...this.state.concepts, ...this.state.entities];
     tags = removeRedundantEntries(tags);
     tags = sortByRelevance(tags);
     tags = mapFeaturesNames(tags);
     return tags;
+  };
+
+  setTags = () => {
+    const tags = this.createTags();
+    this.setState(state => {
+      state.tags = [...state.tags, ...tags];
+      return state;
+    });
   };
 
   createCollections = () => {
@@ -135,6 +132,14 @@ class App extends Component {
     return collections;
   };
 
+  setCollections = () => {
+    const collections = this.createCollections();
+    this.setState(state => {
+      state.collections = [...state.collections, ...collections];
+      return state;
+    });
+  };
+
   createResearch = () => {
     // use entities, concepts
     let research = [...this.state.concepts, ...this.state.entities];
@@ -142,6 +147,14 @@ class App extends Component {
     research = sortByRelevance(research);
     research = mapFeaturesNames(research);
     return research;
+  };
+
+  setResearch = () => {
+    const research = this.createResearch();
+    this.setState(state => {
+      state.research = [...state.research, ...research];
+      return state;
+    });
   };
 
   setPageTitle = title => {
@@ -177,7 +190,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(links.links.ca.length);
     return (
       <div className="body">
         <Header title="Study Assist" />
@@ -206,7 +218,10 @@ class App extends Component {
           }
           tabTwo={<FolderView />}
         />
-        <button className="btn btn-primary mt-5" onClick={() => this.simulateMount()}>
+        <button
+          className="btn btn-primary mt-5"
+          onClick={() => this.simulateMount()}
+        >
           Search!
         </button>
       </div>

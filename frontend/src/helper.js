@@ -11,6 +11,11 @@ function autoExpand(field) {
   field.style.height = height + "px";
 }
 
+function capitalise(str) {
+  if (typeof str !== "string") return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function pickRandom(arr) {
   const i = Math.floor(Math.random() * Math.floor(arr.length));
   return arr[i];
@@ -102,6 +107,7 @@ function getFirstItems(arrs) {
 
 export {
   autoExpand,
+  capitalise,
   pickRandom,
   sortByRelevance,
   mapFeaturesNames,

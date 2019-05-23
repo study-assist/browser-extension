@@ -68,9 +68,13 @@
   text-decoration: underline;
 }
 
-.progress-bar {
-  width: 100%;
-  height: 30px;
+.progress {
+  width: 60%;
+
+  .progress-bar {
+    // width: 100%;
+    height: 40px;
+  }
 }
 
 .fake-coll {

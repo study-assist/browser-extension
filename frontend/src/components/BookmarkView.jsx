@@ -5,7 +5,7 @@ import BookmarkTitle from "./BookmarkHead";
 import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BookmarkNewTag";
 import BookmarkSentiment from "./BookmarkSentiment";
-import BookmarkViewBtn from "./BookmarkViewBtn";
+import BookmarkSentimentBtn from "./BookmarkSentimentBtn";
 
 import "../scss/BookmarkView.scss";
 
@@ -13,7 +13,7 @@ class BookmarkView extends Component {
   constructor() {
     super();
 
-    this.state = { sentimentSectionVisible: false };
+    this.state = { sentimentSectionVisible: true };
   }
 
   toggleSection = () => {
@@ -56,8 +56,15 @@ class BookmarkView extends Component {
             <BookmarkNewTag addTag={addTag} />
           </li>
         </ul>
-        <BookmarkSentiment emotion={emotion} sentiment={sentiment} isVisible={this.state.sentimentSectionVisible} />
-        <BookmarkViewBtn toggleSection={this.toggleSection} isVisible={this.state.sentimentSectionVisible} />
+        <BookmarkSentimentBtn
+          toggleSection={this.toggleSection}
+          isVisible={this.state.sentimentSectionVisible}
+        />
+        <BookmarkSentiment
+          emotion={emotion}
+          sentiment={sentiment}
+          isVisible={this.state.sentimentSectionVisible}
+        />
       </section>
     );
   }

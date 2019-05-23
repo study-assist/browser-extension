@@ -13,6 +13,7 @@ export const options = {
   },
   elements: {
     line: {
+      // tension: 0.5,
       borderWidth: 3
     },
     point: {
@@ -20,5 +21,11 @@ export const options = {
       pointRadius: 4
     }
   },
-  tooltips: {}
+  tooltips: {},
+  layout: {
+    padding: {
+      left: 0,
+      right: 170
+    }
+  }
 };

@@ -4,13 +4,14 @@ import { Radar, defaults } from "react-chartjs-2";
 import { options } from "../data/chartOptions";
 
 import BookmarkSentimentProgress from "./BookmarkSentimentProgress";
+import { capitalise } from "../helper";
 
 class BookmarkSentiment extends Component {
   computeColor = sentiment => {
     let color = null;
 
     if (sentiment.label === "positive") {
-      // green: rgb(70, 235, 55)
+      // template for green to yellow
       const minRed = 70;
       const maxRed = 255;
       const scale = maxRed - minRed;
@@ -61,6 +62,8 @@ class BookmarkSentiment extends Component {
 
     defaults.global.defaultFontSize = 12;
 
+    const sentimentScore = Math.round(Math.abs(sentiment.score) * 100);
+
     // const scores = ["0.84", "0.84", "0.76", "0.76", "0.76", "0.74", "0.54", "0.54"];
     // const computeColor = score => {
     //   let color = null;
@@ -74,20 +77,26 @@ class BookmarkSentiment extends Component {
     // };
 
     return (
-      <section className="sentiment row" style={isVisible ? { display: "block" } : { display: "none" }}>
+      <section
+        className="sentiment row"
+        style={isVisible ? { display: "block" } : { display: "none" }}
+      >
         <div className="col">
           <Radar data={data} options={options} height={150} />
         </div>
         <div className="col mt-4">
           <div className="container">
-            <div className="progress">
+            <div className="progress sentiment" id="sentiment">
               <BookmarkSentimentProgress
                 bar
-                value={Math.round(Math.abs(sentiment.score) * 100)}
+                value={sentimentScore}
                 color={`rgb(${rgb})`}
               />
             </div>
-            <label>{sentiment.label}</label>
+            <label
+              className="sentiment-label mt-2"
+              htmlFor="#sentiment"
+            >{`${sentimentScore}% ${capitalise(sentiment.label)}`}</label>
           </div>
         </div>
         {/* <div className="col">

@@ -7,7 +7,7 @@ function Collection({ collection = "Folder1", deleteCollection }) {
   return (
     <>
       <button
-        className=" button  btn btn-folder-color rounded-circle mx-auto"
+        className=" button btn btn-folder-color rounded-circle mx-auto"
         type="button"
         onClick={event => {
           event.preventDefault();
@@ -26,8 +26,8 @@ function Collection({ collection = "Folder1", deleteCollection }) {
       </button>
 
       <input
-        value={collection}
-        className="collection-name  text-center  text-truncate font-weight-bold border-0  mx-auto"
+        defaultValue={collection}
+        className="collection-name text-center text-truncate font-weight-bold border-0 mx-auto"
         type="text"
       />
       <small className="text-muted suggested">Suggested</small>
