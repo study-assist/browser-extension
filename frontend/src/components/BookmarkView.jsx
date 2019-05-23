@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
-import BookmarkTitle from "./BookmarkHead";
+import BookmarkHead from "./BookmarkHead";
 import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BookmarkNewTag";
 import BookmarkSentiment from "./BookmarkSentiment";
@@ -39,7 +39,7 @@ class BookmarkView extends Component {
 
     return (
       <section className="bookmark">
-        <BookmarkTitle
+        <BookmarkHead
           pageTitle={pageTitle}
           pageDate={pageDate}
           pageAuthors={pageAuthors}

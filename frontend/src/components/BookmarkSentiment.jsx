@@ -78,15 +78,15 @@ class BookmarkSentiment extends Component {
 
     return (
       <section
-        className="sentiment row"
+        className="sentiment-section"
         style={isVisible ? { display: "block" } : { display: "none" }}
       >
         <div className="col">
           <Radar data={data} options={options} height={150} />
         </div>
         <div className="col mt-4">
-          <div className="container">
-            <div className="progress sentiment" id="sentiment">
+          <div className="">
+            <div className="progress" id="sentiment">
               <BookmarkSentimentProgress
                 bar
                 value={sentimentScore}
