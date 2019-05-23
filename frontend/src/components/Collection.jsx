@@ -24,7 +24,7 @@ function Collection({ collection = "Folder1", deleteCollection }) {
       </button>
 
       <input
-        value={collection}
+        defaultValue={collection}
         className="collection-name text-center text-truncate font-weight-bold border-0 mx-auto"
         type="text"
       />
