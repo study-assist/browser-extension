@@ -5,16 +5,12 @@
     resize: none;
     font-size: $font-size-h2;
     font-weight: $font-weight-bold;
-    padding: 0 0 0 $content-px;
+    padding: 0;
     height: unset;
     border: none;
     color: inherit !important;
     white-space: wrap;
   }
-}
-
-.meta {
-  padding-left: $content-px;
 }
 
 .list-inline-item:not(:last-child) {
