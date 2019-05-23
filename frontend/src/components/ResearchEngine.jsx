@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { ButtonGroup } from "reactstrap";
 
-import "../css/Research.css";
-
 class ResearchEngine extends Component {
   constructor(props) {
     super(props);
