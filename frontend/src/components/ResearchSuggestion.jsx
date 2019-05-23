@@ -1,8 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
 
-import "../css/Research.css";
-
 function ResearchSuggestion({ term }) {
   return (
     <div className="term btn btn-search-color mr-1 mb-1">

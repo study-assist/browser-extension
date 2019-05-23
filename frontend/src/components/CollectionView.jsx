@@ -4,7 +4,7 @@ import propTypes from "prop-types";
 import Collection from "./Collection";
 import CollectionNew from "./CollectionNew";
 
-import "../css/Collection.css";
+import "../scss/CollectionView.scss";
 
 class CollectionView extends Component {
   expandSection = () => {
@@ -14,7 +14,7 @@ class CollectionView extends Component {
   render() {
     const { collections, addCollection, deleteCollection } = this.props;
     return (
-      <section className="collection-main ">
+      <section className="collection-main">
         <h2 className="collection-title">Folder categories</h2>
 
         <CollectionNew addCollection={addCollection} />

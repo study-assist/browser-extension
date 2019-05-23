@@ -1,8 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
 
-import "../css/Research.css";
-
 import ResearchTitle from "./ResearchTitle";
 import ResearchEngine from "./ResearchEngine";
 import ResearchSuggestion from "./ResearchSuggestion";
