@@ -17,6 +17,7 @@ import {
   mapFeaturesNames,
   removeRedundantEntries,
   removeRedundantItems,
+  removeEmpty,
   parseCategoryTree,
   mergeByIndex
 } from "../helper";
@@ -29,6 +30,8 @@ class App extends Component {
 
     this.state = {
       // currentTab
+      concepts: [],
+      entities: [],
       pageTitle: dummy.pageTitle,
       pageDate: dummy.pageDate,
       pageAuthors: dummy.pageAuthors,
@@ -45,14 +48,16 @@ class App extends Component {
   simulateMount = async () => {
     this.setDefaultTags(["research"]);
     this.setDefaultCollections(["work"]);
-
+    this.setDefaultResearch([]);
     console.log("kick off search...");
+
     try {
       const results = await this.analyse(pickRandom(links.links.ca));
       this.setResults(results);
     } catch (err) {
       console.error(err);
     }
+
     this.setTags();
     this.setCollections();
     this.setResearch();
@@ -105,11 +110,16 @@ class App extends Component {
     this.setState({ collections: [...defaults] });
   };
 
+  setDefaultResearch = defaults => {
+    this.setState({ research: [...defaults] });
+  };
+
   createTags = () => {
     let tags = [...this.state.concepts, ...this.state.entities];
     tags = removeRedundantEntries(tags);
     tags = sortByRelevance(tags);
     tags = mapFeaturesNames(tags);
+    tags = removeEmpty(tags);
     return tags;
   };
 
@@ -146,6 +156,7 @@ class App extends Component {
     research = removeRedundantEntries(research);
     research = sortByRelevance(research);
     research = mapFeaturesNames(research);
+    research = removeEmpty(research);
     return research;
   };
 
