@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
-import "../css/Collection.css";
 class CollectionNew extends Component {
   constructor(props) {
     super(props);
@@ -31,14 +30,13 @@ class CollectionNew extends Component {
         <div className="col-10">
           <input
             placeholder="Type folder name"
-            className="form-control border-top-0 border-left-0 border-right-0
-            rounded-0 border-folder-color"
+            className="form-control border-top-0 border-left-0 border-right-0 rounded-0 border-folder-color"
             type="text"
             ref={this.inputNewCollection}
             onChange={e => this.updateCollectionName(e.target.value)}
           />
         </div>
-        <div className="col-2  ">
+        <div className="col-2">
           <button
             className="btn btn-folder-color rounded-circle"
             type="button"

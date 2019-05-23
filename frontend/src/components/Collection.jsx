@@ -1,13 +1,11 @@
 import React from "react";
 import propTypes from "prop-types";
 
-import "../css/Collection.css";
-
 function Collection({ collection = "Folder1", deleteCollection }) {
   return (
     <>
       <button
-        className=" button  btn btn-folder-color rounded-circle mx-auto"
+        className="button btn btn-folder-color rounded-circle mx-auto"
         type="button"
         onClick={event => {
           event.preventDefault();
@@ -16,7 +14,7 @@ function Collection({ collection = "Folder1", deleteCollection }) {
         <i className="fas fa-plus" />
       </button>
       <button
-        className="btn btn-delete position-absolute button-delete "
+        className="btn btn-delete position-absolute button-delete"
         type="button"
         onClick={() => {
           deleteCollection(collection);
@@ -27,7 +25,7 @@ function Collection({ collection = "Folder1", deleteCollection }) {
 
       <input
         value={collection}
-        className="collection-name  text-center  text-truncate font-weight-bold border-0  mx-auto"
+        className="collection-name text-center text-truncate font-weight-bold border-0 mx-auto"
         type="text"
       />
       <small className="text-muted suggested">Suggested</small>
