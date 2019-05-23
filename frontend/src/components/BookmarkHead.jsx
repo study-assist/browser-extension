@@ -42,13 +42,27 @@ class BookmarkHead extends Component {
           />
         </div>
         <small className="meta">
-          {pageDate ? <span className="meta-date">{moment(pageDate).format("DD MMMM YYYY")}&nbsp;</span> : <span />}
+          {pageDate ? (
+            <span className="meta-date">
+              {moment(pageDate).format("DD MMMM YYYY")}&nbsp;
+            </span>
+          ) : (
+            <span />
+          )}
           {pageAuthors.length >= 1 ? (
             <span className="meta-authors">
               &middot;&nbsp;
-              {pageAuthors.map((author, i) => (
-                <span key={i}>{author.name}&nbsp;</span>
-              ))}
+              {pageAuthors.length === 1
+                ? pageAuthors.map((author, i) => (
+                    <span key={i}>{author.name}</span>
+                  ))
+                : pageAuthors.map((author, i) => (
+                    <span key={i}>
+                      {i < pageAuthors.length - 1
+                        ? `${author.name}, `
+                        : author.name}
+                    </span>
+                  ))}
             </span>
           ) : (
             <span />
