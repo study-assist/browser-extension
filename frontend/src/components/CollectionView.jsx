@@ -15,7 +15,7 @@ class CollectionView extends Component {
     const { collections, addCollection, deleteCollection } = this.props;
     return (
       <section className="collection-main">
-        <h2 className="collection-title">Folder categories</h2>
+        <h2 className="collection-title">Add to your Collections</h2>
 
         <CollectionNew addCollection={addCollection} />
 
