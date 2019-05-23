@@ -17,6 +17,7 @@ import {
   mapFeaturesNames,
   removeRedundantEntries,
   removeRedundantItems,
+  removeEmpty,
   parseCategoryTree,
   mergeByIndex
 } from "../helper";
@@ -29,6 +30,8 @@ class App extends Component {
 
     this.state = {
       // currentTab
+      concepts: [],
+      entities: [],
       pageTitle: dummy.pageTitle,
       pageDate: dummy.pageDate,
       pageAuthors: dummy.pageAuthors,
@@ -44,11 +47,17 @@ class App extends Component {
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
     this.setDefaultTags(["research"]);
-    this.setDefaultCollections(["important", "work"]);
-
+    this.setDefaultCollections(["work"]);
+    this.setDefaultResearch([]);
     console.log("kick off search...");
-    const res = await this.analyse(pickRandom(links.links.guardian));
-    this.setResults(res);
+
+    try {
+      const results = await this.analyse(pickRandom(links.links.ca));
+      this.setResults(results);
+    } catch (err) {
+      console.error(err);
+    }
+
     this.setTags();
     this.setCollections();
     this.setResearch();
@@ -63,7 +72,8 @@ class App extends Component {
       body: JSON.stringify({ url })
     })
       .then(res => res.json())
-      .then(res => res);
+      .then(res => res)
+      .catch(err => console.log(err));
   };
 
   setResults = res => {
@@ -100,28 +110,8 @@ class App extends Component {
     this.setState({ collections: [...defaults] });
   };
 
-  setTags = () => {
-    const tags = this.createTags();
-    this.setState(state => {
-      state.tags = [...state.tags, ...tags];
-      return state;
-    });
-  };
-
-  setCollections = () => {
-    const collections = this.createCollections();
-    this.setState(state => {
-      state.collections = [...state.collections, ...collections];
-      return state;
-    });
-  };
-
-  setResearch = () => {
-    const research = this.createResearch();
-    this.setState(state => {
-      state.research = [...state.research, ...research];
-      return state;
-    });
+  setDefaultResearch = defaults => {
+    this.setState({ research: [...defaults] });
   };
 
   createTags = () => {
@@ -129,7 +119,16 @@ class App extends Component {
     tags = removeRedundantEntries(tags);
     tags = sortByRelevance(tags);
     tags = mapFeaturesNames(tags);
+    tags = removeEmpty(tags);
     return tags;
+  };
+
+  setTags = () => {
+    const tags = this.createTags();
+    this.setState(state => {
+      state.tags = [...state.tags, ...tags];
+      return state;
+    });
   };
 
   createCollections = () => {
@@ -143,13 +142,30 @@ class App extends Component {
     return collections;
   };
 
+  setCollections = () => {
+    const collections = this.createCollections();
+    this.setState(state => {
+      state.collections = [...state.collections, ...collections];
+      return state;
+    });
+  };
+
   createResearch = () => {
     // use entities, concepts
     let research = [...this.state.concepts, ...this.state.entities];
     research = removeRedundantEntries(research);
     research = sortByRelevance(research);
     research = mapFeaturesNames(research);
+    research = removeEmpty(research);
     return research;
+  };
+
+  setResearch = () => {
+    const research = this.createResearch();
+    this.setState(state => {
+      state.research = [...state.research, ...research];
+      return state;
+    });
   };
 
   setPageTitle = title => {

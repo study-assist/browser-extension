@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
-import BookmarkTitle from "./BookmarkHead";
+import BookmarkHead from "./BookmarkHead";
 import BookmarkTag from "./BookmarkTag";
 import BookmarkNewTag from "./BookmarkNewTag";
 import BookmarkSentiment from "./BookmarkSentiment";
-import BookmarkViewBtn from "./BookmarkViewBtn";
+import BookmarkSentimentBtn from "./BookmarkSentimentBtn";
 
 import "../scss/BookmarkView.scss";
 
@@ -13,7 +13,7 @@ class BookmarkView extends Component {
   constructor() {
     super();
 
-    this.state = { sentimentSectionVisible: false };
+    this.state = { sentimentSectionVisible: true };
   }
 
   toggleSection = () => {
@@ -39,7 +39,7 @@ class BookmarkView extends Component {
 
     return (
       <section className="bookmark">
-        <BookmarkTitle
+        <BookmarkHead
           pageTitle={pageTitle}
           pageDate={pageDate}
           pageAuthors={pageAuthors}
@@ -56,13 +56,13 @@ class BookmarkView extends Component {
             <BookmarkNewTag addTag={addTag} />
           </li>
         </ul>
+        <BookmarkSentimentBtn
+          toggleSection={this.toggleSection}
+          isVisible={this.state.sentimentSectionVisible}
+        />
         <BookmarkSentiment
           emotion={emotion}
           sentiment={sentiment}
-          isVisible={this.state.sentimentSectionVisible}
-        />
-        <BookmarkViewBtn
-          toggleSection={this.toggleSection}
           isVisible={this.state.sentimentSectionVisible}
         />
       </section>
@@ -73,7 +73,7 @@ class BookmarkView extends Component {
 BookmarkView.propTypes = {
   pageTitle: propTypes.string,
   pageDate: propTypes.string,
-  pageAuthors: propTypes.object,
+  pageAuthors: propTypes.array,
   pageImg: propTypes.string,
   setPageTitle: propTypes.func,
   tags: propTypes.array,

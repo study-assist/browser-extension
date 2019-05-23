@@ -5,7 +5,7 @@ const Header = ({ title }) => {
   return (
     <header>
       <div className="row justify-content-between no-gutters">
-        <h1 className="px-2">{title}</h1>
+        <h1 className="px-2 text-muted">{title}</h1>
         <div className="options">
           <i className="fas fa-share-alt" />
           <i className="fas fa-cog" />

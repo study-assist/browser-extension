@@ -11,6 +11,11 @@ function autoExpand(field) {
   field.style.height = height + "px";
 }
 
+function capitalise(str) {
+  if (typeof str !== "string") return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function pickRandom(arr) {
   const i = Math.floor(Math.random() * Math.floor(arr.length));
   return arr[i];
@@ -26,7 +31,9 @@ function sortByRelevance(arr) {
 
 function mapFeaturesNames(arr) {
   return arr.map(item => {
-    return item.text.trim().toLowerCase();
+    if (item.text) {
+      return item.text.trim().toLowerCase();
+    }
   });
 }
 
@@ -34,11 +41,15 @@ function removeRedundantEntries(arr) {
   for (let i in arr) {
     for (let j in arr) {
       if (i !== j) {
-        // we remove redundant entries
-        if (
-          arr[i].text.trim().toLowerCase() === arr[j].text.trim().toLowerCase()
-        ) {
-          arr.splice(j, 1);
+        // security
+        if (arr[i].text && arr[j].text) {
+          if (
+            arr[i].text.trim().toLowerCase() ===
+            arr[j].text.trim().toLowerCase()
+          ) {
+            // we remove redundant entries
+            arr.splice(j, 1);
+          }
         }
       }
     }
@@ -102,6 +113,7 @@ function getFirstItems(arrs) {
 
 export {
   autoExpand,
+  capitalise,
   pickRandom,
   sortByRelevance,
   mapFeaturesNames,

@@ -1,29 +1,25 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 
-class BookmarkViewBtn extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class BookmarkSentimentBtn extends Component {
   render() {
     const { isVisible, toggleSection } = this.props;
 
     return (
       <button
-        className="more-details"
+        className="more-details mt-1"
         type="button"
         onClick={() => toggleSection()}
       >
-        {isVisible ? "Hide details" : "Show details..."}
+        {isVisible ? "Hide sentiment" : "Show sentiment"}
       </button>
     );
   }
 }
 
-BookmarkViewBtn.propTypes = {
+BookmarkSentimentBtn.propTypes = {
   isVisible: propTypes.bool,
   toggleSection: propTypes.func
 };
 
-export default BookmarkViewBtn;
+export default BookmarkSentimentBtn;

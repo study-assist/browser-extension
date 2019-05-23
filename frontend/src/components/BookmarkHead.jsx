@@ -49,12 +49,20 @@ class BookmarkHead extends Component {
           ) : (
             <span />
           )}
-          {pageAuthors ? (
+          {pageAuthors.length >= 1 ? (
             <span className="meta-authors">
               &middot;&nbsp;
-              {pageAuthors.map((author, i) => (
-                <span key={i}>{author.name}&nbsp;</span>
-              ))}
+              {pageAuthors.length === 1
+                ? pageAuthors.map((author, i) => (
+                    <span key={i}>{author.name}</span>
+                  ))
+                : pageAuthors.map((author, i) => (
+                    <span key={i}>
+                      {i < pageAuthors.length - 1
+                        ? `${author.name}, `
+                        : author.name}
+                    </span>
+                  ))}
             </span>
           ) : (
             <span />
@@ -68,7 +76,7 @@ class BookmarkHead extends Component {
 BookmarkHead.propTypes = {
   pageTitle: propTypes.string,
   pageDate: propTypes.string,
-  pageAuthors: propTypes.object,
+  pageAuthors: propTypes.array,
   pageImg: propTypes.string,
   setPageTitle: propTypes.func
 };
