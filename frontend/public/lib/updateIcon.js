@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 
 const filledStarIcon = {
-  19: "icons/star-filled-19.png",
-  38: "icons/star-filled-38.png"
+  48: "icons/logo-48.png",
+  96: "icons/logo-96.png"
 };
 
 const emtyStarIcon = {
-  19: "icons/star-empty-19.png",
-  38: "icons/star-empty-38.png"
+  48: "icons/logo-48.png",
+  96: "icons/logo-96.png"
 };
 
 export default async function updateIcon(tabId, hasBookmark) {

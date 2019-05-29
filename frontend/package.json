@@ -7,6 +7,15 @@
     "Vincent Reynaud <mail@vincentreynaud.de> (https://vincentreynaud.de)"
   ],
   "private": false,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:chrome": "npm run build && webextension-toolbox build --src 'build' chrome",
+    "build:firefox": "npm run build && webextension-toolbox build --src 'build' firefox",
+    "now-build": "npm run build"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
     "bootstrap": "^4.3.1",
@@ -24,14 +33,11 @@
     "reactstrap": "^8.0.0",
     "typescript": "^3.4.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "now-build": "npm run build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "analyse": "node lib/analyse.js",
-    "scss": "node-sass-chokidar --watch src/scss/custom.scss -o src/css"
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "node-sass-chokidar": "^1.3.4",
+    "webextension-toolbox": "^3.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,11 +53,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-plugin-react": "^7.13.0",
-    "node-sass-chokidar": "^1.3.4",
-    "webextension-toolbox": "^3.0.0"
   }
 }

@@ -10,7 +10,9 @@ export default async function handleTabChange(tabs) {
 
   if (!currentTab) return;
 
-  const [currentBookmark] = await browser.bookmarks.search({ url: currentTab.url });
+  const [currentBookmark] = await browser.bookmarks.search({
+    url: currentTab.url
+  });
 
   return updateIcon(currentTab.id, !!currentBookmark);
 }

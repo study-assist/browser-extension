@@ -1,5 +1,5 @@
 {
-  "name": "study-assist",
+  "name": "Study Assist",
   "version": "1.0",
   "manifest_version": 2,
   "description": "A browser extension to intelligently organise your bookmarks",
@@ -9,18 +9,12 @@
     "default_title": "Study Assist"
   },
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": ["background.js"]
   },
   "icons": {
     "48": "icons/logo-48.png",
     "96": "icons/logo-96.png"
   },
-  "permissions": [
-    "storage",
-    "declarativeContent",
-    "bookmarks",
-    "tabs",
-    "activeTab"
-  ]
+  "permissions": ["storage", "bookmarks", "tabs", "activeTab"],
+  "content_security_policy": "script-src 'self' 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; object-src 'self'"
 }

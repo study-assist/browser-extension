@@ -1,25 +1,25 @@
 /* eslint-disable no-undef */
 
-import handleTabChange from "./lib/handleTabChange";
+// import handleTabChange from "./lib/handleTabChange";s
 import handleIconClick from "./lib/handleIconClick";
 
 // listen from browserAction clicks
 browser.browserAction.onClicked.addListener(handleIconClick);
 
 // listen for bookmarks being created
-browser.bookmarks.onCreated.addListener(handleTabChange);
+// browser.bookmarks.onCreated.addListener(handleTabChange);
 
 // listen for bookmarks being removed
-browser.bookmarks.onRemoved.addListener(handleTabChange);
+// browser.bookmarks.onRemoved.addListener(handleTabChange);
 
 // listen to tab URL changes
-browser.tabs.onUpdated.addListener(handleTabChange);
+// browser.tabs.onUpdated.addListener(handleTabChange);
 
 // listen to tab switching
-browser.tabs.onActivated.addListener(handleTabChange);
+// browser.tabs.onActivated.addListener(handleTabChange);
 
 // listen for window switching
-browser.windows.onFocusChanged.addListener(handleTabChange);
+// browser.windows.onFocusChanged.addListener(handleTabChange);
 
 // update when the extension loads initially
-handleTabChange();
+// handleTabChange();
