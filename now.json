@@ -3,9 +3,9 @@
   "name": "study-assist",
   "builds": [
     {
-      "src": "package.json",
+      "src": "frontend/package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "build" }
+      "config": { "distDir": "frontend/build" }
     }
   ]
 }
