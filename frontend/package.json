@@ -12,8 +12,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:chrome": "npm run build && webextension-toolbox build --src 'build' chrome",
-    "build:firefox": "npm run build && webextension-toolbox build --src 'build' firefox",
+    "build:ext": "npm run build && webextension-toolbox build --src 'build'",
     "now-build": "npm run build"
   },
   "dependencies": {
