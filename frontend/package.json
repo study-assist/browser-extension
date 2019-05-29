@@ -1,6 +1,11 @@
 {
   "name": "study-assist",
   "version": "0.1.0",
+  "description": "A browser extension to intelligently organise your bookmarks",
+  "contributors": [
+    "Elisabeth Vonesch",
+    "Vincent Reynaud <mail@vincentreynaud.de> (https://vincentreynaud.de)"
+  ],
   "private": false,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
