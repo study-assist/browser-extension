@@ -1,5 +1,7 @@
 # study-assist
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vincentreynaud/study-assist.svg)](https://greenkeeper.io/)
+
 ### The intelligent bookmark manager!
 
 #### [!] We are currently working on this product.
