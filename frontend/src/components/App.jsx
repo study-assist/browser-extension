@@ -29,18 +29,19 @@ class App extends Component {
     super();
 
     this.state = {
-      // currentTab
+      pageTitle: dummy.pageTitle,
+      pageAuthors: dummy.pageAuthors,
+      pageDate: dummy.pageDate,
+      pageImg: dummy.pageImg,
+      categories: [],
       concepts: [],
       entities: [],
-      pageTitle: dummy.pageTitle,
-      pageDate: dummy.pageDate,
-      pageAuthors: dummy.pageAuthors,
-      pageImg: dummy.pageImg,
+      keywords: [],
       tags: dummy.tags,
       collections: dummy.collections,
+      research: dummy.research,
       emotion: dummy.emotion,
-      sentiment: dummy.sentiment,
-      research: dummy.research
+      sentiment: dummy.sentiment
     };
   }
 
@@ -73,7 +74,7 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(res => res)
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
   };
 
   setResults = res => {

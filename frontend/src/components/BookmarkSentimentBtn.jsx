@@ -7,7 +7,7 @@ class BookmarkSentimentBtn extends Component {
 
     return (
       <button
-        className="more-details mt-1"
+        className="more-details btn mt-1"
         type="button"
         onClick={() => toggleSection()}
       >
