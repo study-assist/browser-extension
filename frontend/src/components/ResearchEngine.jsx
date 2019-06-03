@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { ButtonGroup } from "reactstrap";
 
 class ResearchEngine extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="clearfix mb-3">
