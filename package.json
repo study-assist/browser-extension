@@ -1,7 +1,7 @@
 {
   "name": "study-assist",
   "version": "0.1.0",
-  "description": "A browser extension to intelligently organise your bookmarks",
+  "description": "A browser extension to help you organise your bookmarks intelligently",
   "contributors": [
     "Elisabeth Vonesch",
     "Vincent Reynaud <mail@vincentreynaud.de> (https://vincentreynaud.de)"
