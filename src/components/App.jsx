@@ -65,13 +65,16 @@ class App extends Component {
   };
 
   analyse = url => {
-    return fetch("http://localhost:4000", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ url })
-    })
+    return fetch(
+      "https://study-assist-server-vincentreynaud.study-assist-webext.now.sh/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ url })
+      }
+    )
       .then(res => res.json())
       .then(res => res)
       .catch(err => console.error(err));
