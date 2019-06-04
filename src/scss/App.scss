@@ -6,6 +6,16 @@
   padding: 1rem;
   margin: 0 auto;
   background: white;
+
+  .project-description {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 1rem;
+    max-width: 300px;
+    border-radius: 0.5rem;
+    background: white;
+  }
 }
 
 .header {
