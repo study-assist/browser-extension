@@ -13,7 +13,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "now-build": "npm run build",
-    "dev:chrome": "webextension-toolbox dev chrome --devtool=true -s 'public'",
+    "dev:chrome": "webextension-toolbox dev chrome --devtool=true",
     "dev:firefox": "webextension-toolbox dev firefox --devtool=true",
     "build": "npm-run-all -p build:**",
     "build:firefox": "webextension-toolbox build firefox",

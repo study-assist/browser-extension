@@ -9,8 +9,8 @@ import CollectionView from "./CollectionView";
 import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
-import links from "../data/links.json";
-import dummy from "../data/dummyData.json";
+import links from "../data/links.json.js";
+import dummy from "../data/dummyData.json.js";
 import {
   pickRandom,
   sortByRelevance,
