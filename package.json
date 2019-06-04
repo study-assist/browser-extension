@@ -13,8 +13,7 @@
     "now-build": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:firefox": "web-ext run --source-dir ./public/",
-    "start:popup": "npm run build && web-ext run --source-dir ./build/"
+    "start:ext": "npm run build && web-ext run --source-dir ./build/"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
@@ -22,7 +21,6 @@
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
     "jquery": "^3.4.1",
-    "lodash.tonumber": "^4.0.3",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
     "prop-types": "^15.7.2",
@@ -38,8 +36,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
     "node-sass-chokidar": "^1.3.5",
-    "web-ext": "^3.0.0",
-    "webextension-toolbox": "^3.0.0"
+    "web-ext": "^3.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"
