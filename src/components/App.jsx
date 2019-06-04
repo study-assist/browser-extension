@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 import Header from "./Header";
 import Main from "./Main";
+import ProjectDescription from "./ProjectDescription";
 import BookmarkView from "./BookmarkView";
 import CollectionView from "./CollectionView";
 import ResearchView from "./ResearchView";
@@ -239,6 +240,7 @@ class App extends Component {
         >
           Search!
         </button>
+        {window.location.protocol.includes("http") && <ProjectDescription />}
       </div>
     );
   }

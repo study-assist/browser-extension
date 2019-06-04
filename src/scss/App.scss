@@ -6,6 +6,16 @@
   padding: 1rem;
   margin: 0 auto;
   background: white;
+  // position: relative;
+
+  .project-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    background: white;
+    max-width: 300px;
+  }
 }
 
 .header {
