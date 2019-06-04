@@ -10,10 +10,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "now-build": "npm run build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:ext": "webextension-toolbox build --src 'build'",
-    "now-build": "npm run build"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
