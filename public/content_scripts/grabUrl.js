@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-undef */
 function handleResponse(message) {
   console.log(`Message from Popup: ${message.response}`);
 }
