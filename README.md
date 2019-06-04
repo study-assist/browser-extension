@@ -2,7 +2,7 @@
 
 # Study Assist
 
-## The intelligent bookmark manager!
+### The intelligent bookmark manager!
 
 #### Preview of our [browser extension frontend](https://study-assist-vincentreynaud.study-assist-webext.now.sh/)
 
@@ -12,14 +12,17 @@ Study Assist is a browser extension designed to help you scan web pages and stor
 
 Study Assist analyses the content of your active browser tab, and returns suggestions of tags and folders in which to save the bookmark. You can also use it as simple web page scanner for a quick overview of the overall sentiment and emotions of the content.
 
+There are a lot of bookmarks managers to choose from. In comparison to the [Pocket](https://getpocket.com) or [Mix](https://mix.com/) applications, which operate on their own separate storage space, [Study Assist](https://study-assist-vincentreynaud.study-assist-webext.now.sh/) is built as an interface to the browser bookmarks API to keep bookmarks easily accessible and editable without having to use the extension.
+
 - our service delivers analysis from IBM's Natural Language Processing API, Watson.
 
 [write tech description of product (built with...)]
 
-**Tech Stack**
-HTML/CSS/Javascript
-React.js
-Watson API
+#### Tech Stack
+
+HTML/CSS/Javascript  
+React.js  
+Watson API  
 Node.js
 
 ## Install
