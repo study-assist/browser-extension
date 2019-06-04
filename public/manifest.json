@@ -9,7 +9,7 @@
     "default_title": "Study Assist"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["index.js"]
   },
   "icons": { "48": "icons/logo-48.png", "96": "icons/logo-96.png" },
   "permissions": ["storage", "bookmarks", "tabs", "activeTab"],
