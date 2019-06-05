@@ -11,6 +11,7 @@ import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
+// import { url } from "../../public/background"; // no!
 import dummy from "../data/dummyData.json";
 import {
   pickRandom,
@@ -30,6 +31,7 @@ class App extends Component {
     super();
 
     this.state = {
+      url: url || pickRandom(links.links.ca),
       pageTitle: dummy.pageTitle,
       pageAuthors: dummy.pageAuthors,
       pageDate: dummy.pageDate,
@@ -48,13 +50,14 @@ class App extends Component {
 
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
+    console.log(this.state.url);
     this.setDefaultTags(["research"]);
     this.setDefaultCollections(["work"]);
     this.setDefaultResearch([]);
     console.log("kick off search...");
 
     try {
-      const results = await this.analyse(pickRandom(links.links.ca));
+      const results = await this.analyse(this.state.url);
       this.setResults(results);
     } catch (err) {
       console.error(err);
