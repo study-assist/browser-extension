@@ -28,6 +28,8 @@ const ProjectDescription = () => {
 export default ProjectDescription;
 
 /**
+ * see https://stackoverflow.com/questions/35507536/how-to-render-a-foo-md-markdown-file-in-react
+
   ReactDOM.render(
     <ReactMarkdown source="https://raw.githubusercontent.com/study-assist/browser-extension/master/README.md" />, document.getElementById("description")
  */

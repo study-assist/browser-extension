@@ -1,29 +1,48 @@
-# study-assist
+![Study Assist Logo](public/icons/logo-96.png)
+
+# Study Assist
 
 ### The intelligent bookmark manager!
 
-#### [!] We are currently working on this product.
+#### Preview of our [browser extension frontend](https://study-assist-vincentreynaud.study-assist-webext.now.sh/)
 
-#### **Preview of our browser extension [HERE](https://study-assist.now.sh/)**
+#### [!] We are currently working on the first release.
 
-Study Assist is a browser extension which offers a way to organise your bookmarks based on the content of the pages you visit.
-The extension brings automation in categorising online sources, and is ideal for users who need to maintain an organised bookmarks repository, such as students, researchers, developers, etc.
+Study Assist is a browser extension designed to help you scan web pages and store them in your browser bookmarks. It brings automation for reading and categorising online content, and is ideal for users who need to maintain an organised bookmarks repository.
 
-Study Assist analyses the content of the page you are currently visiting, and makes suggestions of the possible categories to save the page under.
-The analysis also returns tags to attach to the bookmark, to make it easier for the user to find later.
+Study Assist analyses the content of your active tab, and returns suggestions of tags and folders in which to save the bookmark. You can also use it as simple web page scanner for a quick overview of the overall sentiment and emotions of the content.
 
-[write tech description of product (build with...)]
-The app uses NLP to read a page's content and make suggestions based on the analysis. 
+There are a lot of bookmarks managers to choose from. In comparison to the [Pocket](https://getpocket.com) or [Mix](https://mix.com/) applications, which operate on their own separate storage space, [Study Assist](https://study-assist-vincentreynaud.study-assist-webext.now.sh/) is built as an interface to the bookmarks API to keep bookmarks easily accessible and editable without having to use the extension.
 
-**Technologies**
-HTML/CSS/Javascript
-React.js
-Watson API
+- our service delivers analysis from IBM's Natural Language Processing API, Watson.
+
+[write tech description of product (built with...)]
+
+#### Tech Stack
+
+HTML/CSS/Javascript  
+React.js  
+Watson API  
 Node.js
 
-## Possible Extensions
+## Install
 
-- Suggest search terms, or find related content online
-- Memorize tags/categories and user input for more accurate suggestions
-- Explore relations between topic and sentiment to elaborate more accurate suggestions
+We will soon release the extension on Firefox & Chrome, follow our updates
 
+## Usage
+
+Coming soon...
+
+## Contributing
+
+We'll be happy to hear your feedback! [Open an issue](https://github.com/study-assist/browser-extension/issues/new) or submit PRs.
+
+### Contributors
+
+This project exists thanks to:  
+[@adhedgehog](https://github.com/adhedgehog)  
+[@vincentreynaud](https://github.com/vincentreynaud)
+
+## License
+
+[GNU GPLv3 &copy; 2019 Study Assist](LICENSE)
