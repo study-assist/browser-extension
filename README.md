@@ -1,8 +1,9 @@
-![Study Assist Logo](public/icons/logo-96.png)
-
-# Study Assist
-
-### The intelligent bookmark manager!
+<div align="center">
+  <img height="80"
+    src="public/icons/logo-96.png">
+  <h1>Study Assist</h1>
+  <h3>The intelligent bookmark manager!</h3>
+</div>
 
 #### Preview of our [browser extension frontend](https://study-assist-vincentreynaud.study-assist-webext.now.sh/)
 
