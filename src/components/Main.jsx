@@ -22,7 +22,7 @@ class Main extends Component {
   }
 
   render() {
-    const { tabOne, tabTwo } = this.props;
+    const { tabOne, tabTwo, tabThree } = this.props;
 
     return (
       <main className="main">
@@ -47,11 +47,22 @@ class Main extends Component {
               Manage Bookmarks
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === "3" })}
+              onClick={() => {
+                this.toggle("3");
+              }}
+            >
+              Further Research
+            </NavLink>
+          </NavItem>
         </Nav>
 
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">{tabOne}</TabPane>
           <TabPane tabId="2">{tabTwo}</TabPane>
+          <TabPane tabId="3">{tabThree}</TabPane>
         </TabContent>
       </main>
     );
@@ -60,7 +71,8 @@ class Main extends Component {
 
 Main.propTypes = {
   tabOne: propTypes.element,
-  tabTwo: propTypes.element
+  tabTwo: propTypes.element,
+  tabThree: propTypes.element
 };
 
 export default Main;

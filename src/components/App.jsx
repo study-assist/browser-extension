@@ -232,10 +232,10 @@ class App extends Component {
                 addCollection={this.addCollection}
                 deleteCollection={this.deleteCollection}
               />
-              <ResearchView research={this.state.research} />
             </>
           }
           tabTwo={<FolderView />}
+          tabThree={<ResearchView research={this.state.research} />}
         />
         <button
           className="btn btn-primary mt-5"
