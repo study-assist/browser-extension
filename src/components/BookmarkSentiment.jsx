@@ -7,6 +7,20 @@ import BookmarkSentimentProgress from "./BookmarkSentimentProgress";
 import { capitalise } from "../helper";
 
 class BookmarkSentiment extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dropdownOpen: false
+    };
+  }
+
+  toggle = () => {
+    this.setState(state => ({
+      dropdownOpen: !state.dropdownOpen
+    }));
+  };
+
   computeColor = sentiment => {
     let color = null;
 
@@ -32,7 +46,7 @@ class BookmarkSentiment extends Component {
   };
 
   render() {
-    const { emotion, sentiment, isVisible } = this.props;
+    const { emotion, sentiment } = this.props;
 
     if (emotion === undefined || emotion === null) return;
 
@@ -63,49 +77,19 @@ class BookmarkSentiment extends Component {
     defaults.global.defaultFontSize = 12;
 
     const sentimentScore = Math.round(Math.abs(sentiment.score) * 100);
-
-    // const scores = ["0.84", "0.84", "0.76", "0.76", "0.76", "0.74", "0.54", "0.54"];
-    // const computeColor = score => {
-    //   let color = null;
-    //   const minLight = 42;
-    //   const maxLight = 80;
-    //   const scale = maxLight - minLight;
-    //   const percentScore = Math.round(Math.abs(score) * 100);
-    //   const perscaleLight = (percentScore * scale) / 100;
-    //   color = `212, 80%, ${Math.floor(maxLight - perscaleLight)}%`;
-    //   return color;
-    // };
+    const sentimentLabel = `${sentimentScore}% ${capitalise(sentiment.label)}`;
 
     return (
-      <section
-        className="sentiment-section"
-        style={isVisible ? { display: "block" } : { display: "none" }}
-      >
-        <div className="col">
+      <section className="sentiment-section mt-2">
+        <button className="btn progress" id="sentiment" onClick={this.toggle}>
+          <BookmarkSentimentProgress bar value={sentimentScore} color={`rgb(${rgb})`} />
+        </button>
+        <label className="sentiment-label mt-1" htmlFor="#sentiment">
+          {sentimentLabel}
+        </label>
+        <div className="radar" style={this.state.dropdownOpen ? { display: "block" } : { display: "none" }}>
           <Radar data={data} options={options} height={150} />
         </div>
-        <div className="col mt-4">
-          <div className="">
-            <div className="progress" id="sentiment">
-              <BookmarkSentimentProgress
-                bar
-                value={sentimentScore}
-                color={`rgb(${rgb})`}
-              />
-            </div>
-            <label
-              className="sentiment-label mt-2"
-              htmlFor="#sentiment"
-            >{`${sentimentScore}% ${capitalise(sentiment.label)}`}</label>
-          </div>
-        </div>
-        {/* <div className="col">
-          <div className="row flex-wrap no-gutters">
-            {scores.map((score, i) => (
-              <div key={i} className="fake-coll mr-1" style={{ background: `hsl(${computeColor(score)})` }} />
-            ))}
-          </div>
-        </div> */}
       </section>
     );
   }
@@ -118,3 +102,27 @@ BookmarkSentiment.propTypes = {
 };
 
 export default BookmarkSentiment;
+
+// Test catagories color variations:
+///////////////////////////////////////////
+
+// const scores = ["0.84", "0.84", "0.76", "0.76", "0.76", "0.74", "0.54", "0.54"];
+// const computeColor = score => {
+//   let color = null;
+//   const minLight = 42;
+//   const maxLight = 80;
+//   const scale = maxLight - minLight;
+//   const percentScore = Math.round(Math.abs(score) * 100);
+//   const perscaleLight = (percentScore * scale) / 100;
+//   color = `212, 80%, ${Math.floor(maxLight - perscaleLight)}%`;
+//   return color;
+// };
+
+// // in section:
+// <div className="col">
+//   <div className="row flex-wrap no-gutters">
+//     {scores.map((score, i) => (
+//       <div key={i} className="fake-coll mr-1" style={{ background: `hsl(${computeColor(score)})` }} />
+//     ))}
+//   </div>
+// </div>
