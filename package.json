@@ -7,15 +7,19 @@
     "Vincent Reynaud <mail@vincentreynaud.de> (https://vincentreynaud.de)"
   ],
   "private": false,
+  "main": "public/background.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "now-build": "npm run build",
+    "build": "npm-run-all -p build:**",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:ext": "npm run build && web-ext run --verbose --source-dir ./build/"
+    "now-build": "npm run build",
+    "dev:chrome": "webextension-toolbox dev chrome --devtool=true",
+    "build:chrome": "webextension-toolbox build chrome"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "@fortawesome/fontawesome-free": "^5.8.2",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
@@ -33,10 +37,15 @@
     "typescript": "^3.5.1"
   },
   "devDependencies": {
+    "babel-loader": "^8.0.6",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "mini-css-extract-plugin": "^0.7.0",
     "node-sass-chokidar": "^1.3.5",
-    "web-ext": "^3.0.0"
+    "npm-run-all": "^4.1.5",
+    "svg-inline-loader": "^0.8.0",
+    "webextension-toolbox": "^3.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"
