@@ -11,7 +11,7 @@ import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
-// import { url } from "../../public/background"; // no!
+import { url } from "../background";
 import dummy from "../data/dummyData.json";
 import {
   pickRandom,
@@ -22,7 +22,7 @@ import {
   removeEmpty,
   parseCategoryTree,
   mergeByIndex
-} from "../helper";
+} from "../lib/helper";
 
 import "../scss/App.scss";
 

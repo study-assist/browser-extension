@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 
 import * as moment from "moment";
-import { autoExpand } from "../helper";
+import { autoExpand } from "../lib/helper";
 
 class BookmarkHead extends Component {
   constructor(props) {
