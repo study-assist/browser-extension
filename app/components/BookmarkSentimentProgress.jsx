@@ -2,10 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import toNumber from "lodash.tonumber";
-import {
-  mapToCssModules,
-  tagPropType
-} from "../../node_modules/reactstrap/src/utils";
+import { mapToCssModules, tagPropType } from "reactstrap/src/utils";
 
 const Progress = props => {
   const {
