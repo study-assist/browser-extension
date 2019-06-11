@@ -15,7 +15,9 @@
     "eject": "react-scripts eject",
     "now-build": "npm run build",
     "dev:chrome": "webextension-toolbox dev chrome --devtool=true",
-    "build:chrome": "webextension-toolbox build chrome"
+    "dev:firefox": "webextension-toolbox dev firefox --devtool=true",
+    "build:chrome": "webextension-toolbox build chrome",
+    "build:firefox": "webextension-toolbox build firefox"
   },
   "dependencies": {
     "@babel/preset-env": "^7.4.5",

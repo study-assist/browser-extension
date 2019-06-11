@@ -18,7 +18,8 @@
     "tabs",
     "activeTab",
     "<all_urls>",
-    "*://developer.mozilla.org/*"
+    "*://developer.mozilla.org/*",
+    "chrome-devtools://*"
   ],
   "content_security_policy": "script-src 'self' 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; object-src 'self'"
 }
