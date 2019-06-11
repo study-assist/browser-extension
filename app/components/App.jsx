@@ -22,7 +22,7 @@ import {
   removeEmpty,
   parseCategoryTree,
   mergeByIndex
-} from "../helper";
+} from "../lib/helper";
 
 import "../scss/App.scss";
 

@@ -4,7 +4,7 @@ import { Radar, defaults } from "react-chartjs-2";
 import { options } from "../data/chartOptions";
 
 import BookmarkSentimentProgress from "./BookmarkSentimentProgress";
-import { capitalise } from "../helper";
+import { capitalise } from "../lib/helper";
 
 class BookmarkSentiment extends Component {
   constructor(props) {
@@ -82,12 +82,21 @@ class BookmarkSentiment extends Component {
     return (
       <section className="sentiment-section mt-2">
         <button className="btn progress" id="sentiment" onClick={this.toggle}>
-          <BookmarkSentimentProgress bar value={sentimentScore} color={`rgb(${rgb})`} />
+          <BookmarkSentimentProgress
+            bar
+            value={sentimentScore}
+            color={`rgb(${rgb})`}
+          />
         </button>
         <label className="sentiment-label mt-1" htmlFor="#sentiment">
           {sentimentLabel}
         </label>
-        <div className="radar" style={this.state.dropdownOpen ? { display: "block" } : { display: "none" }}>
+        <div
+          className="radar"
+          style={
+            this.state.dropdownOpen ? { display: "block" } : { display: "none" }
+          }
+        >
           <Radar data={data} options={options} height={150} />
         </div>
       </section>

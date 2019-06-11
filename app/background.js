@@ -12,7 +12,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 browser.tabs
-  .executeScript({ file: "/content-scripts/getActiveUrl.js" })
+  .executeScript({ file: "/lib/getActiveUrl.js" })
   .catch(reportExecuteScriptError);
 
 function reportExecuteScriptError(error) {
