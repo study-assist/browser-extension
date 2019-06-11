@@ -8,15 +8,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   webpack: (config, { dev, vendor }) => {
     // Perform customizations to webpack config
-    console.log(config);
-    console.log("dev", dev, "vendor", vendor);
-
+    console.log("initial config:", config);
     Object.assign(config, {
       // Define the entry points of our application (can be multiple for different sections of a website)
-      // entry: {
-      //   main: "./src/index.js",
-      //   style: "./src/style.js"
-      // },
+      entry: {
+        main: "index.js"
+      },
 
       // Define the destination directory and filenames of compiled resources
       // output: {
@@ -24,10 +21,8 @@ module.exports = {
       //   path: path.resolve(__dirname, "docs/dist")
       // },
 
-      // Define loaders
       module: {
         rules: [
-          // Compile and extract SCSS files
           {
             test: /\.scss$/,
             exclude: /(node_modules)/,
@@ -58,7 +53,6 @@ module.exports = {
               }
             ]
           },
-          // Use babel for JS files
           {
             test: /\.js$/,
             exclude: /(node_modules)/,
@@ -71,8 +65,6 @@ module.exports = {
           }
         ]
       },
-
-      // Define used plugins
       plugins: [
         new MiniCssExtractPlugin({
           filename: "[name].css",
@@ -80,8 +72,8 @@ module.exports = {
         })
       ]
     });
+    console.log("overwritten config:", config);
 
-    console.log(config.entry);
     return config;
   }
 };
