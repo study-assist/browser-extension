@@ -19,4 +19,4 @@ function reportExecuteScriptError(error) {
   console.error(`Failed to execute content script: ${error.message}`);
 }
 
-// export { url };
+export { url };
