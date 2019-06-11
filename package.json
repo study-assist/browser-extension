@@ -13,7 +13,7 @@
     "now-build": "npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:ext": "npm run build && web-ext run --source-dir ./build/"
+    "start:ext": "npm run build && web-ext run --verbose --source-dir ./build/"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.2",
