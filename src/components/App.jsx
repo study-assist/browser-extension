@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 import React, { Component } from "react";
@@ -11,7 +12,6 @@ import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
-// import url from "../../public/background";
 import dummy from "../data/dummyData.json";
 import {
   pickRandom,
@@ -32,27 +32,35 @@ class App extends Component {
 
     this.state = {
       url: null,
-      pageTitle: dummy.pageTitle,
-      pageAuthors: dummy.pageAuthors,
-      pageDate: dummy.pageDate,
-      pageImg: dummy.pageImg,
+      pageTitle: "",
+      pageAuthors: [],
+      pageDate: "",
+      pageImg: "",
       categories: [],
       concepts: [],
       entities: [],
       keywords: [],
-      tags: dummy.tags,
-      collections: dummy.collections,
-      research: dummy.research,
-      emotion: dummy.emotion,
-      sentiment: dummy.sentiment
+      tags: [],
+      collections: [],
+      research: [],
+      emotion: {},
+      sentiment: {}
     };
+
+    this.init();
   }
+
+  init = () => {
+    document.addEventListener("study_assist:new_url", e => {
+      console.log(e.currentUrl);
+      this.setUrl(e.currentUrl.trim());
+    });
+  };
 
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
-    this.setUrl(pickRandom(links.links.ca));
-    this.setDefaultTags(["research"]);
-    this.setDefaultCollections(["work"]);
+    this.setDefaultTags(["research", "important"]);
+    this.setDefaultCollections([]);
     this.setDefaultResearch([]);
     console.log("kick off search...");
 
@@ -69,6 +77,7 @@ class App extends Component {
   };
 
   analyse = url => {
+    console.log("analyse url", url);
     return fetch(
       "https://study-assist-server-vincentreynaud.study-assist-webext.now.sh/",
       {
@@ -115,7 +124,6 @@ class App extends Component {
     });
   };
 
-  // resets tags to default
   setDefaultTags = defaults => {
     this.setState({ tags: [...defaults] });
   };
@@ -153,7 +161,7 @@ class App extends Component {
     });
     collections = mergeByIndex(collections);
     collections = removeRedundantItems(collections);
-    // collections = collections.splice(6, 8);
+    collections = collections.splice(6, 3);
     return collections;
   };
 
@@ -166,7 +174,6 @@ class App extends Component {
   };
 
   createResearch = () => {
-    // use entities, concepts
     let research = [...this.state.concepts, ...this.state.entities];
     research = removeRedundantEntries(research);
     research = sortByRelevance(research);
@@ -216,7 +223,6 @@ class App extends Component {
   };
 
   render() {
-    // console.log("CURRENT URL", this.state.url);
     return (
       <div className="body">
         <Header title="Study Assist" simulateMount={this.simulateMount} />
