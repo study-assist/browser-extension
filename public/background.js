@@ -2,17 +2,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 
-// if (browser === "undefined") return;
+if (browser === "undefined") return;
 // const browser = browser || chrome;
-
-// const extUrl = browser.extension.getURL("");
-// console.log(extUrl);
 
 let url = null;
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  // window.studyAssist_url = message;
-  // console.log(window.studyAssist_url);
   const event = new Event("study_assist:new_url");
   event.currentUrl = message;
   document.dispatchEvent(event);
