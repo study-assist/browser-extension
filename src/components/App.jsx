@@ -11,7 +11,7 @@ import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
 import links from "../data/links.json";
-import { url } from "../background";
+// import { url } from "../../public/background";
 import dummy from "../data/dummyData.json";
 import {
   pickRandom,
@@ -31,7 +31,7 @@ class App extends Component {
     super();
 
     this.state = {
-      url: url || pickRandom(links.links.ca),
+      url: pickRandom(links.links.ca), // || url
       pageTitle: dummy.pageTitle,
       pageAuthors: dummy.pageAuthors,
       pageDate: dummy.pageDate,
