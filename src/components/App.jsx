@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 import Header from "./Header";
 import Main from "./Main";
-import ProjectDescription from "./ProjectDescription";
+// import ProjectDescription from "./ProjectDescription";
 import BookmarkView from "./BookmarkView";
 import CollectionView from "./CollectionView";
 import ResearchView from "./ResearchView";
@@ -153,6 +153,7 @@ class App extends Component {
     });
     collections = mergeByIndex(collections);
     collections = removeRedundantItems(collections);
+    // collections = collections.splice(6, 8);
     return collections;
   };
 
