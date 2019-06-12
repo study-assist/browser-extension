@@ -44,7 +44,9 @@ class BookmarkNewTag extends Component {
           type="button"
           onClick={() => this.expandTag()}
         >
-          <i className="fas fa-plus" />
+          <span>
+            <img src="../icons/plus.svg" alt="add" />
+          </span>
         </button>
       </form>
     );

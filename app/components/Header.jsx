@@ -12,16 +12,22 @@ const Header = ({ title }) => {
           <h1 className="mb-0">{title}</h1>
         </div>
         <div className="options row justify-content-end">
-          <i className="fas fa-share-alt" />
+          <span>
+            <img src="../icons/share-alt.svg" alt="add" />
+          </span>
           <a
             className="options-button"
             href="https://github.com/vincentreynaud/study-assist"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="fab fa-github-alt" />
+            <span>
+              <img src="../icons/github-alt.svg" alt="Contribute" />
+            </span>
           </a>
-          <i className="fas fa-cog" />
+          <span>
+            <img src="../icons/cog.svg" alt="Settings" />
+          </span>
         </div>
       </div>
     </header>

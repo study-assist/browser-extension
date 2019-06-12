@@ -11,7 +11,9 @@ function Collection({ collection = "Folder1", deleteCollection }) {
           event.preventDefault();
         }}
       >
-        <i className="fas fa-plus" />
+        <span>
+          <img src="../icons/plus.svg" alt="add" />
+        </span>
       </button>
       <button
         className="btn btn-delete position-absolute button-delete"
@@ -20,7 +22,9 @@ function Collection({ collection = "Folder1", deleteCollection }) {
           deleteCollection(collection);
         }}
       >
-        <i className="fas fa-times" />
+        <span>
+          <img src="../icons/times.svg" alt="delete" />
+        </span>
       </button>
 
       <input

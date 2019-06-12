@@ -13,7 +13,9 @@ function BookmarkTag({ tagname, deleteTag }) {
           deleteTag(tagname);
         }}
       >
-        <i className="fas fa-times" />
+        <span>
+          <img src="../icons/plus.svg" alt="delete" />
+        </span>
       </button>
     </div>
   );

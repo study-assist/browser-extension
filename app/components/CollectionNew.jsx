@@ -45,7 +45,9 @@ class CollectionNew extends Component {
               addCollection(this.state.collection);
             }}
           >
-            <i className="fas fa-plus" />
+            <span>
+              <img src="../icons/plus.svg" alt="add" />
+            </span>
           </button>
         </div>
       </form>

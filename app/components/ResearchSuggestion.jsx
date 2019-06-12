@@ -5,7 +5,9 @@ function ResearchSuggestion({ term }) {
   return (
     <div className="term btn btn-search-color mr-1 mb-1">
       <span className="term">{term}</span>
-      <i className="fas fa-search pl-2" />
+      <span className="pl-2">
+        <img src="../icons/search.svg" alt="add" />
+      </span>
     </div>
   );
 }
