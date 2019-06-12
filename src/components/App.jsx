@@ -10,11 +10,11 @@ import CollectionView from "./CollectionView";
 import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
-import links from "../data/links.json";
-import { url } from "../background";
+// import links from "../data/links.json";
+import url from "../../public/background";
 import dummy from "../data/dummyData.json";
 import {
-  pickRandom,
+  // pickRandom,
   sortByRelevance,
   mapFeaturesNames,
   removeRedundantEntries,
@@ -31,7 +31,7 @@ class App extends Component {
     super();
 
     this.state = {
-      url: url || pickRandom(links.links.ca),
+      url: url, // || url
       pageTitle: dummy.pageTitle,
       pageAuthors: dummy.pageAuthors,
       pageDate: dummy.pageDate,
@@ -50,7 +50,7 @@ class App extends Component {
 
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
-    console.log(this.state.url);
+    this.setUrl(url); // pickRandom(links.links.ca)
     this.setDefaultTags(["research"]);
     this.setDefaultCollections(["work"]);
     this.setDefaultResearch([]);
@@ -82,6 +82,12 @@ class App extends Component {
       .then(res => res.json())
       .then(res => res)
       .catch(err => console.error(err));
+  };
+
+  setUrl = url => {
+    this.setState({
+      url: url
+    });
   };
 
   setResults = res => {
@@ -209,6 +215,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.url);
     return (
       <div className="body">
         <Header title="Study Assist" />
@@ -237,12 +244,19 @@ class App extends Component {
           tabTwo={<FolderView />}
           tabThree={<ResearchView research={this.state.research} />}
         />
-        <button
-          className="btn btn-primary mt-5"
-          onClick={() => this.simulateMount()}
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+          }}
         >
-          Search!
-        </button>
+          <button
+            type="submit"
+            className="btn btn-primary mt-5"
+            onClick={() => this.simulateMount()}
+          >
+            Search!
+          </button>
+        </form>
         {window.location.protocol.includes("http") && <ProjectDescription />}
       </div>
     );

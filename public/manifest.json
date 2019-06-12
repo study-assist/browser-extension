@@ -11,15 +11,17 @@
   "background": {
     "scripts": ["background.js"]
   },
-  "icons": { "48": "icons/logo-48.png", "96": "icons/logo-96.png" },
+  "icons": {
+    "48": "icons/logo-48.png",
+    "96": "icons/logo-96.png"
+  },
   "permissions": [
     "storage",
     "bookmarks",
     "tabs",
     "activeTab",
     "<all_urls>",
-    "*://developer.mozilla.org/*",
-    "chrome-devtools://*"
+    "*://developer.mozilla.org/*"
   ],
   "content_security_policy": "script-src 'self' 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; object-src 'self'"
 }

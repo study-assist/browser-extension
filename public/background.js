@@ -4,6 +4,9 @@
 
 // const browser = browser || chrome;
 
+const extUrl = browser.extension.getURL("");
+console.log(extUrl);
+
 let url = null;
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -19,4 +22,4 @@ function reportExecuteScriptError(error) {
   console.error(`Failed to execute content script: ${error.message}`);
 }
 
-export { url };
+export default url;
