@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 
 import Collection from "./Collection";
-import CollectionNew from "./CollectionNew";
+// import CollectionNew from "./CollectionNew";
 
 import "../scss/CollectionView.scss";
 
@@ -17,7 +17,7 @@ class CollectionView extends Component {
       <section className="collection-main">
         <h2 className="collection-title">Add to your Collections</h2>
 
-        <CollectionNew addCollection={addCollection} />
+        {/* <CollectionNew addCollection={addCollection} /> */}
 
         <div className="card-columns collection-container">
           {collections.map((collection, i) => (

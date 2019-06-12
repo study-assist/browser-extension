@@ -24,6 +24,12 @@
     height: $logo-size;
   }
 
+  .head {
+    background: transparent;
+    border: 0;
+    outline: none;
+  }
+
   .options {
     .options-button {
       color: inherit;

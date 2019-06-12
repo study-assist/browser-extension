@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 import React, { Component } from "react";
@@ -10,11 +11,10 @@ import CollectionView from "./CollectionView";
 import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
-// import links from "../data/links.json";
-import url from "../../public/background";
+import links from "../data/links.json";
 import dummy from "../data/dummyData.json";
 import {
-  // pickRandom,
+  pickRandom,
   sortByRelevance,
   mapFeaturesNames,
   removeRedundantEntries,
@@ -22,7 +22,7 @@ import {
   removeEmpty,
   parseCategoryTree,
   mergeByIndex
-} from "../lib/helper";
+} from "../helper";
 
 import "../scss/App.scss";
 
@@ -31,27 +31,28 @@ class App extends Component {
     super();
 
     this.state = {
-      url: url, // || url
-      pageTitle: dummy.pageTitle,
-      pageAuthors: dummy.pageAuthors,
-      pageDate: dummy.pageDate,
-      pageImg: dummy.pageImg,
+      url: null,
+      pageTitle: "",
+      pageAuthors: [],
+      pageDate: "",
+      pageImg: "",
       categories: [],
       concepts: [],
       entities: [],
       keywords: [],
-      tags: dummy.tags,
-      collections: dummy.collections,
-      research: dummy.research,
-      emotion: dummy.emotion,
-      sentiment: dummy.sentiment
+      tags: [],
+      collections: [],
+      research: [],
+      emotion: {},
+      sentiment: {}
     };
   }
 
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
-    this.setUrl(url); // pickRandom(links.links.ca)
-    this.setDefaultTags(["research"]);
+    if (this.state.url === null || this.state.url === undefined) this.setUrl(pickRandom(links.links.ca));
+
+    this.setDefaultTags(["research", "important"]);
     this.setDefaultCollections(["work"]);
     this.setDefaultResearch([]);
     console.log("kick off search...");
@@ -69,37 +70,25 @@ class App extends Component {
   };
 
   analyse = url => {
-    return fetch(
-      "https://study-assist-server-vincentreynaud.study-assist-webext.now.sh/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ url })
-      }
-    )
+    console.log("analyse url", url);
+    return fetch("https://study-assist-server-vincentreynaud.study-assist-webext.now.sh/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ url })
+    })
       .then(res => res.json())
       .then(res => res)
       .catch(err => console.error(err));
   };
 
   setUrl = url => {
-    this.setState({
-      url: url
-    });
+    this.setState({ url });
   };
 
   setResults = res => {
-    const {
-      categories,
-      concepts,
-      keywords,
-      entities,
-      emotion,
-      sentiment,
-      metadata
-    } = res;
+    const { categories, concepts, keywords, entities, emotion, sentiment, metadata } = res;
 
     this.setState({
       categories,
@@ -115,7 +104,6 @@ class App extends Component {
     });
   };
 
-  // resets tags to default
   setDefaultTags = defaults => {
     this.setState({ tags: [...defaults] });
   };
@@ -165,7 +153,6 @@ class App extends Component {
   };
 
   createResearch = () => {
-    // use entities, concepts
     let research = [...this.state.concepts, ...this.state.entities];
     research = removeRedundantEntries(research);
     research = sortByRelevance(research);
@@ -215,10 +202,16 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.url);
+    document.addEventListener("currentUrl", e => {
+      if (typeof e.currentUrl === "string") {
+        this.setUrl(e.currentUrl.trim());
+        console.log(`set new url ${e.currentUrl}`);
+      }
+    });
+
     return (
       <div className="body">
-        <Header title="Study Assist" />
+        <Header title="Study Assist" simulateMount={this.simulateMount} />
         <Main
           tabOne={
             <>
@@ -244,19 +237,7 @@ class App extends Component {
           tabTwo={<FolderView />}
           tabThree={<ResearchView research={this.state.research} />}
         />
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-          }}
-        >
-          <button
-            type="submit"
-            className="btn btn-primary mt-5"
-            onClick={() => this.simulateMount()}
-          >
-            Search!
-          </button>
-        </form>
+        <p>url: {this.state.url}</p>
         {window.location.protocol.includes("http") && <ProjectDescription />}
       </div>
     );

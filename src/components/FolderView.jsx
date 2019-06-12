@@ -8,7 +8,7 @@ class FolderView extends Component {
   }
 
   render() {
-    return <div>something</div>;
+    return <h2>[Folder management interface]</h2>;
   }
 }
 

@@ -3,14 +3,14 @@
 /* eslint-disable no-undef */
 
 function handleResponse(message) {
-  console.log(`Message from Popup: ${message.response}`);
+  console.log(`Message from getActiveUrl: ${message.response}`);
 }
 
 function handleError(error) {
   console.error({ error });
 }
 
-function sendUrl(e) {
+function sendUrl() {
   const sending = browser.runtime.sendMessage(window.location.href);
   sending.then(handleResponse, handleError);
 }
