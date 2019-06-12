@@ -8,7 +8,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   webpack: (config, { dev, vendor }) => {
     // Perform customizations to webpack config
-    console.log("initial config:", config);
     config.module.rules.push(
       {
         test: /\.scss$/,
@@ -62,7 +61,6 @@ module.exports = {
     });
 
     config.plugins.push(myPlugin);
-
     return config;
   }
 };
