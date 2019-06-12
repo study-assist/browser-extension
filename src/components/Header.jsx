@@ -3,14 +3,20 @@ import propTypes from "prop-types";
 
 import logo from "../data/open-book.svg";
 
-const Header = ({ title }) => {
+const Header = ({ title, simulateMount }) => {
   return (
     <header className="header">
-      <div className="row justify-content-between align-items-end no-gutters">
-        <div className="head row flex-nowrap no-gutters align-items-end">
+      <form
+        className="row justify-content-between align-items-end no-gutters"
+        onSubmit={e => {
+          e.preventDefault();
+          simulateMount();
+        }}
+      >
+        <button className="head row flex-nowrap no-gutters align-items-end">
           <img className="logo mr-2" src={logo} alt="Study Assist logo" />
           <h1 className="mb-0">{title}</h1>
-        </div>
+        </button>
         <div className="options row justify-content-end">
           <i className="fas fa-share-alt" />
           <a
@@ -23,13 +29,14 @@ const Header = ({ title }) => {
           </a>
           <i className="fas fa-cog" />
         </div>
-      </div>
+      </form>
     </header>
   );
 };
 
 Header.propTypes = {
-  title: propTypes.string
+  title: propTypes.string,
+  simulateMount: propTypes.func
 };
 
 export default Header;

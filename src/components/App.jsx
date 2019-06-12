@@ -10,11 +10,11 @@ import CollectionView from "./CollectionView";
 import ResearchView from "./ResearchView";
 import FolderView from "./FolderView";
 
-// import links from "../data/links.json";
-import url from "../../public/background";
+import links from "../data/links.json";
+// import url from "../../public/background";
 import dummy from "../data/dummyData.json";
 import {
-  // pickRandom,
+  pickRandom,
   sortByRelevance,
   mapFeaturesNames,
   removeRedundantEntries,
@@ -31,7 +31,7 @@ class App extends Component {
     super();
 
     this.state = {
-      url: url, // || url
+      url: null,
       pageTitle: dummy.pageTitle,
       pageAuthors: dummy.pageAuthors,
       pageDate: dummy.pageDate,
@@ -50,7 +50,7 @@ class App extends Component {
 
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
-    this.setUrl(url); // pickRandom(links.links.ca)
+    this.setUrl(pickRandom(links.links.ca));
     this.setDefaultTags(["research"]);
     this.setDefaultCollections(["work"]);
     this.setDefaultResearch([]);
@@ -215,10 +215,10 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.url);
+    // console.log("CURRENT URL", this.state.url);
     return (
       <div className="body">
-        <Header title="Study Assist" />
+        <Header title="Study Assist" simulateMount={this.simulateMount} />
         <Main
           tabOne={
             <>
@@ -244,20 +244,7 @@ class App extends Component {
           tabTwo={<FolderView />}
           tabThree={<ResearchView research={this.state.research} />}
         />
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-          }}
-        >
-          <button
-            type="submit"
-            className="btn btn-primary mt-5"
-            onClick={() => this.simulateMount()}
-          >
-            Search!
-          </button>
-        </form>
-        {window.location.protocol.includes("http") && <ProjectDescription />}
+        {/* {window.location.protocol.includes("http") && <ProjectDescription />} */}
       </div>
     );
   }
