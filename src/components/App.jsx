@@ -5,7 +5,7 @@ import React, { Component } from "react";
 
 import Header from "./Header";
 import Main from "./Main";
-// import ProjectDescription from "./ProjectDescription";
+import ProjectDescription from "./ProjectDescription";
 import BookmarkView from "./BookmarkView";
 import CollectionView from "./CollectionView";
 import ResearchView from "./ResearchView";
@@ -46,21 +46,14 @@ class App extends Component {
       emotion: {},
       sentiment: {}
     };
-
-    this.init();
   }
-
-  init = () => {
-    document.addEventListener("study_assist:new_url", e => {
-      console.log(e.currentUrl);
-      this.setUrl(e.currentUrl.trim());
-    });
-  };
 
   // using this to not trigger watson analysis at every component mount, only on body click :)
   simulateMount = async () => {
+    if (this.state.url === null || this.state.url === undefined) this.setUrl(pickRandom(links.links.ca));
+
     this.setDefaultTags(["research", "important"]);
-    this.setDefaultCollections([]);
+    this.setDefaultCollections(["work"]);
     this.setDefaultResearch([]);
     console.log("kick off search...");
 
@@ -78,37 +71,24 @@ class App extends Component {
 
   analyse = url => {
     console.log("analyse url", url);
-    return fetch(
-      "https://study-assist-server-vincentreynaud.study-assist-webext.now.sh/",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ url })
-      }
-    )
+    return fetch("https://study-assist-server-vincentreynaud.study-assist-webext.now.sh/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ url })
+    })
       .then(res => res.json())
       .then(res => res)
       .catch(err => console.error(err));
   };
 
   setUrl = url => {
-    this.setState({
-      url: url
-    });
+    this.setState({ url });
   };
 
   setResults = res => {
-    const {
-      categories,
-      concepts,
-      keywords,
-      entities,
-      emotion,
-      sentiment,
-      metadata
-    } = res;
+    const { categories, concepts, keywords, entities, emotion, sentiment, metadata } = res;
 
     this.setState({
       categories,
@@ -161,7 +141,6 @@ class App extends Component {
     });
     collections = mergeByIndex(collections);
     collections = removeRedundantItems(collections);
-    collections = collections.splice(6, 3);
     return collections;
   };
 
@@ -223,6 +202,13 @@ class App extends Component {
   };
 
   render() {
+    document.addEventListener("currentUrl", e => {
+      if (typeof e.currentUrl === "string") {
+        this.setUrl(e.currentUrl.trim());
+        console.log(`set new url ${e.currentUrl}`);
+      }
+    });
+
     return (
       <div className="body">
         <Header title="Study Assist" simulateMount={this.simulateMount} />
@@ -251,7 +237,8 @@ class App extends Component {
           tabTwo={<FolderView />}
           tabThree={<ResearchView research={this.state.research} />}
         />
-        {/* {window.location.protocol.includes("http") && <ProjectDescription />} */}
+        <p>url: {this.state.url}</p>
+        {window.location.protocol.includes("http") && <ProjectDescription />}
       </div>
     );
   }
