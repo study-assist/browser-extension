@@ -7,7 +7,7 @@
 
 #### Preview of our [browser extension frontend](https://study-assist-vincentreynaud.study-assist-webext.now.sh/)
 
-#### [!] We are currently working on the first release.
+#### [!] This project is no longer in development
 
 Study Assist is a browser extension designed to help you scan web pages and store them in your browser bookmarks. It brings automation for reading and categorising online content, and is ideal for users who need to maintain an organised bookmarks repository.
 
